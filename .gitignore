@@ -1,1 +1,2 @@
-
+# ignore uncompleted PDFs
+WiP/*.pdf
