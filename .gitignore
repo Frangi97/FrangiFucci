@@ -1,2 +1,14 @@
-# ignore uncompleted PDFs
-WiP/*.pdf
+# ignore TeX files and uncompleted PDF
+
+*.aux
+*.bib
+*.dvi
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+
+# Ignore uncompleted PDF
+
+WiP/RASD.pdf
