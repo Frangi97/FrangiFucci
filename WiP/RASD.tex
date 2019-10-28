@@ -1,4 +1,11 @@
 \documentclass[12pt,a4paper]{report}
+
+%Set language
+\usepackage[english]{babel}
+
+% To change the ToC title
+\addto\captionsenglish{ \renewcommand {\contentsname} {Table of contents}}
+
 \title{SafeStreets - RASD \\ \large version 1.0}
 \author{Frangi Alberto, Fucci Tiziano}
 \date{A.Y. 2019/2020}
@@ -14,7 +21,7 @@
 	\section{Purpose}
 		\subsection{General Purpose}
 SafeStreets is a crowd-sourced application that intends to provide users with the possibility to notify authorities when traffic violations occur, and in particular parking violations, such as vehicles parked in the middle of bike lanes or in places reserved for people with disabilities, double parking, and so on. The application allows users to send pictures of violations, including their date, time, and position, to authorities.
-
+ 
 SafeStreets stores the information provided by users, completing it with suitable meta-data. In particular, when it receives a picture, it runs an algorithm to read the license plate (one can also think of mechanisms with which the user can help with the recognition), and stores the retrieved information with theviolation, including also the type of the violation (input by the user) and the name of the street where the violation occurred (which can be retrieved from the geographical position of the violation). 
 
 The application allows both end users and authorities to mine the information that has been received, for example by highlighting the streets (or the areas) with the highest frequency of violations, or the vehicles that commit the most violations. 
@@ -36,10 +43,59 @@ The following list describes the goals from the S2B perspective:
 \end{itemize}
 
 	\section{Scope}
+Safestreet is an application to be used both from civilians (users) and authorities, in order to help the latter and reduce traffic violations. Registered authorities can automatically receive reports made by users, so the service acts as an intermediary. Reports are made of a picture of the violation and some... 
+%(to be reviewed and completed)
+
 	\section{Definitions, acronyms, abbreviations}
+		\subsection{Definitions}
+		\begin{itemize}
+		\item \textbf{User}: a civilian customer that can use the application to:
+			\begin{itemize}
+			\item notify authorities of some violation;
+			\item check which are the most dangerous (i.e. with the most violations) streets;
+			\item check which are the vehicles that committed the most violations.
+			\end{itemize}
+		\item \textbf{Authority}: a member of the local police who has access to reports made by users.
+		\item \textbf{Report}: a message consisting of:
+			\begin{itemize}
+			\item a picture showing the car in order to show the occurring violation;
+			\item date and time of the picture;
+			\item GPS position of the place where the violation occurred;
+			\item the street where the violation occurred (automatically retrieved from the geographical position);
+			\item the type of the violation (input by the user)
+			\end{itemize}
+		\item \textbf{Violation}: a situation that, according to the user who sent the report, is a violation of the traffic laws.
+		\item \textbf{Intervention}: a brief text suggesting a possible solution in order to improve safety and discourage future violations.
+		\end{itemize}
+		\subsection{Acronyms}
+			\begin{itemize}
+			\item \textbf{API}: \emph{Application Programming Interface.}
+			\item \textbf{GPS}: \emph{Global Positioning System.}
+			\item \textbf{UI}: \emph{User Interface.}		
+			\item \textbf{S2B}: \emph{Software-to-be.}	
+			\end{itemize}
+		\subsection{Abbreviations}
+% To be written
+
 	\section{Revision history}
+% To be written
+
 	\section{Reference documents}
+	\begin{itemize}
+	\item {Specification document}: "SafeStreets Mandatory Project Assignment"
+	%to be completed
+	\end{itemize}
+
 	\section{Document structure}
+	\begin{itemize}
+	\item \textbf{Chapter 1} is an introduction: it presents the document and the S2B with its scope and goals. It also helps the reader to understand, by giving the necessary definitions and explaining acronyms and abbreviations. 
+	\item \textbf{Chapter 2} is...
+	\item \textbf{Chapter 3} is the core of the document...
+	\item \textbf{Chapter 4} contains the Alloy model of critical aspects that require special attention. Here it is shown how the project has been modeled and a proof of the model consistency is provided. Moreover, examples of some of the generated world are shown.
+	\item \textbf{Chapter 5} is meant to show how work was divided between the two components of the group and how much time was spent.
+	\item \textbf{Chapter 6} contains the list of references...
+	\end{itemize}
+
 % End of first chapter
 
 \chapter{Overall description}
