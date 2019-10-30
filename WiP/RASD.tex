@@ -98,7 +98,7 @@ Safestreet is an application to be used both from civilians (users) and authorit
 	\section{Document structure}
 	\begin{itemize}
 	\item \textbf{Chapter 1} is an introduction: it presents the document and the S2B with its scope and goals. It also helps the reader to understand, by giving the necessary definitions and explaining acronyms and abbreviations. 
-	\item \textbf{Chapter 2} is...
+	\item \textbf{Chapter 2} is a summary description of all the project and how the main parts work. %Non so, ti va bene? #fuljofulgini
 	\item \textbf{Chapter 3} is the core of the document...
 	\item \textbf{Chapter 4} contains the Alloy model of critical aspects that require special attention. Here it is shown how the project has been modeled and a proof of the model consistency is provided. Moreover, examples of some of the generated world are shown.
 	\item \textbf{Chapter 5} is meant to show how work was divided between the two components of the group and how much time was spent.
@@ -110,8 +110,28 @@ Safestreet is an application to be used both from civilians (users) and authorit
 \chapter{Overall description}
 	\section{Product perspective}
 	\section{Product functions}
+		
 	\section{User characteristics}
+		The actors of the application are the following:
+		\begin{itemize}
+			\item \textbf{User:}
+				a person who has registered to Safe Streets, he doesn't need any particular skill to use the system, 
+				he is just supposed to have a smartphone (or tablet) with a functioning camera, an internet connection and
+				that his phone can send his current position. The user can send a report to notify the authorities various traffic
+				violation, he can view a map that highlight the streets with an higher number of reports. To do a report is sufficient
+				take a photo of the license plate, the violation's type and the system retrieves in autonomous the current position
+				of the user .
+			\item \textbf{The municipalities:}
+				when a report is received the municipality has to forward it to the nearest (to the violation) authority.
+				The authorities can share with safe streets the information about all the accidents that occur in its territory,
+				in this way Safe  Streets can analyze all of that information to try to suggest (created using a specific recommender system) some possible solution to improve
+				the safety on the most dangerous streets.
+		\end{itemize}
 	\section{Assumptions, dependencies and constraints}
+		\begin{itemize}
+			\item When the user send the report is in the same place of the violation.
+			\item If an user can send a report the local municipality had joined Safe Streets.
+		\end{itemize}
 % End of second chapter
 
 \chapter{Specific Requirments}
