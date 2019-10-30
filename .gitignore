@@ -9,6 +9,7 @@
 *.out
 *.synctex.gz
 
-# Ignore uncompleted PDF
+# Ignore uncompleted PDFs
 
-WiP/RASD.pdf
+WiP/*.pdf
+WiP/images/*.pdf
