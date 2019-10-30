@@ -3,6 +3,15 @@
 %Set language
 \usepackage[english]{babel}
 
+% To import and adjust images
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage[center]{caption}
+\usepackage{subcaption}
+
+% Path relative to the .tex file containing the \includegraphics command
+\graphicspath{ {./images/} }  
+
 % To change the ToC title
 \addto\captionsenglish{ \renewcommand {\contentsname} {Table of contents}}
 
@@ -82,7 +91,7 @@ Safestreet is an application to be used both from civilians (users) and authorit
 
 	\section{Reference documents}
 	\begin{itemize}
-	\item {Specification document}: "SafeStreets Mandatory Project Assignment"
+	\item {Specification document}: ``SafeStreets Mandatory Project Assignment''
 	%to be completed
 	\end{itemize}
 
@@ -108,6 +117,28 @@ Safestreet is an application to be used both from civilians (users) and authorit
 \chapter{Specific Requirments}
 	\section{External interface requirments}
 		\subsection{User interfaces}
+
+		\begin{figure}[h]
+		\begin{subfigure}{0.5\textwidth}
+			\includegraphics[scale=0.25, center]{Background}
+			\caption{Sample text1}
+			\label{fig:subim1}
+		\end{subfigure}
+		\begin{subfigure}{0.5\textwidth}
+			\includegraphics[scale=0.25, center]{Background}
+			\caption{Sample text1}
+			\label{fig:subim1}
+		\end{subfigure}
+		\end{figure}
+
+		\begin{figure}
+		\begin{subfigure}{0.5\textwidth}
+			\includegraphics[scale=0.25, center]{Background}
+			\caption{Sample text3}
+			\label{fig:subim2}
+		\end{subfigure}
+		\end{figure}
+
 		\subsection{Hardware interfaces}
 		\subsection{Software interfaces}
 		\subsection{Communication interfaces}
