@@ -42,7 +42,8 @@ The following list describes the goals from the S2B perspective:
 
 % Dot list 
 \begin{itemize}
-	\item \textbf{G1}: The application must allow users to notify traffic violations, providing date, time, position, the type of violation and a picture of the vehicle.
+	\item \textbf{G1}: The application must allow users to notify traffic violations, providing  the type of violation and a picture of the vehicle.
+% Il resto se lo trova da solo
   	\item \textbf{G2}: The application must allow authorities to retrieve the reports made by all the users at any moment.
 	% \item \textbf{G3}: The application must read correctly the license plates from the pictures attached to reports. --assumption?
 	\item \textbf{G3}: The application must be able to detect the streets and the vehicles with the highest frequency of violations.
@@ -177,15 +178,15 @@ Safestreet is an application to be used both from civilians (users) and authorit
 \chapter{Specific Requirments}
 	\section{External interface requirments}
 		\subsection{User interfaces}
-
+		In this section some screenshots from the user interface are shown. 
 		\begin{figure}[h]
 		\begin{subfigure}{0.5\textwidth}
-			\includegraphics[scale=0.25, center]{Background}
+			\includegraphics[scale=0.25, center]{Home}
 			\caption{Sample text1}
 			\label{fig:subim1}
 		\end{subfigure}
 		\begin{subfigure}{0.5\textwidth}
-			\includegraphics[scale=0.25, center]{Background}
+			\includegraphics[scale=0.25, center]{Login}
 			\caption{Sample text1}
 			\label{fig:subim1}
 		\end{subfigure}
@@ -193,14 +194,35 @@ Safestreet is an application to be used both from civilians (users) and authorit
 
 		\begin{figure}
 		\begin{subfigure}{0.5\textwidth}
-			\includegraphics[scale=0.25, center]{Background}
+		\setcounter{subfigure}{2}
+			\includegraphics[scale=0.25, center]{Myreports}
+			\caption{Sample text3}
+			\label{fig:subim2}
+		\end{subfigure}
+		\begin{subfigure}{0.5\textwidth}
+			\includegraphics[scale=0.25, center]{Newreport}
+			\caption{Sample text3}
+			\label{fig:subim2}
+		\end{subfigure}
+		\end{figure}
+		\begin{figure}
+		\begin{subfigure}{0.5\textwidth}
+		\setcounter{subfigure}{4}
+			\includegraphics[scale=0.25, center]{Map}
+			\caption{Sample text3}
+			\label{fig:subim2}
+		\end{subfigure}
+		\begin{subfigure}{0.5\textwidth}
+			\includegraphics[scale=0.25, center]{Map-detail}
 			\caption{Sample text3}
 			\label{fig:subim2}
 		\end{subfigure}
 		\end{figure}
 
 		\subsection{Hardware interfaces}
+	The system has no hardware interfaces.
 		\subsection{Software interfaces}
+	The system has no software interfaces.
 		\subsection{Communication interfaces}
 	\section{Functional Requirements}
 	\section{Performances Requirments}
