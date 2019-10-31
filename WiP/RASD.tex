@@ -42,7 +42,7 @@ The following list describes the goals from the S2B perspective:
 
 % Dot list 
 \begin{itemize}
-	\item \textbf{G1}: The application must allow users to notify traffic violations, providing the type of violation and a picture of the vehicle.
+	\item \textbf{G1}: The application must allow users to notify traffic violations, providing date, time, position, the type of violation and a picture of the vehicle.
   	\item \textbf{G2}: The application must allow authorities to retrieve the reports made by all the users at any moment.
 	% \item \textbf{G3}: The application must read correctly the license plates from the pictures attached to reports. --assumption?
 	\item \textbf{G3}: The application must be able to detect the streets and the vehicles with the highest frequency of violations.
@@ -98,7 +98,7 @@ Safestreet is an application to be used both from civilians (users) and authorit
 	\section{Document structure}
 	\begin{itemize}
 	\item \textbf{Chapter 1} is an introduction: it presents the document and the S2B with its scope and goals. It also helps the reader to understand, by giving the necessary definitions and explaining acronyms and abbreviations. 
-	\item \textbf{Chapter 2} is a summary description of all the project and how the main parts work. %Non so, ti va bene? #fuljofulgini
+	\item \textbf{Chapter 2} is a summary description of all the project and how the main parts work. %Non so, ti va bene? i
 	\item \textbf{Chapter 3} is the core of the document...
 	\item \textbf{Chapter 4} contains the Alloy model of critical aspects that require special attention. Here it is shown how the project has been modeled and a proof of the model consistency is provided. Moreover, examples of some of the generated world are shown.
 	\item \textbf{Chapter 5} is meant to show how work was divided between the two components of the group and how much time was spent.
@@ -109,8 +109,48 @@ Safestreet is an application to be used both from civilians (users) and authorit
 
 \chapter{Overall description}
 	\section{Product perspective}
+		%missing introduction
+		Safe Streets want to be a mediator between authorities and citizen, allowing the last ones to report traffic violations, see
+		in which zone have the highest number of violations, and the recap of all the previous reports and their state
+		(seen, approved, rejected, in queue). In order to be able to report various violations an user has to be in first place in a
+		territory covered by any authorities who had signed up to Safe Streets, and has to sign up compiling a form, choosing a
+		nickname, unique for each user, and a mail. Any authority has to verify its identity using the institutional email 
+		%state case registration
+		The system to avoid spamming of request pending reports will be in a priority queue based 
+		on a reliability index associated to each user and hidden to both side of communication (is an information used only by 
+		the system for the priority queue). If the authorities sanction a violation reported the user 
+		will receive a notification by Safe Streets to inform him the success (or failure) of his report. 
+		%inserire immagine diagramma come funziona report
 	\section{Product functions}
-		
+		In the following section the most important product functions of the system are reported.
+		Safe Streets offers the possibility to its users to report traffic violations, check the status of the previous reports and see 
+		a map that indicates the areas with the highest number of report verified.
+		\subsection{Report}
+			To report a violation a user had to take a picture of the possible violation with the plate visible, choose what type of
+			violation it is from various possible category and sending the position
+		\subsection{Status}
+			This functionality allows user to see a recap of all the reports they have made. The information that will be displayed
+			are: Date and time, place, type of violation and status. The last one can be:
+			\begin{itemize}
+				\item \textbf{In queue:}
+					In this status the report is waiting to be analyzed by an authority. The report's priority is based on
+					the user who created it. All the user at the moment of registration has a standard value that based on
+					how Safe Street is used can increase or decrease. Some important factors are, for example, 
+					how many report a user sent has been rejected, how many report a user send in one time can decrease
+					the priority, but a wisely use of the system can increase it, like a streak of approved reports.
+				\item \textbf{Processing:}
+					In this status the authorities has seen the report and are considering the violation and if it is a real
+					violation.
+				\item \textbf{Approved:}
+					The report has been seen by authorities and the violation has been recognized and sanctioned 
+				\item \textbf{Rejected:}
+					The report has been seen by authorities and the violation hasn't been recognized.
+			\end{itemize}
+		\subsection{Map}
+			This function allows the user to open the map and see the "level of violations" of the different areas. These "levels" are
+			based on how many reports have been approved in that area, higher the level, higher the number of violation.
+			There are 4 levels, are indicated with different color, from green (level 0) to red (level 3).
+			
 	\section{User characteristics}
 		The actors of the application are the following:
 		\begin{itemize}
@@ -120,7 +160,7 @@ Safestreet is an application to be used both from civilians (users) and authorit
 				that his phone can send his current position. The user can send a report to notify the authorities various traffic
 				violation, he can view a map that highlight the streets with an higher number of reports. To do a report is sufficient
 				take a photo of the license plate, the violation's type and the system retrieves in autonomous the current position
-				of the user .
+				of the user.
 			\item \textbf{The municipalities:}
 				when a report is received the municipality has to forward it to the nearest (to the violation) authority.
 				The authorities can share with safe streets the information about all the accidents that occur in its territory,
@@ -137,41 +177,25 @@ Safestreet is an application to be used both from civilians (users) and authorit
 \chapter{Specific Requirments}
 	\section{External interface requirments}
 		\subsection{User interfaces}
-		Here...
-		\begin{figure}[ht]
+
+		\begin{figure}[h]
 		\begin{subfigure}{0.5\textwidth}
-			\includegraphics[scale=0.25, center]{Login}
-			\caption{Login screen}
+			\includegraphics[scale=0.25, center]{Background}
+			\caption{Sample text1}
 			\label{fig:subim1}
 		\end{subfigure}
 		\begin{subfigure}{0.5\textwidth}
-			\includegraphics[scale=0.25, center]{Home}
-			\caption{Main menu}
-			\label{fig:subim1}
-		\end{subfigure}
-		\end{figure}
-		\begin{figure}
-		\begin{subfigure}{0.5\textwidth}
-			\includegraphics[scale=0.25, center]{Myreports}
-			\caption{List of one user's reports}
-			\label{fig:subim1}
-		\end{subfigure}
-		\begin{subfigure}{0.5\textwidth}
-			\includegraphics[scale=0.25, center]{Newreport}
-			\caption{The creation of a new report}
+			\includegraphics[scale=0.25, center]{Background}
+			\caption{Sample text1}
 			\label{fig:subim1}
 		\end{subfigure}
 		\end{figure}
+
 		\begin{figure}
 		\begin{subfigure}{0.5\textwidth}
-			\includegraphics[scale=0.25, center]{Map}
-			\caption{Map showing streets with some reports}
-			\label{fig:subim1}
-		\end{subfigure}
-		\begin{subfigure}{0.5\textwidth}
-			\includegraphics[scale=0.25, center]{Map-detail}
-			\caption{Detail of the street highlighting}
-			\label{fig:subim1}
+			\includegraphics[scale=0.25, center]{Background}
+			\caption{Sample text3}
+			\label{fig:subim2}
 		\end{subfigure}
 		\end{figure}
 
