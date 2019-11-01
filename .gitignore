@@ -12,4 +12,3 @@
 # Ignore uncompleted PDFs
 
 WiP/*.pdf
-WiP/images/*.pdf
