@@ -28,7 +28,6 @@
 \tableofcontents
 \chapter{Introduction}
 	\section{Purpose}
-		\subsection{General Purpose}
 SafeStreets is a crowd-sourced application that intends to provide users with the possibility to notify authorities when traffic violations occur, and in particular parking violations, such as vehicles parked in the middle of bike lanes or in places reserved for people with disabilities, double parking, and so on. The application allows users to send pictures of violations, including their date, time, and position, to authorities.
  
 SafeStreets stores the information provided by users, completing it with suitable meta-data. In particular, when it receives a picture, it runs an algorithm to read the license plate (one can also think of mechanisms with which the user can help with the recognition), and stores the retrieved information with theviolation, including also the type of the violation (input by the user) and the name of the street where the violation occurred (which can be retrieved from the geographical position of the violation). 
@@ -37,24 +36,25 @@ The application allows both end users and authorities to mine the information th
 
 Moreover, if the municipality offers a service that allows users to retrieve the information about the accidents that occur on the territory of the municipality, SafeStrees can cross this information with its own data to identify potentially unsafe areas, and suggest possible interventions (e.g., add a barrier between the bike lane and the part of the road for motorized vehicles to prevent unsafe parking).
 
-		\subsection{Goals}
-The following list describes the goals from the S2B perspective:
-
-% Dot list 
-\begin{itemize}
-	\item \textbf{G1}: The application must allow users to notify traffic violations, providing  the type of violation and a picture of the vehicle.
-% Il resto se lo trova da solo
-  	\item \textbf{G2}: The application must allow authorities to retrieve the reports made by all the users at any moment.
-	% \item \textbf{G3}: The application must read correctly the license plates from the pictures attached to reports. --assumption?
-	\item \textbf{G3}: The application must be able to detect the streets and the vehicles with the highest frequency of violations.
-	\item \textbf{G4}: The application must be able to identify potentially unsafe areas and suggest possible interventions.
-	\item \textbf{G5}: The application must not show one user's reports to other users.
-	\item \textbf{G6}: The application must allow every user to see all of his reports and their status.
-\end{itemize}
 
 	\section{Scope}
+	\subsection{General description}
 Safestreet is an application to be used both from civilians (users) and authorities, in order to help the latter and reduce traffic violations. Registered authorities can automatically receive reports made by users, so the service acts as an intermediary. Reports are made of a picture of the violation and some... 
-%(to be reviewed and completed)
+	%(to be reviewed and completed)
+	\subsection{Goals}
+	The following list describes the goals from the S2B perspective:
+	
+	% Dot list 
+	\begin{itemize}
+		\item \textbf{G1}: The application must allow users to notify traffic violations, providing  the type of violation and a picture of the vehicle.
+	% Il resto se lo trova da solo
+	  	\item \textbf{G2}: The application must allow authorities to retrieve the reports made by all the users at any moment.
+		% \item \textbf{G3}: The application must read correctly the license plates from the pictures attached to reports. --assumption?
+		\item \textbf{G3}: The application must be able to detect the streets and the vehicles with the highest frequency of violations.
+		\item \textbf{G4}: The application must be able to identify potentially unsafe areas and suggest possible interventions.
+		\item \textbf{G5}: The application must not show one user's reports to other users.
+		\item \textbf{G6}: The application must allow every user to see all of his reports and their status.
+	\end{itemize}
 
 	\section{Definitions, acronyms, abbreviations}
 		\subsection{Definitions}
@@ -156,17 +156,14 @@ Safestreet is an application to be used both from civilians (users) and authorit
 		The actors of the application are the following:
 		\begin{itemize}
 			\item \textbf{User:}
-				a person who has registered to Safe Streets, he doesn't need any particular skill to use the system, 
+				a person who has registered to SafeStreets, he doesn't need any particular skill to use the system, 
 				he is just supposed to have a smartphone (or tablet) with a functioning camera, an internet connection and
 				that his phone can send his current position. The user can send a report to notify the authorities various traffic
 				violation, he can view a map that highlight the streets with an higher number of reports. To do a report is sufficient
 				take a photo of the license plate, the violation's type and the system retrieves in autonomous the current position
 				of the user.
-			\item \textbf{The municipalities:}
-				when a report is received the municipality has to forward it to the nearest (to the violation) authority.
-				The authorities can share with safe streets the information about all the accidents that occur in its territory,
-				in this way Safe  Streets can analyze all of that information to try to suggest (created using a specific recommender system) some possible solution to improve
-				the safety on the most dangerous streets.
+			\item \textbf{Authority:}
+				An agent of the local police of a municipality using SafeStreets, that has access to all the reports made in his municipality. The authority can visualize the available reports and valuate them, that is telling if the violation reported by the user stands or it is not a proper violation. After seeing a report, the authority changes its status to Approved or Rejected.
 		\end{itemize}
 	\section{Assumptions, dependencies and constraints}
 		\begin{itemize}
@@ -225,6 +222,10 @@ Safestreet is an application to be used both from civilians (users) and authorit
 	The system has no software interfaces.
 		\subsection{Communication interfaces}
 	\section{Functional Requirements}
+		\subsection{User}
+			\paragraph{Scenario 1}
+	
+		\subsection{Authority}
 	\section{Performances Requirments}
 	\section{Design constraints}
 		\subsection{Standards compliance}
