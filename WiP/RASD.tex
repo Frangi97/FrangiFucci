@@ -43,18 +43,24 @@ Safestreet is an application to be used both from civilians (users) and authorit
 	%(to be reviewed and completed)
 	\subsection{Goals}
 	The following list describes the goals from the S2B perspective:
-	
+		\subsubsection{User}
 	% Dot list 
 	\begin{itemize}
-		\item \textbf{G1}: The application must allow users to notify traffic violations, providing  the type of violation and a picture of the vehicle.
+		\item \textbf{G1}: The application must allow the users to register entering an e-mail address and a password.
+		\item \textbf{G2}: The application must allow the users to notify traffic violations, providing  the type of violation and a picture of the vehicle.
 	% Il resto se lo trova da solo
-	  	\item \textbf{G2}: The application must allow authorities to retrieve the reports made by all the users at any moment.
-		% \item \textbf{G3}: The application must read correctly the license plates from the pictures attached to reports. --assumption?
-		\item \textbf{G3}: The application must be able to detect the streets and the vehicles with the highest frequency of violations.
-		\item \textbf{G4}: The application must be able to identify potentially unsafe areas and suggest possible interventions.
-		\item \textbf{G5}: The application must not show one user's reports to other users.
-		\item \textbf{G6}: The application must allow every user to see all of his reports and their status.
+		\item \textbf{G3}: The application must be able to show to the users the streets and the vehicles with the highest frequency of violations.
+
+		\item \textbf{G4}: The application must allow the user to see all of his reports and their status.
 	\end{itemize}
+		\subsubsection{Authority}
+	\begin{itemize}
+		\item \textbf{G5}: The application must allow the authorities to register providing a valid identification number and a valid password.
+	  	\item \textbf{G6}: The application must allow authorities to retrieve the available reports.
+		\item \textbf{G7}: The application must allow the authorities to evaluate the available reports.
+		\item \textbf{G8}: The application must be able to identify potentially unsafe areas and suggest possible interventions.
+	\end{itemize}
+	
 
 	\section{Definitions, acronyms, abbreviations}
 		\subsection{Definitions}
@@ -74,6 +80,7 @@ Safestreet is an application to be used both from civilians (users) and authorit
 			\item the street where the violation occurred (automatically retrieved from the geographical position);
 			\item the type of the violation (input by the user)
 			\end{itemize}
+		\item \textbf{Available}: a report is available for an authority if its position is within the municipality assigned to the authority.
 		\item \textbf{Violation}: a situation that, according to the user who sent the report, is a violation of the traffic laws.
 		\item \textbf{Intervention}: a brief text suggesting a possible solution in order to improve safety and discourage future violations.
 		\end{itemize}
@@ -166,10 +173,19 @@ Safestreet is an application to be used both from civilians (users) and authorit
 				An agent of the local police of a municipality using SafeStreets, that has access to all the reports made in his municipality. The authority can visualize the available reports and valuate them, that is telling if the violation reported by the user stands or it is not a proper violation. After seeing a report, the authority changes its status to Approved or Rejected.
 		\end{itemize}
 	\section{Assumptions, dependencies and constraints}
+	\subsection{Domain assumption}
+% Forse ce ne vuole qualcuna in più?
+Maybe trivial assumptions can be omitted?
 		\begin{itemize}
-			\item When the user send the report is in the same place of the violation.
-			\item If an user can send a report the local municipality had joined Safe Streets.
+			\item \textbf{D1}: The users always provide a picture that allows both the algorithm to read the license plate and the authority to identify the violation.
+			\item \textbf{D2}: Every user is provided with a device capable to share the exact GPS position at any moment.
+			\item \textbf{D3}: The name of the street where a violation occured is retrieved from the GPS position.
+			\item \textbf{D4}: Authorities never make mistakes in evaluating a report.
+			\item \textbf{D5}: Reports are evaluated only one time.
+			\item \textbf{D6}: The user sends the report staying in the same place of the violation. attached to reports.
 		\end{itemize}
+
+
 % End of second chapter
 
 \chapter{Specific Requirments}
@@ -222,8 +238,57 @@ Safestreet is an application to be used both from civilians (users) and authorit
 	The system has no software interfaces.
 		\subsection{Communication interfaces}
 	\section{Functional Requirements}
+	This section presents the requirements to be satisfied to reach each goal, in addition to the domain assumptions that must stand.
 		\subsection{User}
-			\paragraph{Scenario 1}
+			\paragraph {G1:} The application must allow the users to register entering an e-mail address and a password.
+		\begin{itemize}
+			\item{[R1]:} The user must enter an e-mail address that is not already associated to an existing SafeStreets account.
+			\item{[R2]:} The user must enter a password that satisfies the safety conditions.
+		\end{itemize}
+
+			\paragraph {G2:} The application must allow the users to notify traffic violations, providing the type of violation and a picture of the vehicle.
+		\begin{itemize}
+			\item{[D1]:} The users always provide a picture that allows both the algorithm to read the license plate and the authority to identify the violation.
+			\item{[D2]:} Every user is provided with a device capable to share the exact GPS position at any moment.
+			\item{[D3]:} Every user is provided with a device capable to share the exact GPS position at any moment.
+			\item{[D5]:} Date, time and street of the violation are automatically inferred by the application.
+			\item{[D7]:} The user sends the report staying in the same place of the violation.
+	 		\item{[D8]:} The application reads correctly the license plates from the pictures attached to reports.
+		\end{itemize}
+		\begin{itemize}
+			\item{[R1]:} The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
+			\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
+			\item{[R3]:} The system must correctly read the license plate given a picture attached to a report.
+		\end{itemize}
+
+			\paragraph {G3:} The application must be able to show to the users the streets and the vehicles with the highest frequency of violations.
+		\begin{itemize}
+			\item{[R2]:}
+		\end{itemize}
+			\paragraph {G:}
+		\begin{itemize}
+			\item{[R]:}
+		\end{itemize}
+			\paragraph {G:}
+		\begin{itemize}
+			\item{[R]:}
+		\end{itemize}
+			\paragraph {G:}
+		\begin{itemize}
+			\item{[R]:}
+		\end{itemize}
+			\paragraph {G:}
+		\begin{itemize}
+			\item{[R]:}
+		\end{itemize}
+			\paragraph {G:}
+		\begin{itemize}
+			\item{[R]:}
+		\end{itemize}
+			\paragraph {G:}
+		\begin{itemize}
+			\item{[R]:}
+		\end{itemize}
 	
 		\subsection{Authority}
 	\section{Performances Requirments}
