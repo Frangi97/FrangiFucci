@@ -6,12 +6,12 @@
 \contentsline {subsection}{\numberline {1.2.2}Goals}{3}% 
 \contentsline {subsubsection}{User}{3}% 
 \contentsline {subsubsection}{Authority}{3}% 
-\contentsline {section}{\numberline {1.3}Definitions, acronyms, abbreviations}{4}% 
-\contentsline {subsection}{\numberline {1.3.1}Definitions}{4}% 
+\contentsline {section}{\numberline {1.3}Definitions, acronyms, abbreviations}{3}% 
+\contentsline {subsection}{\numberline {1.3.1}Definitions}{3}% 
 \contentsline {subsection}{\numberline {1.3.2}Acronyms}{4}% 
-\contentsline {subsection}{\numberline {1.3.3}Abbreviations}{5}% 
-\contentsline {section}{\numberline {1.4}Revision history}{5}% 
-\contentsline {section}{\numberline {1.5}Reference documents}{5}% 
+\contentsline {subsection}{\numberline {1.3.3}Abbreviations}{4}% 
+\contentsline {section}{\numberline {1.4}Revision history}{4}% 
+\contentsline {section}{\numberline {1.5}Reference documents}{4}% 
 \contentsline {section}{\numberline {1.6}Document structure}{5}% 
 \contentsline {chapter}{\numberline {2}Overall description}{6}% 
 \contentsline {section}{\numberline {2.1}Product perspective}{6}% 
@@ -33,24 +33,22 @@
 \contentsline {paragraph}{G1:}{11}% 
 \contentsline {paragraph}{G2:}{11}% 
 \contentsline {paragraph}{G3:}{12}% 
-\contentsline {paragraph}{G:}{12}% 
-\contentsline {paragraph}{G:}{12}% 
-\contentsline {paragraph}{G:}{12}% 
-\contentsline {paragraph}{G:}{12}% 
-\contentsline {paragraph}{G:}{12}% 
-\contentsline {paragraph}{G:}{12}% 
+\contentsline {paragraph}{G4:}{12}% 
 \contentsline {subsection}{\numberline {3.2.2}Authority}{13}% 
-\contentsline {section}{\numberline {3.3}Performances Requirments}{13}% 
-\contentsline {section}{\numberline {3.4}Design constraints}{13}% 
-\contentsline {subsection}{\numberline {3.4.1}Standards compliance}{13}% 
-\contentsline {subsection}{\numberline {3.4.2}Hardware limitations}{13}% 
-\contentsline {subsection}{\numberline {3.4.3}Any other costraint}{13}% 
-\contentsline {section}{\numberline {3.5}Software System Attributes}{13}% 
-\contentsline {subsection}{\numberline {3.5.1}Reliability}{13}% 
-\contentsline {subsection}{\numberline {3.5.2}Availability}{13}% 
-\contentsline {subsection}{\numberline {3.5.3}Security}{13}% 
-\contentsline {subsection}{\numberline {3.5.4}Maintainability}{13}% 
-\contentsline {subsection}{\numberline {3.5.5}Portablity}{13}% 
-\contentsline {chapter}{\numberline {4}Formal Analysis}{14}% 
-\contentsline {chapter}{\numberline {5}Effort Spent}{15}% 
-\contentsline {chapter}{\numberline {6}References}{16}% 
+\contentsline {paragraph}{G5:}{13}% 
+\contentsline {paragraph}{G6:}{13}% 
+\contentsline {paragraph}{G7:}{13}% 
+\contentsline {section}{\numberline {3.3}Performance Requirments}{14}% 
+\contentsline {section}{\numberline {3.4}Design constraints}{14}% 
+\contentsline {subsection}{\numberline {3.4.1}Standards compliance}{14}% 
+\contentsline {subsection}{\numberline {3.4.2}Hardware limitations}{14}% 
+\contentsline {subsection}{\numberline {3.4.3}Any other costraint}{14}% 
+\contentsline {section}{\numberline {3.5}Software System Attributes}{14}% 
+\contentsline {subsection}{\numberline {3.5.1}Reliability}{14}% 
+\contentsline {subsection}{\numberline {3.5.2}Availability}{14}% 
+\contentsline {subsection}{\numberline {3.5.3}Security}{14}% 
+\contentsline {subsection}{\numberline {3.5.4}Maintainability}{14}% 
+\contentsline {subsection}{\numberline {3.5.5}Portablity}{14}% 
+\contentsline {chapter}{\numberline {4}Formal Analysis}{15}% 
+\contentsline {chapter}{\numberline {5}Effort Spent}{16}% 
+\contentsline {chapter}{\numberline {6}References}{17}% 
