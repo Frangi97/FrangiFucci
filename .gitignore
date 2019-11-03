@@ -1,4 +1,4 @@
-# ignore TeX files and uncompleted PDF
+# TeX files and uncompleted PDF
 
 *.aux
 *.bib
@@ -9,6 +9,10 @@
 *.out
 *.synctex.gz
 
-# Ignore uncompleted PDFs
+# uncompleted PDFs
 
 WiP/*.pdf
+
+# svg vector files
+
+*.svg
