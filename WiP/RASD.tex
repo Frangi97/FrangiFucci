@@ -8,6 +8,7 @@
 \usepackage[export]{adjustbox}
 \usepackage[center]{caption}
 \usepackage{subcaption}
+\usepackage{float}
 
 % Path relative to the .tex file containing the \includegraphics command
 \graphicspath{ {./images/} }  
@@ -116,18 +117,70 @@ Safestreet is an application to be used both from civilians (users) and authorit
 
 \chapter{Overall description}
 	\section{Product perspective}
-		%missing introduction
 		Safe Streets want to be a mediator between authorities and citizen, allowing the last ones to report traffic violations, see
 		in which zone have the highest number of violations, and the recap of all the previous reports and their state
 		(seen, approved, rejected, in queue). In order to be able to report various violations an user has to be in first place in a
 		territory covered by any authorities who had signed up to Safe Streets, and has to sign up compiling a form, choosing a
 		nickname, unique for each user, and a mail. Any authority has to verify its identity using the institutional email 
-		%state case registration
 		The system to avoid spamming of request pending reports will be in a priority queue based 
 		on a reliability index associated to each user and hidden to both side of communication (is an information used only by 
 		the system for the priority queue). If the authorities sanction a violation reported the user 
 		will receive a notification by Safe Streets to inform him the success (or failure) of his report. 
-		%inserire immagine diagramma come funziona report
+		\begin{figure}[H]
+			\begin{subfigure}{\textwidth}
+				\includegraphics[scale = 0.75, center]{uml}
+				\caption{UML model}
+				\label{UML model }
+			\end{subfigure}
+		\end{figure}
+		This figure represent a draft of how the system's UML model is supposed to look like. Because it is only the model part the 
+		classes represented are only the few essential to save correctly all the data necessary for all the analysis and to be displayed
+		(respectively that are part of controller and view) and in order to save up space we avoided to write every single getter and setter.
+		A generic Customer has been model with an abstract class and both authorities and User inherit it.
+		Report is a combination of various classes, it contains an unique id, the Street (obtained by the gps position), the time (obtained
+		by the system when it receive the report), the vehicle license's plate and the type of violation, it has also an enum attribute
+		to represent the status of the report. Both ``Street" and ``Zone" (which is a group of streets) contains a ViolationLevel, that
+		is calculated by the system and based on the reports' number in that particular street/zone. Intervention is a suggestion made
+		by the system on municipality's request, is created by a recommender system that apply some simple data mining's algorithm
+		in order to find the best improvement for each street based on the most frequent violations or accidents.
+		Municipality contains a list of possible interventions, all the authorities that operates in its territory and all reports
+		(both evaluated and to evaluate).
+
+		
+		Now we are going to analyze some critical aspects of the application, modeling their behaviors and	
+		showing the evolution over time of their	states	through appropriate state diagrams, which are
+		reported below.
+		
+		\begin{figure}[H]
+			\begin{subfigure}{\textwidth}
+				\includegraphics[scale = 0.75, center]{reportC}
+				\caption{State diagram on the behavior of reports for citizen}
+			\end{subfigure}
+		\end{figure}
+		This diagrams represent the behavior of the reporting system (for the citizen), is pretty straight forward. The system doesn't allow report
+		with missing information or with wrong ones.
+		
+		\begin{figure}[H]
+			\begin{subfigure}{\textwidth}
+				\includegraphics[scale = 0.75, center]{reportA}
+				\caption{State diagram on how reports work for authorities}
+			\end{subfigure}
+		\end{figure}	
+		This diagram is inherent to the reports verification process,
+		it show the evolution of the states necessary to handle a report, from when the authorities take in charge an user's report
+		to the eventual sanction to the car owner.
+		
+		\begin{figure}[H]
+			\begin{subfigure}{\textwidth}
+				\includegraphics[scale = 0.75, center]{suggestion}
+				\caption{State diagram on how reports work for authorities}
+			\end{subfigure}
+		\end{figure}
+		This last diagram represent how the last major functionality offered by SafeStreet. It consist in a system that offers suggestion
+		on how improve the safety on particular streets, based on the occurrence of car accident and street violations data that
+		the authorities choose to share with SafeStreets.
+		  
+		
 	\section{Product functions}
 		In the following section the most important product functions of the system are reported.
 		Safe Streets offers the possibility to its users to report traffic violations, check the status of the previous reports and see 
@@ -169,20 +222,28 @@ Safestreet is an application to be used both from civilians (users) and authorit
 				take a photo of the license plate, the violation's type and the system retrieves in autonomous the current position
 				of the user.
 			\item \textbf{Authority:}
-				An agent of the local police of a municipality using SafeStreets, that has access to all the reports made in his municipality. The authority can visualize the available reports and valuate them, that is telling if the violation reported by the user stands or it is not a proper violation. After seeing a report, the authority changes its status to Approved or Rejected.
+				An agent of the local police of a municipality using SafeStreets, that has access to all the reports made
+				 in his municipality. The authority can visualize the available reports and valuate them, that is telling if the
+				violation reported by the user stands or it is not a proper violation. After seeing a report, the authority 
+				changes its status to Approved or Rejected and if they activated
+				an optional service they can check the streets with the highest number of accident and receive
+				a suggestion (made by the system) about improve the safety.
 		\end{itemize}
 	\section{Assumptions, dependencies and constraints}
 	\subsection{Domain assumption}
 % Forse ce ne vuole qualcuna in più?
 Maybe trivial assumptions can be omitted?
 		\begin{itemize}
-			\item \textbf{D1}: The users always provide a picture that allows both the algorithm to read the license plate and the authority to identify the violation.
+			\item \textbf{D1}: The users always provide a picture that allows both the algorithm to read the license plate and
+					        the authority to identify the violation.
 			\item \textbf{D2}: Every user is provided with a device capable to share the exact GPS position at any moment.
 			\item \textbf{D3}: The name of the street where a violation occured is retrieved from the GPS position.
 			\item \textbf{D4}: Authorities never make mistakes in evaluating a report.
 			\item \textbf{D5}: Reports are evaluated only one time.
 			\item \textbf{D6}: The user sends the report staying in the same place of the violation. attached to reports.
 			\item \textbf{D7}: If the same violation is reported twice, it counts only one time on the map.
+			\item \textbf{D8}: The photo of the license plate has to be taken at the moment, is not possible "recycle" old violations
+					         photos.
 		\end{itemize}
 
 
