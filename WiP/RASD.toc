@@ -15,40 +15,44 @@
 \contentsline {section}{\numberline {1.6}Document structure}{5}% 
 \contentsline {chapter}{\numberline {2}Overall description}{6}% 
 \contentsline {section}{\numberline {2.1}Product perspective}{6}% 
-\contentsline {section}{\numberline {2.2}Product functions}{6}% 
-\contentsline {subsection}{\numberline {2.2.1}Report}{7}% 
-\contentsline {subsection}{\numberline {2.2.2}Status}{7}% 
-\contentsline {subsection}{\numberline {2.2.3}Map}{7}% 
-\contentsline {section}{\numberline {2.3}User characteristics}{7}% 
-\contentsline {section}{\numberline {2.4}Assumptions, dependencies and constraints}{8}% 
-\contentsline {subsection}{\numberline {2.4.1}Domain assumption}{8}% 
-\contentsline {chapter}{\numberline {3}Specific Requirments}{9}% 
-\contentsline {section}{\numberline {3.1}External interface requirments}{9}% 
-\contentsline {subsection}{\numberline {3.1.1}User interfaces}{9}% 
-\contentsline {subsection}{\numberline {3.1.2}Hardware interfaces}{11}% 
-\contentsline {subsection}{\numberline {3.1.3}Software interfaces}{11}% 
-\contentsline {subsection}{\numberline {3.1.4}Communication interfaces}{11}% 
-\contentsline {section}{\numberline {3.2}Functional Requirements}{11}% 
-\contentsline {subsection}{\numberline {3.2.1}User}{11}% 
-\contentsline {paragraph}{G1:}{11}% 
-\contentsline {paragraph}{G2:}{11}% 
-\contentsline {paragraph}{G3:}{12}% 
-\contentsline {paragraph}{G4:}{12}% 
-\contentsline {subsection}{\numberline {3.2.2}Authority}{13}% 
-\contentsline {paragraph}{G5:}{13}% 
-\contentsline {paragraph}{G6:}{13}% 
-\contentsline {paragraph}{G7:}{13}% 
-\contentsline {section}{\numberline {3.3}Performance Requirments}{14}% 
-\contentsline {section}{\numberline {3.4}Design constraints}{14}% 
-\contentsline {subsection}{\numberline {3.4.1}Standards compliance}{14}% 
-\contentsline {subsection}{\numberline {3.4.2}Hardware limitations}{14}% 
-\contentsline {subsection}{\numberline {3.4.3}Any other costraint}{14}% 
-\contentsline {section}{\numberline {3.5}Software System Attributes}{14}% 
-\contentsline {subsection}{\numberline {3.5.1}Reliability}{14}% 
-\contentsline {subsection}{\numberline {3.5.2}Availability}{14}% 
-\contentsline {subsection}{\numberline {3.5.3}Security}{14}% 
-\contentsline {subsection}{\numberline {3.5.4}Maintainability}{14}% 
-\contentsline {subsection}{\numberline {3.5.5}Portablity}{14}% 
-\contentsline {chapter}{\numberline {4}Formal Analysis}{15}% 
-\contentsline {chapter}{\numberline {5}Effort Spent}{16}% 
-\contentsline {chapter}{\numberline {6}References}{17}% 
+\contentsline {section}{\numberline {2.2}Product functions}{9}% 
+\contentsline {subsection}{\numberline {2.2.1}Report}{9}% 
+\contentsline {subsection}{\numberline {2.2.2}Status}{9}% 
+\contentsline {subsection}{\numberline {2.2.3}Map}{10}% 
+\contentsline {section}{\numberline {2.3}User characteristics}{10}% 
+\contentsline {section}{\numberline {2.4}Assumptions, dependencies and constraints}{11}% 
+\contentsline {subsection}{\numberline {2.4.1}Domain assumption}{11}% 
+\contentsline {chapter}{\numberline {3}Specific Requirments}{12}% 
+\contentsline {section}{\numberline {3.1}External interface requirments}{12}% 
+\contentsline {subsection}{\numberline {3.1.1}User interfaces}{12}% 
+\contentsline {subsection}{\numberline {3.1.2}Hardware interfaces}{14}% 
+\contentsline {subsection}{\numberline {3.1.3}Software interfaces}{14}% 
+\contentsline {subsection}{\numberline {3.1.4}Communication interfaces}{14}% 
+\contentsline {section}{\numberline {3.2}Functional Requirements}{14}% 
+\contentsline {subsection}{\numberline {3.2.1}User}{14}% 
+\contentsline {paragraph}{Scenarios}{14}% 
+\contentsline {subparagraph}{Scenario 1}{14}% 
+\contentsline {subparagraph}{Scenario 2}{14}% 
+\contentsline {subparagraph}{Scenario 3}{14}% 
+\contentsline {paragraph}{G1:}{19}% 
+\contentsline {paragraph}{G2:}{19}% 
+\contentsline {paragraph}{G3:}{20}% 
+\contentsline {paragraph}{G4:}{21}% 
+\contentsline {subsection}{\numberline {3.2.2}Authority}{21}% 
+\contentsline {paragraph}{G5:}{21}% 
+\contentsline {paragraph}{G6:}{21}% 
+\contentsline {paragraph}{G7:}{22}% 
+\contentsline {section}{\numberline {3.3}Performance Requirments}{22}% 
+\contentsline {section}{\numberline {3.4}Design constraints}{22}% 
+\contentsline {subsection}{\numberline {3.4.1}Standards compliance}{22}% 
+\contentsline {subsection}{\numberline {3.4.2}Hardware limitations}{22}% 
+\contentsline {subsection}{\numberline {3.4.3}Any other costraint}{22}% 
+\contentsline {section}{\numberline {3.5}Software System Attributes}{22}% 
+\contentsline {subsection}{\numberline {3.5.1}Reliability}{22}% 
+\contentsline {subsection}{\numberline {3.5.2}Availability}{22}% 
+\contentsline {subsection}{\numberline {3.5.3}Security}{22}% 
+\contentsline {subsection}{\numberline {3.5.4}Maintainability}{22}% 
+\contentsline {subsection}{\numberline {3.5.5}Portablity}{22}% 
+\contentsline {chapter}{\numberline {4}Formal Analysis}{23}% 
+\contentsline {chapter}{\numberline {5}Effort Spent}{24}% 
+\contentsline {chapter}{\numberline {6}References}{25}% 

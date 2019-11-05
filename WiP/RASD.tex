@@ -245,9 +245,7 @@ Maybe trivial assumptions can be omitted?
 			\item \textbf{D4}: Authorities never make mistakes in evaluating a report.
 			\item \textbf{D5}: Reports are evaluated only one time.
 			\item \textbf{D6}: The user sends the report staying in the same place of the violation. attached to reports.
-			\item \textbf{D7}: If the same violation is reported twice, it counts only one time on the map.
-			\item \textbf{D8}: The photo of the license plate has to be taken at the moment, is not possible "recycle" old violations
-					         photos.
+			\item \textbf{D7}: The picture of the license plate is taken at the moment and shows the right car.
 		\end{itemize}
 
 
@@ -308,14 +306,14 @@ Maybe trivial assumptions can be omitted?
 			%inizio parte frangi
 			\paragraph{Scenarios}
 				\subparagraph{Scenario 1}
-					Mario, an elder person who has a reserved parking lot, always has to spend time looking for a free
-					car park because someone frequently stole the one reserved to him without being sanctioned by
+					Mario, an elderly person who has a reserved parking lot, always has to spend time looking for a free
+					car park because someone frequently steals the one reserved to him without being sanctioned by
 					authorities. With the help of SafeStreet Mario can report the parking thief to authorities and verify
-					that he got sanctioned.
+					that he gets sanctioned.
 					
 				\subparagraph{Scenario 2}
-					Luigi use very frequently SafeStreet, but he is not sure if what he is doing is considered by authorities,
-					thanks to SafeStreets' reports chronology now he is certain on which reports has been useful and which
+					Luigi uses very frequently SafeStreet, but he is not sure if what he is doing is considered by authorities,
+					thanks to SafeStreets' reports history now he is certain on which reports has been useful and which
 					were useless.
 					
 				\subparagraph{Scenario 3}
@@ -436,7 +434,7 @@ Maybe trivial assumptions can be omitted?
 									\item The vehicle has been already reported.
 									\item The system cannot obtain the user's position.
 									\item Not all the fields has been filled.
-									\item there is no internet connection available.
+									\item There is no internet connection available.
 								\end{itemize}
 								\vskip 4pt
 						} \\
@@ -537,8 +535,8 @@ Maybe trivial assumptions can be omitted?
 				\item{[D2]:} Every user is provided with a device capable to share the exact GPS position at any moment.
 				\item{[D3]:} Every user is provided with a device capable to share the exact GPS position at any moment.
 				\item{[D5]:} Date, time and street of the violation are automatically inferred by the application.
-				\item{[D7]:} The user sends the report staying in the same place of the violation.
-		 		\item{[D8]:} The application reads correctly the license plates from the pictures attached to reports.
+				\item{[D6]:} The user sends the report staying in the same place of the violation attached to the report.
+		 		\item{[D7]:} : The picture of the license plate is taken at the moment and shows the right car.
 			\end{itemize}
 			\begin{itemize}
 				\item{[R1]:} The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
@@ -551,13 +549,13 @@ Maybe trivial assumptions can be omitted?
 				\item{[D3]:} The name of the street where a violation occured is retrieved from the GPS position.
 				\item{[D4]:} Authorities never make mistakes in evaluating a report.
 				\item{[D5]:} Reports are evaluated only one time.
-				\item{[D7]:} If the same violation is reported twice, it counts only one time on the map.
 			\end{itemize}
 			\begin{itemize}
 				\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
 				\item{[R4]:} The system must exploit Google Maps APIs to show to the user the map of the violations.
 				\item{[R5]:} The system must show the right colors on the map, given the number of approved reports for each street.
 				\item{[R6]:} When a license plate is recognized, the system must show the number of approved reports for that car.
+				\item{[R9]:} If the same violation is reported twice, it counts only one time on the map.
 			\end{itemize}
 				\paragraph {G4:}  The application must allow the user to see all of his reports and their status.
 			\begin{itemize}
@@ -588,10 +586,10 @@ Maybe trivial assumptions can be omitted?
 			 		\item{[D4]:} Authorities never make mistakes in evaluating a report.
 					\item{[D5]:} Date, time and street of the violation are automatically inferred by the application.
 			 		\item{[D6]:} The user sends the report staying in the same place of the violation.
-					\item{[D7]:} If the same violation is reported twice, it counts only one time on the map.
 				\end{itemize}
 				\begin{itemize}
-					\item{[R]:} The system must include a simple recommender system that, according on the number of each type of violation, suggests a possible intervention to the authorities of a municipality.
+					\item{[R9]:} If the same violation is reported twice, it counts only one time on the map.
+					\item{[R10]:} The system must include a simple recommender system that, according on the number of each type of violation, suggests a possible intervention to the authorities of a municipality.
 				\end{itemize}
 	
 	\section{Performance Requirments}
