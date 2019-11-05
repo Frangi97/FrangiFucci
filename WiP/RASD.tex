@@ -2,6 +2,7 @@
 
 %Set language
 \usepackage[english]{babel}
+\usepackage{enumerate}
 
 % To import and adjust images
 \usepackage{graphicx}
@@ -9,9 +10,12 @@
 \usepackage[center]{caption}
 \usepackage{subcaption}
 \usepackage{float}
+\usepackage{tabularx}
 
 % Path relative to the .tex file containing the \includegraphics command
 \graphicspath{ {./images/} }  
+
+%To use enumerate
 
 % To change the ToC title
 \addto\captionsenglish{ \renewcommand {\contentsname} {Table of contents}}
@@ -294,82 +298,301 @@ Maybe trivial assumptions can be omitted?
 		\end{figure}
 
 		\subsection{Hardware interfaces}
-	The system has no hardware interfaces.
+			The system has no hardware interfaces.
 		\subsection{Software interfaces}
-	The system has no software interfaces.
+			The system has no software interfaces.
 		\subsection{Communication interfaces}
 	\section{Functional Requirements}
-	This section presents the requirements to be satisfied to reach each goal, in addition to the domain assumptions that must stand.
-		\subsection{User}
+		This section presents the requirements to be satisfied to reach each goal, in addition to the domain assumptions that must stand.
+		\subsection{User} 
+			%inizio parte frangi
+			\paragraph{Scenarios}
+				\subparagraph{Scenario 1}
+					Mario, an elder person who has a reserved parking lot, always has to spend time looking for a free
+					car park because someone frequently stole the one reserved to him without being sanctioned by
+					authorities. With the help of SafeStreet Mario can report the parking thief to authorities and verify
+					that he got sanctioned.
+					
+				\subparagraph{Scenario 2}
+					Luigi use very frequently SafeStreet, but he is not sure if what he is doing is considered by authorities,
+					thanks to SafeStreets' reports chronology now he is certain on which reports has been useful and which
+					were useless.
+					
+				\subparagraph{Scenario 3}
+					Giuseppe	
+					
+				\begin{table}[H]
+					\centering
+					\begin{tabular}{|c|p{0.92\linewidth}|}
+						\hline
+						Name & {Sign up} \\
+						\hline
+						Actor & {User} \\
+						\hline
+						Entry condition & {The User want to use for the first time SafeStreet and open the application on
+									his device} \\
+						\hline
+						Events Flows &{ 
+								\vskip 4pt
+								\begin{enumerate}
+									\item The user click on the "Sign up" option
+									\item The user fills all the mandatory fields
+									\item The user agree with the SafeStreet's privacy policy
+									\item The user click the confirmation option
+									\item The system proceed to verify user's data and to save them
+								\end{enumerate}
+								\vskip 4pt}\\
+						\hline
+						Exit Conditions & {The user is registered and the system has saved his data} \\
+						\hline
+						Exceptions & {
+								\vskip 4pt
+								\begin{itemize}
+									\item The user has already signed up
+									\item Username has been already used. In this case the System notify the user and
+										suggests some free Usernames.
+									\item The data were not correct. In this case the system ask to the user to check and
+										correct eventual mistakes.
+									\item Not all the mandatory fields were filled. In this case the system warns the user
+										and notify him which fields are empty
+								\end{itemize}
+								\vskip 4pt
+						} \\
+						\hline
+					\end{tabular}
+					\caption{Sing up}
+					\label{tab: }
+				\end{table}
+
+				\begin{table}[H]
+					\centering
+					\begin{tabular}{|c|p{0.92\linewidth}|}
+						\hline
+						Name & {Log in} \\
+						\hline
+						Actor & {User} \\
+						\hline
+						Entry condition & {The User open the application because he want to access the service he 
+									already signed up} \\
+						\hline
+						Events Flows &{ 
+								\vskip 4pt
+								\begin{enumerate}
+									\item The user click on the "Log in" option
+									\item The user fills all the Username and password fields
+									\item The user click the confirmation option
+									\item The system proceed to verify user's data
+									\item The user has free access to the service now
+								\end{enumerate}
+								\vskip 4pt}\\
+						\hline
+						Exit Conditions & {The user is logged} \\
+						\hline
+						Exceptions & {
+								\vskip 4pt
+								\begin{itemize}
+									\item Password wrong
+									\item Username wrong, in both case the system will ask to check and correct the 
+										log-in information
+								\end{itemize}
+								\vskip 4pt
+						} \\
+						\hline
+					\end{tabular}
+					\caption{Log in}
+					\label{tab: }
+				\end{table}
+				
+				\begin{table}[H]
+					\centering
+					\begin{tabular}{|c|p{0.92\linewidth}|}
+						\hline
+						Name & {Report} \\
+						\hline
+						Actor & {User} \\
+						\hline
+						Entry condition & {The User want to report a traffic violation so open the application and log in,
+									then choose the "report" option} \\
+						\hline
+						Events Flows &{ 
+								\vskip 4pt
+								\begin{enumerate}
+									\item The User clicks on "Report" option
+									\item The User take a photo of the violation and the license plate of vehicle
+									\item The system tries to understand the plate from the photo
+									\item The user check that the system recognized correctly the plate
+									\item The user insert the type of violation.
+									\item The user clicks on "send report".
+									\item The system retrieve device's position and date and time to fill the last fields
+										of the report
+								\end{enumerate}
+								\vskip 4pt}\\
+						\hline
+						Exit Conditions & {The user reported the violation} \\
+						\hline
+						Exceptions & {
+								\vskip 4pt
+								\begin{itemize}
+									\item The vehicle has been already reported.
+									\item The system cannot obtain the user's position.
+									\item Not all the fields has been filled.
+									\item there is no internet connection available.
+								\end{itemize}
+								\vskip 4pt
+						} \\
+						\hline
+					\end{tabular}
+					\caption{}
+					\label{tab: }
+				\end{table}
+
+				\begin{table}[H]
+					\centering
+					\begin{tabular}{|c|p{0.92\linewidth}|}
+						\hline
+						Name & {Chronology} \\
+						\hline
+						Actor & {User} \\
+						\hline
+						Entry condition & {The User open and log in the SafeStreet application} \\
+						\hline
+						Events Flows &{ 
+								\vskip 4pt
+								\begin{enumerate}
+									\item The user click on "History" option
+									\item The system search and send a recap of all the user's reports
+									\item The user can check all his reports
+								\end{enumerate}
+								\vskip 4pt}\\
+						\hline
+						Exit Conditions & {The user clicks on "Exit" option} \\
+						\hline
+						Exceptions & {
+								\vskip 4pt
+								\begin{itemize}
+									\item The user has no reports.
+									\item There is no internet connection available.
+								\end{itemize}
+								\vskip 4pt
+						} \\
+						\hline
+					\end{tabular}
+					\caption{}
+					\label{tab: }
+				\end{table}
+				
+				\begin{table}[H]
+					\centering
+					\begin{tabular}{|c|p{0.92\linewidth}|}
+						\hline
+						Name & {Visualize Map} \\
+						\hline
+						Actor & {User} \\
+						\hline
+						Entry condition & {The User open SafeStreet, log in and choose the "Visualize Map" option} \\
+						\hline
+						Events Flows &{ 
+								\vskip 4pt
+								\begin{enumerate}
+									\item The user click on "Visualize Map"
+									\item The system retrieve the device's position and obtain information about
+										the near streets' reports number to calculate their "level" and display
+										it correctly
+									\item The user can navigate in the map seeing each street and their level
+								\end{enumerate}
+								\vskip 4pt}\\
+						\hline
+						Exit Conditions & {The user clicks on exit button} \\
+						\hline
+						Exceptions & {
+								\vskip 4pt
+								\begin{itemize}
+									\item There is no internet connection
+									\item The GPS system is not functioning
+									\item The app doesn't have permits to access to device's position
+								\end{itemize}
+								\vskip 4pt
+						} \\
+						\hline
+					\end{tabular}
+					\caption{}
+					\label{tab: }
+				\end{table}
+
+
+			%fine
+			
+			
+			
 			\paragraph {G1:} The application must allow the users to register entering an e-mail address and a password.
-		\begin{itemize}
-			\item{[R1]:} Registration must be allowed only entering an e-mail address that is not already associated to an existing SafeStreets account.
-			\item{[R2]:} Registration must be allowed only entering a password that satisfies the safety conditions.
-			\item{[R8]:} The system must store the hash of every password, using a safe cryptographic hash function.
-		\end{itemize}
+			\begin{itemize}
+				\item{[R1]:} Registration must be allowed only entering an e-mail address that is not already associated to an existing SafeStreets account.
+				\item{[R2]:} Registration must be allowed only entering a password that satisfies the safety conditions.
+				\item{[R8]:} The system must store the hash of every password, using a safe cryptographic hash function.
+			\end{itemize}
 
 			\paragraph {G2:} The application must allow the users to notify traffic violations, providing the type of violation and a picture of the vehicle.
-		\begin{itemize}
-			\item{[D1]:} The users always provide a picture that allows both the algorithm to read the license plate and the authority to identify the violation.
-			\item{[D2]:} Every user is provided with a device capable to share the exact GPS position at any moment.
-			\item{[D3]:} Every user is provided with a device capable to share the exact GPS position at any moment.
-			\item{[D5]:} Date, time and street of the violation are automatically inferred by the application.
-			\item{[D7]:} The user sends the report staying in the same place of the violation.
-	 		\item{[D8]:} The application reads correctly the license plates from the pictures attached to reports.
-		\end{itemize}
-		\begin{itemize}
-			\item{[R1]:} The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
-			\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
-			\item{[R3]:} The system must correctly read the license plate given a picture attached to a report.
-		\end{itemize}
+			\begin{itemize}
+				\item{[D1]:} The users always provide a picture that allows both the algorithm to read the license plate and the authority to identify the violation.
+				\item{[D2]:} Every user is provided with a device capable to share the exact GPS position at any moment.
+				\item{[D3]:} Every user is provided with a device capable to share the exact GPS position at any moment.
+				\item{[D5]:} Date, time and street of the violation are automatically inferred by the application.
+				\item{[D7]:} The user sends the report staying in the same place of the violation.
+		 		\item{[D8]:} The application reads correctly the license plates from the pictures attached to reports.
+			\end{itemize}
+			\begin{itemize}
+				\item{[R1]:} The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
+				\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
+				\item{[R3]:} The system must correctly read the license plate given a picture attached to a report.
+			\end{itemize}
 
 			\paragraph {G3:} The application must be able to show to the users the streets and the vehicles with the highest frequency of violations.
-		\begin{itemize}
-			\item{[D3]:} The name of the street where a violation occured is retrieved from the GPS position.
-			\item{[D4]:} Authorities never make mistakes in evaluating a report.
-			\item{[D5]:} Reports are evaluated only one time.
-			\item{[D7]:} If the same violation is reported twice, it counts only one time on the map.
-		\end{itemize}
-		\begin{itemize}
-			\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
-			\item{[R4]:} The system must exploit Google Maps APIs to show to the user the map of the violations.
-			\item{[R5]:} The system must show the right colors on the map, given the number of approved reports for each street.
-			\item{[R6]:} When a license plate is recognized, the system must show the number of approved reports for that car.
-		\end{itemize}
-			\paragraph {G4:}  The application must allow the user to see all of his reports and their status.
-		\begin{itemize}
-			\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
-			\item{[R7]:} The system must assign to each report a unique identification number.
-		\end{itemize}
+			\begin{itemize}
+				\item{[D3]:} The name of the street where a violation occured is retrieved from the GPS position.
+				\item{[D4]:} Authorities never make mistakes in evaluating a report.
+				\item{[D5]:} Reports are evaluated only one time.
+				\item{[D7]:} If the same violation is reported twice, it counts only one time on the map.
+			\end{itemize}
+			\begin{itemize}
+				\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
+				\item{[R4]:} The system must exploit Google Maps APIs to show to the user the map of the violations.
+				\item{[R5]:} The system must show the right colors on the map, given the number of approved reports for each street.
+				\item{[R6]:} When a license plate is recognized, the system must show the number of approved reports for that car.
+			\end{itemize}
+				\paragraph {G4:}  The application must allow the user to see all of his reports and their status.
+			\begin{itemize}
+				\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
+				\item{[R7]:} The system must assign to each report a unique identification number.
+			\end{itemize}
 
 		\subsection{Authority}
 			\paragraph {G5:} The application must allow the authorities to register providing a valid identification number and a valid password.
-		\begin{itemize}
-			\item{[R1]:} Registration must be allowed only entering an e-mail address that is not already associated to an existing SafeStreets account.
-			\item{[R2]:} Registration must be allowed only entering a password that satisfies the safety conditions.
-			\item{[R8]:} The system must store the hash of every password, using a safe cryptographic hash function.
-		\end{itemize}
+				\begin{itemize}
+					\item{[R1]:} Registration must be allowed only entering an e-mail address that is not already associated to an existing SafeStreets account.
+					\item{[R2]:} Registration must be allowed only entering a password that satisfies the safety conditions.
+					\item{[R8]:} The system must store the hash of every password, using a safe cryptographic hash function.
+				\end{itemize}
 			\paragraph {G6:} The application must allow authorities to retrieve and evaluate the available reports.
-		\begin{itemize}
-			\item{[D3]:} The name of the street where a violation occured is retrieved from the GPS position.
-			\item{[D5]:} Reports are evaluated only one time.
-		\end{itemize}
-		\begin{itemize}
-			\item{[R1]:} The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
-			\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
-			\item{[R7]:} The system must assign to each report a unique identification number.
-		\end{itemize}
+				\begin{itemize}
+					\item{[D3]:} The name of the street where a violation occured is retrieved from the GPS position.
+					\item{[D5]:} Reports are evaluated only one time.
+				\end{itemize}
+				\begin{itemize}
+					\item{[R1]:} The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
+					\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
+					\item{[R7]:} The system must assign to each report a unique identification number.
+				\end{itemize}
 			\paragraph {G7:} The application must be able to identify potentially unsafe areas and suggest possible interventions.
-		\begin{itemize}
-			\item{[D3]:} Every user is provided with a device capable to share the exact GPS position at any moment.
-	 		\item{[D4]:} Authorities never make mistakes in evaluating a report.
-			\item{[D5]:} Date, time and street of the violation are automatically inferred by the application.
-	 		\item{[D6]:} The user sends the report staying in the same place of the violation.
-			\item{[D7]:} If the same violation is reported twice, it counts only one time on the map.
-		\end{itemize}
-		\begin{itemize}
-			\item{[R]:} The system must include a simple recommender system that, according on the number of each type of violation, suggests a possible intervention to the authorities of a municipality.
-		\end{itemize}
+				\begin{itemize}
+					\item{[D3]:} Every user is provided with a device capable to share the exact GPS position at any moment.
+			 		\item{[D4]:} Authorities never make mistakes in evaluating a report.
+					\item{[D5]:} Date, time and street of the violation are automatically inferred by the application.
+			 		\item{[D6]:} The user sends the report staying in the same place of the violation.
+					\item{[D7]:} If the same violation is reported twice, it counts only one time on the map.
+				\end{itemize}
+				\begin{itemize}
+					\item{[R]:} The system must include a simple recommender system that, according on the number of each type of violation, suggests a possible intervention to the authorities of a municipality.
+				\end{itemize}
 	
 	\section{Performance Requirments}
 	\section{Design constraints}
