@@ -561,6 +561,7 @@ Maybe trivial assumptions can be omitted?
 			\begin{itemize}
 				\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
 				\item{[R7]:} The system must assign to each report a unique identification number.
+				\item{[R12]:} The system must notify the user when one of his reports is evaluated.
 			\end{itemize}
 
 		\subsection{Authority}
@@ -570,6 +571,7 @@ Maybe trivial assumptions can be omitted?
 					\item{[R2]:} Registration must be allowed only entering a password that satisfies the safety conditions.
 					\item{[R8]:} The system must store the hash of every password, using a safe cryptographic hash function.
 				\end{itemize}
+
 			\paragraph {G6:} The application must allow authorities to retrieve and evaluate the available reports.
 				\begin{itemize}
 					\item{[D3]:} The name of the street where a violation occured is retrieved from the GPS position.
@@ -580,6 +582,7 @@ Maybe trivial assumptions can be omitted?
 					\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
 					\item{[R7]:} The system must assign to each report a unique identification number.
 					\item{[R10:]} The system must guarantee that each municipality is covered by at least one authority.
+					\item{[R12]:} The system must notify the authorities when a new report is available.
 				\end{itemize}
 			\paragraph {G7:} The application must be able to identify potentially unsafe areas and suggest possible interventions.
 				\begin{itemize}
