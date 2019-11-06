@@ -42,17 +42,17 @@
 \contentsline {paragraph}{G5:}{21}% 
 \contentsline {paragraph}{G6:}{21}% 
 \contentsline {paragraph}{G7:}{22}% 
-\contentsline {section}{\numberline {3.3}Performance Requirments}{22}% 
-\contentsline {section}{\numberline {3.4}Design constraints}{22}% 
-\contentsline {subsection}{\numberline {3.4.1}Standards compliance}{22}% 
-\contentsline {subsection}{\numberline {3.4.2}Hardware limitations}{22}% 
-\contentsline {subsection}{\numberline {3.4.3}Any other costraint}{22}% 
-\contentsline {section}{\numberline {3.5}Software System Attributes}{22}% 
-\contentsline {subsection}{\numberline {3.5.1}Reliability}{22}% 
-\contentsline {subsection}{\numberline {3.5.2}Availability}{22}% 
-\contentsline {subsection}{\numberline {3.5.3}Security}{22}% 
-\contentsline {subsection}{\numberline {3.5.4}Maintainability}{22}% 
-\contentsline {subsection}{\numberline {3.5.5}Portablity}{22}% 
-\contentsline {chapter}{\numberline {4}Formal Analysis}{23}% 
-\contentsline {chapter}{\numberline {5}Effort Spent}{24}% 
-\contentsline {chapter}{\numberline {6}References}{25}% 
+\contentsline {section}{\numberline {3.3}Performance Requirments}{23}% 
+\contentsline {section}{\numberline {3.4}Design constraints}{23}% 
+\contentsline {subsection}{\numberline {3.4.1}Standards compliance}{23}% 
+\contentsline {subsection}{\numberline {3.4.2}Hardware limitations}{23}% 
+\contentsline {subsection}{\numberline {3.4.3}Any other costraint}{23}% 
+\contentsline {section}{\numberline {3.5}Software System Attributes}{23}% 
+\contentsline {subsection}{\numberline {3.5.1}Reliability}{23}% 
+\contentsline {subsection}{\numberline {3.5.2}Availability}{23}% 
+\contentsline {subsection}{\numberline {3.5.3}Security}{23}% 
+\contentsline {subsection}{\numberline {3.5.4}Maintainability}{23}% 
+\contentsline {subsection}{\numberline {3.5.5}Portablity}{23}% 
+\contentsline {chapter}{\numberline {4}Formal Analysis}{24}% 
+\contentsline {chapter}{\numberline {5}Effort Spent}{25}% 
+\contentsline {chapter}{\numberline {6}References}{26}% 
