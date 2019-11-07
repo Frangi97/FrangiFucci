@@ -317,15 +317,26 @@ Maybe trivial assumptions can be omitted?
 					were useless.
 					
 				\subparagraph{Scenario 3}
-					Giuseppe	
+					Giuseppe is collecting some data about traffic and traffic violation for an University project, to retrieve more
+					information it use the Map offered by SafeStreets to know which zones are more indicated to traffic violations
 					
+				
+				In this paragraph will be illustrated all the use cases diagram, use cases and sequence diagrams.
+					
+				\begin{figure}[H]
+					\begin{subfigure}{\textwidth}
+						\includegraphics[scale = 0.75, center]{UseCaseC}
+						\caption{State diagram on the behavior of reports for citizen}
+					\end{subfigure}
+				\end{figure}
+
 				\begin{table}[H]
 					\centering
 					\begin{tabular}{|c|p{0.92\linewidth}|}
 						\hline
 						Name & {Sign up} \\
 						\hline
-						Actor & {User} \\
+						Actor & {User, Authorities} \\
 						\hline
 						Entry condition & {The User want to use for the first time SafeStreet and open the application on
 									his device} \\
@@ -368,7 +379,7 @@ Maybe trivial assumptions can be omitted?
 						\hline
 						Name & {Log in} \\
 						\hline
-						Actor & {User} \\
+						Actor & {User, Authorities} \\
 						\hline
 						Entry condition & {The User open the application because he want to access the service he 
 									already signed up} \\
@@ -440,7 +451,7 @@ Maybe trivial assumptions can be omitted?
 						} \\
 						\hline
 					\end{tabular}
-					\caption{}
+					\caption{Report}
 					\label{tab: }
 				\end{table}
 
@@ -475,7 +486,7 @@ Maybe trivial assumptions can be omitted?
 						} \\
 						\hline
 					\end{tabular}
-					\caption{}
+					\caption{Use case Chronology}
 					\label{tab: }
 				\end{table}
 				
@@ -513,11 +524,28 @@ Maybe trivial assumptions can be omitted?
 						} \\
 						\hline
 					\end{tabular}
-					\caption{}
+					\caption{Use case on Visualize Map}
 					\label{tab: }
 				\end{table}
-
-
+				
+				\begin{figure}[H]
+					\begin{subfigure}{\textwidth}
+						\includegraphics[scale = 0.75, center]{ReportSequenceDiagram}
+						\caption{Sequence diagram on the behavior of reports for citizen}
+					\end{subfigure}
+				\end{figure}
+				\begin{figure}[H]
+					\begin{subfigure}{\textwidth}
+						\includegraphics[scale = 0.70, center]{MapSequenceDiagram}
+						\caption{Sequence diagram about Map option}
+					\end{subfigure}
+				\end{figure}
+				\begin{figure}[H]
+					\begin{subfigure}{\textwidth}
+						\includegraphics[scale = 0.70, center]{HhistorySequenceDiagram}
+						\caption{Reports History}
+					\end{subfigure}
+				\end{figure}
 			%fine
 			
 			
@@ -565,6 +593,100 @@ Maybe trivial assumptions can be omitted?
 			\end{itemize}
 
 		\subsection{Authority}
+			\paragraph{Scenarios}
+				\subparagraph{Scenario 1}
+					Eddie Edison, an officer had noticed a vertiginous increment of traffic violations, so to increase the control
+					on the streets decide to join SafeStreets
+					
+				\subparagraph{Scenario 2}
+					Major Clancy Winchester had noticed that even with various tentative to reduce the car accidents he didn't
+					succeed, so he decide to try to subscribe to and advanced option offered by SafeStreets trying to receive
+					new suggestion to improve the security
+					
+				In this paragraph will be illustrated all the use cases diagram, use cases and sequence diagrams, the "sing up" and "log in"
+				are not reported because are the same as above.
+			
+			\begin{figure}[H]
+				\begin{subfigure}{\textwidth}
+					\includegraphics[scale = 0.75, center]{UseCaseA}
+					\caption{Sequence diagram on the behavior of reports for citizen}
+				\end{subfigure}
+			\end{figure}
+			
+
+			\begin{table}[H]
+				\centering
+				\begin{tabular}{|c|p{0.92\linewidth}|}
+					\hline
+					Name & {Evaluate report} \\
+					\hline
+					Actor & {Authorities} \\
+					\hline
+					Entry condition & {The authorities is logged in} \\
+					\hline
+					Events Flows &{ 
+							\vskip 4pt
+							\begin{enumerate}
+								\item The authority click on the "Evaluate reports" options
+								\item The system retrieve all the pending reports
+								\item The authority choose if accept or reject each single report based on the information
+									contained in the report
+							\end{enumerate}
+							\vskip 4pt}\\
+					\hline
+					Exit Conditions & {The user clicks on exit button} \\
+					\hline
+					Exceptions & {/} \\
+					\hline
+				\end{tabular}
+				\caption{Evaluate report}
+				\label{tab: }
+			\end{table}
+			
+			\begin{table}[H]
+				\centering
+				\begin{tabular}{|c|p{0.92\linewidth}|}
+					\hline
+					Name & {Suggestion} \\
+					\hline
+					Actor & {Authorities} \\
+					\hline
+					Entry condition & {The authorities is logged in} \\
+					\hline
+					Events Flows &{ 
+							\vskip 4pt
+							\begin{enumerate}
+								\item The authority click on the "Suggestion" options
+								\item He choose one Street under his control
+								\item The system based on the street and the accidents give a recommendation
+							\end{enumerate}
+							\vskip 4pt}\\
+					\hline
+					Exit Conditions & {The user clicks on exit button} \\
+					\hline
+					Exceptions & {The authorities hasn't activated this optional functionality} \\
+					\hline
+				\end{tabular}
+				\caption{Evaluate report}
+				\label{tab: }
+			\end{table}
+			
+			\begin{figure}[H]
+				\begin{subfigure}{\textwidth}
+					\includegraphics[scale = 0.75, center]{EvaluateSequenceDiagram}
+					\caption{Sequence diagram on the behavior of reports for citizen}
+				\end{subfigure}
+			\end{figure}
+
+			\begin{figure}[H]
+				\begin{subfigure}{\textwidth}
+					\includegraphics[scale = 0.75, center]{SuggestionSequenceDiagram}
+					\caption{Sequence diagram on the behavior of reports for citizen}
+				\end{subfigure}
+			\end{figure}
+
+
+				
 			\paragraph {G5:} The application must allow the authorities to register providing a valid identification number and a valid password.
 				\begin{itemize}
 					\item{[R1]:} Registration must be allowed only entering an e-mail address that is not already associated to an existing SafeStreets account.
