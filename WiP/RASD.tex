@@ -12,6 +12,11 @@
 \usepackage{float}
 \usepackage{tabularx}
 
+% To import alloy source code
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage{alloy-style}
+
 % Path relative to the .tex file containing the \includegraphics command
 \graphicspath{ {./images/} }  
 
@@ -777,6 +782,30 @@ Maybe trivial assumptions can be omitted?
 % End of third chapter
 
 \chapter{Formal Analysis}
+	\section{Purpose}
+This chapter shows the analysis of the Alloy model of the proposed system. Obviously, here the focus is only on some critical aspects of the application that require a special attention. In particular, the purpose of this model is to guarantee that:
+\begin{itemize}
+	\item The provided e-mail address is different for each user or authority;
+	\item Every report has a unique identification number;
+	\item Every municipality has at least one authority assigned;
+	\item The authorities correctly receive notifications when a report is available;
+	\item The users correctly receive notifications when one of their report is evaluated.
+\end{itemize}
+	\section{Model}
+
+	\lstinputlisting[language=alloy]{Model.als}
+
+	\section{Results}
+	The following is the result of the Alloy Analizer with the input shown in the previous section. The \emph{world1} predicate is used to generate a world suitable to be read, which will be shown in the next section.
+		\begin{figure}[H]
+				\includegraphics[scale = 0.9, center]{Consistency}
+				\caption{Results}
+		\end{figure}
+
+	\section{Generated world}
+		\begin{figure}[H]
+				\includegraphics[scale = 1, center]{world1}
+		\end{figure}
 % End of fourth chapter
 
 \chapter{Effort Spent}
