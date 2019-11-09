@@ -765,20 +765,83 @@ Maybe trivial assumptions can be omitted?
 				\end{subfigure}
 			\end{figure}
 
+	\subsection{Traceability Matrix}
+			In the following we are going to recap all the various requirements and Use cases linking each other in the Traceability Matrix
+			\begin{table}[H]
+				\centering
+				\begin{tabular}{|c|c|}
+					\hline
+					Requirement & Use Case \\ 
+					\hline
+					\hline
+					R1 & \shortstack{\\Sign up \& Log in\\ Report} \\
+					\hline
+					R2 &  \shortstack{\\Sign up \& Log in\\ Report } \\
+					\hline
+					R3 &  \shortstack{\\Report} \\
+					\hline
+					R4 &  \shortstack{\\Visualize map} \\
+					\hline
+					R5 &  \shortstack{\\Visualize map} \\
+					\hline
+					R6 &  \shortstack{\\Report} \\
+					\hline
+					R7 &  \shortstack{\\Report} \\
+					\hline
+					R8 &  \shortstack{\\Sign up \&Log in} \\
+					\hline
+					R9 &  \shortstack{\\Reports \\Visualize Map} \\
+					\hline
+					R10 &  \shortstack{\\Reports \\ Evaluate report} \\
+					\hline
+					R11 &  \shortstack{\\Make suggestion} \\
+					\hline
+					R12 &  \shortstack{\\Report} \\
+					\hline
+				\end{tabular}
+				\caption{Traceability matrix}
+				\label{tab: }
+			\end{table}
+
+
+
+			
+	
+	\section{Performance Requirments}
+		The System has to be able to serve a large number of Users and Authorities simultaneously guaranteeing quick, 
+		reactive and correct responses. It's important to underline that the accuracy of the suggestions received by the system
+		are based on the data shared with SafeStreets and the system doesn't guarantee that the proposed solution will surely
+		resolve the problem, the system will calculate the probability that the solution will resolve entirely the problem.
+	\section{Design constraints}
+		\subsection{Standards compliance}
+			
+		\subsection{Hardware limitations}
+			
+		\subsection{Any other costraint}
+			
+	\section{Software System Attributes}
+		\subsection{Reliability}
+			The system must be able to run continuously without any interruptions. In order to do that, it must 
+			be ensured  that  the system is fault tolerant, this means that will be some precaution to avoid that the system
+			will be offline or unavailable. One of the many will be a daily backup of all the data on another server to avoid major
+			data loss.
+		\subsection{Availability}
+			The system has to be fault tolerant architecture, the most important availability is about the reports and is supposed
+			to be 99.999\%  of the time available (otherwise a huge number of reports will be lost and the system will never recover them). The other
+			functionality are suppose to be 99.99\% of the time available.
+		\subsection{Security}
+			The privacy is granted to both communication's side: the user doesn't know who evaluated his report and the authorities
+			only see a nickname for the user, they cannot see any information like name or e mail. The communication is crypted with
+			with a shared key at the beginning of the session to avoid that any unauthorized user could intercepts any message.
+		\subsection{Maintainability}
+			The system is studied in a way that it will be very easy to modify or substitute any part to improve it, it is studied
+			with a modular structure, so if one day a better recommender system is designed to solve the suggestion part the
+			introduction of the new one will not impact the rest of the system.
+		\subsection{Portablity}
+			The system could be used on any mobile device with an internet connection available.
 
 
 	
-	\section{Performance Requirments}
-	\section{Design constraints}
-		\subsection{Standards compliance}
-		\subsection{Hardware limitations}
-		\subsection{Any other costraint}
-	\section{Software System Attributes}
-		\subsection{Reliability}
-		\subsection{Availability}
-		\subsection{Security}
-		\subsection{Maintainability}
-		\subsection{Portablity}
 % End of third chapter
 
 \chapter{Formal Analysis}
