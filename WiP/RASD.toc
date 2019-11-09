@@ -34,26 +34,29 @@
 \contentsline {subparagraph}{Scenario 1}{14}% 
 \contentsline {subparagraph}{Scenario 2}{14}% 
 \contentsline {subparagraph}{Scenario 3}{14}% 
-\contentsline {paragraph}{G1:}{19}% 
-\contentsline {paragraph}{G2:}{19}% 
-\contentsline {paragraph}{G3:}{20}% 
-\contentsline {paragraph}{G4:}{21}% 
-\contentsline {paragraph}{G5:}{21}% 
-\contentsline {subsection}{\numberline {3.2.2}Authority}{21}% 
-\contentsline {paragraph}{G6:}{21}% 
-\contentsline {paragraph}{G7:}{22}% 
-\contentsline {paragraph}{G8:}{22}% 
-\contentsline {section}{\numberline {3.3}Performance Requirments}{23}% 
-\contentsline {section}{\numberline {3.4}Design constraints}{23}% 
-\contentsline {subsection}{\numberline {3.4.1}Standards compliance}{23}% 
-\contentsline {subsection}{\numberline {3.4.2}Hardware limitations}{23}% 
-\contentsline {subsection}{\numberline {3.4.3}Any other costraint}{23}% 
-\contentsline {section}{\numberline {3.5}Software System Attributes}{23}% 
-\contentsline {subsection}{\numberline {3.5.1}Reliability}{23}% 
-\contentsline {subsection}{\numberline {3.5.2}Availability}{23}% 
-\contentsline {subsection}{\numberline {3.5.3}Security}{23}% 
-\contentsline {subsection}{\numberline {3.5.4}Maintainability}{23}% 
-\contentsline {subsection}{\numberline {3.5.5}Portablity}{23}% 
-\contentsline {chapter}{\numberline {4}Formal Analysis}{24}% 
-\contentsline {chapter}{\numberline {5}Effort Spent}{25}% 
-\contentsline {chapter}{\numberline {6}References}{26}% 
+\contentsline {paragraph}{G1:}{23}% 
+\contentsline {paragraph}{G2:}{23}% 
+\contentsline {paragraph}{G3:}{24}% 
+\contentsline {paragraph}{G4:}{24}% 
+\contentsline {paragraph}{G5:}{24}% 
+\contentsline {subsection}{\numberline {3.2.2}Authority}{25}% 
+\contentsline {paragraph}{G6:}{25}% 
+\contentsline {paragraph}{G7:}{25}% 
+\contentsline {paragraph}{G8:}{26}% 
+\contentsline {paragraph}{Scenarios}{26}% 
+\contentsline {subparagraph}{Scenario 1}{26}% 
+\contentsline {subparagraph}{Scenario 2}{26}% 
+\contentsline {section}{\numberline {3.3}Performance Requirments}{30}% 
+\contentsline {section}{\numberline {3.4}Design constraints}{30}% 
+\contentsline {subsection}{\numberline {3.4.1}Standards compliance}{30}% 
+\contentsline {subsection}{\numberline {3.4.2}Hardware limitations}{30}% 
+\contentsline {subsection}{\numberline {3.4.3}Any other costraint}{30}% 
+\contentsline {section}{\numberline {3.5}Software System Attributes}{30}% 
+\contentsline {subsection}{\numberline {3.5.1}Reliability}{30}% 
+\contentsline {subsection}{\numberline {3.5.2}Availability}{30}% 
+\contentsline {subsection}{\numberline {3.5.3}Security}{30}% 
+\contentsline {subsection}{\numberline {3.5.4}Maintainability}{30}% 
+\contentsline {subsection}{\numberline {3.5.5}Portablity}{30}% 
+\contentsline {chapter}{\numberline {4}Formal Analysis}{31}% 
+\contentsline {chapter}{\numberline {5}Effort Spent}{32}% 
+\contentsline {chapter}{\numberline {6}References}{33}% 
