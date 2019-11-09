@@ -58,5 +58,9 @@
 \contentsline {subsection}{\numberline {3.5.4}Maintainability}{31}% 
 \contentsline {subsection}{\numberline {3.5.5}Portablity}{31}% 
 \contentsline {chapter}{\numberline {4}Formal Analysis}{32}% 
-\contentsline {chapter}{\numberline {5}Effort Spent}{33}% 
-\contentsline {chapter}{\numberline {6}References}{34}% 
+\contentsline {section}{\numberline {4.1}Purpose}{32}% 
+\contentsline {section}{\numberline {4.2}Model}{32}% 
+\contentsline {section}{\numberline {4.3}Results}{35}% 
+\contentsline {section}{\numberline {4.4}Generated world}{36}% 
+\contentsline {chapter}{\numberline {5}Effort Spent}{37}% 
+\contentsline {chapter}{\numberline {6}References}{38}% 

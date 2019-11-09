@@ -12,12 +12,6 @@ sig Municipality {
 
 sig Id {}
 
-sig LicensePlate {}
-
-sig Street {}
-
-sig Position {}
-
 abstract sig ViolationType {}
 -- showing all subclasses is not the purpose of this model
 
@@ -51,14 +45,12 @@ sig User extends Customer {
 }
 
 sig Authority extends Customer {
-	-- the reports the authority has to evaluate
-	reports: set Report,
 	-- the working place of the authority
 	municipalities: set Municipality,
 	-- list of new available reports
 	notifications: set AvailableNotification
 } {
-	#municipality > 0
+	#municipalities > 0
 }
 
 -- every e-mail address must be associated to a user or an authority
@@ -71,7 +63,7 @@ fact {
 	no disj c1,c2: Customer | c1.password = c2.password
 }
 
--- every password address must be associated to a user or an authority
+-- every password must be associated to a user or an authority
 fact {
 	all pw : Password | some c : Customer | pw in c.password
 }
@@ -79,6 +71,11 @@ fact {
 -- every customer must have a unique e-mail address
 fact {
 	no disj c1,c2: Customer | c1.email = c2.email
+}
+
+-- every report must generate an available notification
+fact {
+	all r : Report | one an : AvailableNotification | an.report = r
 }
 
 -- each authority must work in at least one municipality
@@ -96,9 +93,15 @@ fact {
 	all i : Id | some r : Report | i = r.id
 }
 
--- every authority must receive all the reports in his working places
+-- authorities must receive notifications of reports in their working areas 
 fact {
-	all r : Report | all a : Authority | r.municipality in a.municipalities iff r in a.reports
+	all r : Report, a : Authority | one an : AvailableNotification | r.municipality in a.municipalities implies
+		an in a.notifications and r = an.report
+}
+
+-- municipalities must have as agents only authorities that work there
+fact {
+	all m : Municipality, a : Authority | m in a.municipalities iff a in m.agents
 }
 
 -- every authority works in a municipality if and only if that municipality is in his working places
@@ -106,50 +109,43 @@ fact {
 	all a : Authority, m : Municipality | a in m.agents iff m in a.municipalities
 }
 
--- evey evaluated notification must belong to one user
+-- every user is the author of a report if and only if that report is in his reports list
 fact {
-	all en : EvaluatedNotification | one u : User | en in u.notifications
+	all u : User, r : Report | u = r.author iff r in u.reports
 }
 
--- every report must produce not more than one evaluated notification
+-- the user must be notified of the evaluation of his reports
 fact {
-	all r : Report | lone en : EvaluatedNotification | en.report = r
+	all r : Report, en : EvaluatedNotification, u: User | r in u.reports and en.report = r implies en in u.notifications 
 }
 
--- every report must produce not more than one available notification
+-- the other users must not be notified of the evaluation of reports from another user
 fact {
-	all r : Report | lone an : AvailableNotification | an.report = r
+	all r : Report, en : EvaluatedNotification, u: User | (r not in u.reports and en.report = r) 
+		implies (en not in u.notifications)
+}
+	
+assert EveryReportIsReceived {
+	all r : Report | some a : Authority | r in a.notifications.report
 }
 
--- every user can receive only notifications for his own reports
-fact {
-	all en : EvaluatedNotification | one u : User | en in u.notifications and en.report in u.reports
+assert EveryEvaluationIsNotified {
+	all en : EvaluatedNotification | one u : User | u = en.report.author and en in u.notifications
 }
 
--- every authority must receive the available notifications for his working areas
-fact {
-	all an : AvailableNotification, a : Authority | 
-		an.report.municipality in a.municipalities implies an in a.notifications
+assert EveryMunicipalityIsCovered {
+	all m : Municipality | some a : Authority | a in m.agents
 }
 
--- every report must notify the authorities of that municipality
-fact {
-	all r : Report, a : Authority, an : AvailableNotification | r.municipality in a.municipalities
-		implies an in a.notifications and an.report = r
+pred world1 {
+	#Report = 2
+	#User = 2
 }
 
--- every evaluated notification must belong to the user that sent the report
-fact {
-	all en : EvaluatedNotification | some u : User | en.report in u.reports
-}
+check EveryReportIsReceived for 6
 
+check EveryMunicipalityIsCovered for 6
 
-pred show () {}
+check EveryEvaluationIsNotified for 6
 
-run show for 3
-
-
-
-
-
-
+run world1 for 5
