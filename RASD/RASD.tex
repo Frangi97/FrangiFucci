@@ -111,7 +111,9 @@ Safestreet is an application to be used both from civilians (users) and authorit
 			\item \textbf{API}: \emph{Application Programming Interface.}
 			\item \textbf{GPS}: \emph{Global Positioning System.}
 			\item \textbf{UI}: \emph{User Interface.}		
-			\item \textbf{S2B}: \emph{Software-to-be.}	
+			\item \textbf{S2B}: \emph{Software-to-be.}				
+			\item \textbf{PKC}: \emph{Public Key Cryptography.}		
+			\item \textbf{AES}: \emph{Advanced Encryption Standard.}		
 			\end{itemize}
 
 	\section{Reference documents}
@@ -877,7 +879,7 @@ The following are the assumptions made to simplify and clarify some situation th
 			functionalities are supposed to be available 99.99\% of the time.
 		\subsection{Security}
 			The privacy is granted to both communication sides: the user doesn't know who evaluated his report and the authorities
-			only see a number representing the user, so they cannot see any information like name or e mail. Client-server communication is granted using a PKC. The public key is used at the beginning of the session to exchange a secret symmetric key. The communication continues encrypting the messages with the symmetric key (e.g. an AES-256 key). 
+			only see a number representing the user, so they cannot see any information like name or e mail. Confidentiality of client-server communication is granted exploiting PKC. The public key is used at the beginning of the session to exchange a secret symmetric key. The communication continues encrypting the messages with the symmetric key (e.g. an AES key). 
 		\subsection{Maintainability}
 			The system is realised with a modular structure, so it will be very easy to improve or substitute any part of it. For example, if one day a better recommender system is designed, the
 			introduction of the new one will not impact the rest of the system.
