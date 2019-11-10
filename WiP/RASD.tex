@@ -145,14 +145,14 @@ Safestreet is an application to be used both from civilians (users) and authorit
 		will receive a notification by Safe Streets to inform him the success (or failure) of his report. 
 		\begin{figure}[H]
 			\begin{subfigure}{\textwidth}
-				\includegraphics[scale = 0.75, center]{uml}
+				\includegraphics[scale = 0.55, center]{uml}
 				\caption{UML model}
 				\label{UML model }
 			\end{subfigure}
 		\end{figure}
 		This figure represent a draft of how the system's UML model is supposed to look like. Because it is only the model part the 
 		classes represented are only the few essential to save correctly all the data necessary for all the analysis and to be displayed
-		(respectively that are part of controller and view) and in order to save up space we avoided to write every single getter and setter.
+		(respectively that are part of controller and view) and in order to save up space we avoided to write every single getter and setter or attribute.
 		A generic Customer has been model with an abstract class and both authorities and User inherit it.
 		Report is a combination of various classes, it contains an unique id, the Street (obtained by the gps position), the time (obtained
 		by the system when it receive the report), the vehicle license's plate and the type of violation, it has also an enum attribute
