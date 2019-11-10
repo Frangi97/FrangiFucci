@@ -26,7 +26,7 @@
 \setcounter{tocdepth}{1}
 
 % I don't like dots in the Toc
-\usepackage[titles]{tocloft}
+\usepackage{tocloft}
 \renewcommand{\cftdot}{}
 
 % To import alloy source code
@@ -822,12 +822,26 @@ Maybe trivial assumptions can be omitted?
 		resolve the problem, the system will calculate the probability that the solution will resolve entirely the problem.
 	\section{Design constraints}
 		\subsection{Standards compliance}
-			
+			The error of the users position is expressed in meters or feet, it depends on the unity preferred by the authorities
+			, and has to be less than 10 meters.\\
+			The system is designed to protect to the privacy of users' data, as a matter of fact the entire 
+			project is subject to the General Data Protection Regulation (GDPR), a regulation in EU 
+			law on data protect on and privacy for all individuals within the European Union (EU) and 
+			the European Economic Area (EEA).
 		\subsection{Hardware limitations}
-			
+			As specified in the “Dependencies and constraints” section, hardware requirements are present 
+			only in relation to specific functionalities, for example to make report is necessary a device with
+			a functioning internet connection, a camera and a gps system.\\
+			To recap all the hardware requirements are:
+			\begin{itemize}
+				\item Any type of internet connection;
+				\item a functioning gps system;
+				\item a camera.
+			\end{itemize}
 		\subsection{Any other costraint}
-			
-	\section{Software System Attributes}
+			The system does not have any other type of particular constraints. In order to protect users' privacy is important
+			to remind that the data will be maintained secret (the authorities will not be able to see which user made a report)
+			and that SafeStreets will respect the GDPR regulation.	\section{Software System Attributes}
 		\subsection{Reliability}
 			The system must be able to run continuously without any interruptions. In order to do that, it must 
 			be ensured  that  the system is fault tolerant, this means that will be some precaution to avoid that the system
