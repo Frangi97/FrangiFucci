@@ -12,7 +12,7 @@
 \usepackage{float}
 \usepackage{tabularx}
 
-% To build a clickable ToC
+% To build a clickable Toc
 \usepackage{color}   %May be necessary if you want to color links
 \usepackage{hyperref}
 \hypersetup{
@@ -22,6 +22,13 @@
     urlcolor = black
 }
 
+% Command to hide subsections in the Toc
+\setcounter{tocdepth}{1}
+
+% I don't like dots in the Toc
+\usepackage[titles]{tocloft}
+\renewcommand{\cftdot}{}
+
 % To import alloy source code
 \usepackage[dvipsnames]{xcolor}
 \usepackage{listings}
@@ -30,19 +37,15 @@
 % Path relative to the .tex file containing the \includegraphics command
 \graphicspath{ {./images/} }  
 
-%To use enumerate
-
 % To change the ToC title
 \addto\captionsenglish{ \renewcommand {\contentsname} {Table of contents}}
 
+% Here we go
 \title{SafeStreets - RASD \\ \large version 1.0}
 \author{Frangi Alberto, Fucci Tiziano}
 \date{A.Y. 2019/2020}
 \begin{document}
 \maketitle
-
-% Command to hide subsections in the index
-\setcounter{tocdepth}{1}
 
 % Index
 \tableofcontents
@@ -110,11 +113,6 @@ Safestreet is an application to be used both from civilians (users) and authorit
 			\item \textbf{UI}: \emph{User Interface.}		
 			\item \textbf{S2B}: \emph{Software-to-be.}	
 			\end{itemize}
-		\subsection{Abbreviations}
-% To be written
-
-	\section{Revision history}
-% To be written
 
 	\section{Reference documents}
 	\begin{itemize}
@@ -269,7 +267,7 @@ Maybe trivial assumptions can be omitted?
 \chapter{Specific Requirments}
 	\section{External interface requirments}
 		\subsection{User interfaces}
-		In this section some screenshots from the user interface are shown. Figures from (g) to (j) 
+		In this section some screenshots from the user interface are shown.
 		\begin{figure}[H]
 		\begin{subfigure}{0.5\textwidth}
 			\includegraphics[scale=0.25, center]{Login}
@@ -864,6 +862,8 @@ This chapter shows the analysis of the Alloy model of the proposed system. Obvio
 	\item The authorities correctly receive notifications when a report is available;
 	\item The users correctly receive notifications when one of their report is evaluated.
 \end{itemize}
+
+\newpage
 	\section{Model}
 
 	\lstinputlisting[language=alloy]{Model.als}
@@ -913,7 +913,6 @@ This chapter shows the analysis of the Alloy model of the proposed system. Obvio
 	\item Adobe Illustrator CC 2019 - to create mockups of the user interfeace;
 	\item TeX Live 2019 - to write and organize this document;
 	\item GitHub 2.23.0 - version control.
-
 	\end{itemize}
 
 % End of sixth chapter

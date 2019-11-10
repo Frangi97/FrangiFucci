@@ -125,8 +125,6 @@ fact {
 		implies (en not in u.notifications)
 }
 
-
-
 -- every report must not produce more than one evaluated notification
 fact {
 	all r : Report | lone en : EvaluatedNotification | en.report = r
