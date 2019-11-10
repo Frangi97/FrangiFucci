@@ -40,6 +40,7 @@
 % To change the ToC title
 \addto\captionsenglish{ \renewcommand {\contentsname} {Table of contents}}
 
+
 % Here we go
 \title{SafeStreets - RASD \\ \large version 1.0}
 \author{Frangi Alberto, Fucci Tiziano}
@@ -51,19 +52,19 @@
 \tableofcontents
 \chapter{Introduction}
 	\section{Purpose}
-SafeStreets is a crowd-sourced application that intends to provide users with the possibility to notify authorities when traffic violations occur, and in particular parking violations, such as vehicles parked in the middle of bike lanes or in places reserved for people with disabilities, double parking, and so on. The application allows users to send pictures of violations, including their date, time, and position, to authorities.
+SafeStreets is a crowd-sourced application that intends to allow users to notify authorities when traffic violations occur, and in particular parking violations, such as vehicles parked in the middle of bike lanes or in places reserved for people with disabilities, double parking, and so on. The application allows users to send pictures of violations, including their date, time, and position, to authorities.
  
-SafeStreets stores the information provided by users, completing it with suitable meta-data. In particular, when it receives a picture, it runs an algorithm to read the license plate (one can also think of mechanisms with which the user can help with the recognition), and stores the retrieved information with theviolation, including also the type of the violation (input by the user) and the name of the street where the violation occurred (which can be retrieved from the geographical position of the violation). 
+SafeStreets stores the information provided by users, completing it with suitable meta-data. In particular, when it receives a picture, it runs an algorithm to read the license plate (one can also think of mechanisms with which the user can help with the recognition), and stores the retrieved information with the violation, including also the type of the violation (input by the user) and the name of the street where the violation occurred (which can be retrieved from the geographical position of the violation). 
 
-The application allows both end users and authorities to mine the information that has been received, for example by highlighting the streets (or the areas) with the highest frequency of violations, or the vehicles that commit the most violations. 
+The application allows both users and authorities to mine the information that has been received, for example by highlighting the streets (or the areas) with the highest frequency of violations, or the vehicles that commit the most violations. 
 
 Moreover, if the municipality offers a service that allows users to retrieve the information about the accidents that occur on the territory of the municipality, SafeStrees can cross this information with its own data to identify potentially unsafe areas, and suggest possible interventions (e.g., add a barrier between the bike lane and the part of the road for motorized vehicles to prevent unsafe parking).
 
 
 	\section{Scope}
 	\subsection{General description}
-Safestreet is an application to be used both from civilians (users) and authorities, in order to help the latter and reduce traffic violations. Registered authorities can automatically receive reports made by users, so the service acts as an intermediary. The next paragraph gives a more formal description of what is the purpose of the application.
-	%(to be reviewed and completed)
+Safestreet is an application to be used both from civilians (users) and authorities, in order to help the latter and reduce traffic violations. Registered authorities can automatically receive reports made by users, so the service acts as an intermediary. The next paragraph gives a more formal description of which is the purpose of the application.
+
 	\subsection{Goals}
 	The following list describes the goals from the S2B perspective:
 		\subsubsection{User}
@@ -71,15 +72,14 @@ Safestreet is an application to be used both from civilians (users) and authorit
 	\begin{itemize}
 		\item \textbf{G1}: The application must allow the users to register entering an e-mail address and a password.
 		\item \textbf{G2}: The application must allow the users to notify traffic violations, providing  the type of violation and a picture of the vehicle.
-	% Il resto se lo trova da solo
 		\item \textbf{G3}: The application must be able to show to the users the streets and the vehicles with the highest frequency of violations.
-		\item \textbf{G4}: The application must allow the user to see all of his reports and their status.
-		\item \textbf{G5}: The application must notify the user when one of his reports is evaluated.
+		\item \textbf{G4}: The application must allow the users to see all of their reports and their status.
+		\item \textbf{G5}: The application must notify the users when one of their reports is evaluated.
 	\end{itemize}
 		\subsubsection{Authority}
 	\begin{itemize}
 		\item \textbf{G6}: The application must allow the authorities to register providing a valid identification number and a valid password.
-	  	\item \textbf{G7}: The application must allow authorities to retrieve and evaluate the available reports.
+	  	\item \textbf{G7}: The application must allow the authorities to retrieve and evaluate the available reports.
 		\item \textbf{G8}: The application must be able to identify potentially unsafe areas and suggest possible interventions.
 	\end{itemize}
 	
@@ -91,9 +91,9 @@ Safestreet is an application to be used both from civilians (users) and authorit
 			\begin{itemize}
 			\item notify authorities of some violation;
 			\item check which are the most dangerous (i.e. with the most violations) streets;
-			\item check which are the vehicles that committed the most violations.
 			\end{itemize}
-		\item \textbf{Authority}: a member of the local police who has access to reports made by users.
+		in this document, ``user", "citizen" and "civiian" are completely equivalent, where not specified.
+		\item \textbf{Authority}: a member of the local police who has access to reports made by users. The 					authorities evaluate the reports sent by the user to determine if the violation stands.
 		\item \textbf{Report}: a message consisting of:
 			\begin{itemize}
 			\item a picture showing the car in order to show the occurring violation;
@@ -115,7 +115,7 @@ Safestreet is an application to be used both from civilians (users) and authorit
 			\end{itemize}
 
 	\section{Reference documents}
-	The main reference document is ``SafeStreets Mandatory Project Assignment'' specification document. In 				chapter 6 the complete list of references is provided.
+	The main reference document is the ``SafeStreets Mandatory Project Assignment'' specification document. The complete list of references is provided in chapter 6.
 
 	\section{Document structure}
 	\begin{itemize}
@@ -131,47 +131,42 @@ Safestreet is an application to be used both from civilians (users) and authorit
 
 \chapter{Overall description}
 	\section{Product perspective}
-		Safe Streets want to be a mediator between authorities and citizen, allowing the last ones to report traffic violations, see
-		in which zone have the highest number of violations, and the recap of all the previous reports and their state
-		(seen, approved, rejected, in queue). In order to be able to report various violations an user has to be in first place in a
-		territory covered by any authorities who had signed up to Safe Streets, and has to sign up compiling a form, choosing a
-		nickname, unique for each user, and a mail. Any authority has to verify its identity using the institutional email 
-		The system to avoid spamming of request pending reports will be in a priority queue based 
-		on a reliability index associated to each user and hidden to both side of communication (is an information used only by 
-		the system for the priority queue). If the authorities sanction a violation reported the user 
-		will receive a notification by Safe Streets to inform him the success (or failure) of his report. 
+		Safe Streets wants to be a mediator between authorities and citizens, allowing the last ones to report traffic violations, see which zone has the highest number of violations, see the recap of all the previous reports and their state
+		(seen, approved, rejected, in queue). In order to be able to report various violations a user has firstly to be in a
+		territory covered by any authority who has signed up to Safe Streets, and has to sign up providing his e-mail address, unique for each user. Any authority has to verify its identity using the institutional email address.
+		To avoid spamming of requests, pending reports will be put in a priority queue based 
+		on a reliability index associated to each user and hidden to both side of communication (it is an information used only by 
+		the system for the priority queue). If the authorities evaluates a violation, the user who has reported it
+		will receive a notification by Safe Streets, to inform him of the success (or failure) of his report. 
 		\begin{figure}[H]
 			\begin{subfigure}{\textwidth}
-				\includegraphics[scale = 0.55, center]{uml}
+				\includegraphics[scale = 0.65, center]{uml}
 				\caption{UML model}
 				\label{UML model }
 			\end{subfigure}
 		\end{figure}
-		This figure represent a draft of how the system's UML model is supposed to look like. Because it is only the model part the 
-		classes represented are only the few essential to save correctly all the data necessary for all the analysis and to be displayed
-		(respectively that are part of controller and view) and in order to save up space we avoided to write every single getter and setter or attribute.
-		A generic Customer has been model with an abstract class and both authorities and User inherit it.
-		Report is a combination of various classes, it contains an unique id, the Street (obtained by the gps position), the time (obtained
-		by the system when it receive the report), the vehicle license's plate and the type of violation, it has also an enum attribute
-		to represent the status of the report. Both ``Street" and ``Zone" (which is a group of streets) contains a ViolationLevel, that
-		is calculated by the system and based on the reports' number in that particular street/zone. Intervention is a suggestion made
-		by the system on municipality's request, is created by a recommender system that apply some simple data mining's algorithm
-		in order to find the best improvement for each street based on the most frequent violations or accidents.
-		Municipality contains a list of possible interventions, all the authorities that operates in its territory and all reports
+		This figure represent a draft of how the system's UML model will be. Since it is only the model part, the represented classes are only the few essential to save correctly all the data necessary for the analysis. In order to save up space it has been avoided to write every single getter and setter or attribute.
+		A generic Customer has been modeled with an abstract class and both authorities and user inherit it.
+		Report is a combination of various classes, it contains a unique id, the Street (obtained by the GPS position), the time (obtained
+		by the system when it receives the report), the vehicle license's plate and the type of violation, it also has an enum attribute
+		to represent the status of the report. Both ``Street" and ``Zone" (which is a set of streets) contain a ViolationLevel, that
+		is calculated by the system and based on the number of reports in that particular street/zone. An Intervention is a suggestion made
+		by the system to improve security, it is chosen by a recommender system that applies some simple data mining's algorithms
+		in order to find the best improvement for each street, based on the most frequent violations or accidents.
+		Municipality contains a list of possible interventions, all the authorities that operate in its territory and all reports
 		(both evaluated and to evaluate).
 
-		
-		Now we are going to analyze some critical aspects of the application, modeling their behaviors and	
-		showing the evolution over time of their	states	through appropriate state diagrams, which are
+		Now some critical aspects of the application will be analyzed, modeling their behaviors and	
+		showing the evolution over time of their	states through appropriate state diagrams, which are
 		reported below.
 		
 		\begin{figure}[H]
 			\begin{subfigure}{\textwidth}
 				\includegraphics[scale = 0.75, center]{reportC}
-				\caption{State diagram on the behavior of reports for citizen}
+				\caption{State diagram on the behavior of reports for users}
 			\end{subfigure}
 		\end{figure}
-		This diagrams represent the behavior of the reporting system (for the citizen), is pretty straight forward. The system doesn't allow report
+		This diagrams represent the behavior of the reporting system (for the citizen). The concept is pretty straight forward: the system does not allow to send reports
 		with missing information or with wrong ones.
 		
 		\begin{figure}[H]
@@ -181,8 +176,8 @@ Safestreet is an application to be used both from civilians (users) and authorit
 			\end{subfigure}
 		\end{figure}	
 		This diagram is inherent to the reports verification process,
-		it show the evolution of the states necessary to handle a report, from when the authorities take in charge an user's report
-		to the eventual sanction to the car owner.
+		it shows the evolution of the states necessary to handle a report, from when the authorities take in charge a user's report
+		to the eventual sanction to the car owner. A sanction will result in the car being noticed, incrementing its reports' number. In the long run, this can take to increasing the violation level of that vehicle.
 		
 		\begin{figure}[H]
 			\begin{subfigure}{\textwidth}
@@ -190,58 +185,56 @@ Safestreet is an application to be used both from civilians (users) and authorit
 				\caption{State diagram on how reports work for authorities}
 			\end{subfigure}
 		\end{figure}
-		This last diagram represent how the last major functionality offered by SafeStreet. It consist in a system that offers suggestion
-		on how improve the safety on particular streets, based on the occurrence of car accident and street violations data that
+		This last diagram represents the last major functionality offered by SafeStreet. It consists in a system that offers suggestions
+		on how improve safety on particular streets, based on the occurrences of car accidents and street violations data that
 		the authorities choose to share with SafeStreets.
 		  
 		
 	\section{Product functions}
 		In the following section the most important product functions of the system are reported.
-		Safe Streets offers the possibility to its users to report traffic violations, check the status of the previous reports and see 
-		a map that indicates the areas with the highest number of report verified.
+		Safe Streets offers to its users the possibility to report traffic violations, check the status of the previous reports and see 
+		a map that indicates the areas with the highest number of reports verified.
 		\subsection{Report}
 			To report a violation a user has to take a picture of the possible violation with the plate visible, choose what type of
 			violation it is from various possible categories and send the position.
 		\subsection{Status}
 			This functionality allows user to see a recap of all the reports they have made. The information that will be displayed
-			are: Date and time, place, type of violation and status. The last one can be:
+			are: date and time, place, type of violation and status. The last one can be:
 			\begin{itemize}
 				\item \textbf{In queue:}
-					In this status the report is waiting to be analyzed by an authority. The report's priority is based on
-					the user who created it. All the user at the moment of registration has a standard value that based on
-					how Safe Street is used can increase or decrease. Some important factors are, for example, 
-					how many report a user sent has been rejected, how many report a user send in one time can decrease
+					in this status the report is waiting to be analyzed by an authority. The report's priority is based on
+					the user who created it. All the users, at the moment of the registration, have a standard value, that can increase or decrease basing on	how Safe Street is used. Some important factors are, for example, 
+					how many reports a user sent has been rejected, how many reports a user sent can decrease
 					the priority, but a wisely use of the system can increase it, like a streak of approved reports.
 				\item \textbf{Processing:}
-					In this status the authorities has seen the report and are considering the violation and if it is a real
+					in this status the authorities has seen the report and are considering the violation and if it is a real
 					violation.
 				\item \textbf{Approved:}
-					The report has been seen by authorities and the violation has been recognized and sanctioned 
+					the report has been seen by authorities and the violation has been recognized and sanctioned. 
 				\item \textbf{Rejected:}
-					The report has been seen by authorities and the violation hasn't been recognized.
+					the report has been seen by authorities and the violation hasn't been recognized.
 			\end{itemize}
 		\subsection{Map}
-			This function allows the user to open the map and see the "level of violations" of the different areas. These "levels" are
-			based on how many reports have been approved in that area, higher the level, higher the number of violation.
-			There are 4 levels, are indicated with different color, from no colour (level 0) to red (level 3).
+			This function allows the user to open the map and see the ``level of violations" of the different areas. These ``levels" are
+			based on how many reports have been approved in that area: higher the level, higher the number of violation.
+			There are 4 levels, which are indicated with different color, from no colour (level 0) to red (level 3).
 			
 	\section{User characteristics}
 		The actors of the application are the following:
 		\begin{itemize}
 			\item \textbf{User:}
-				a person who has registered to SafeStreets, he doesn't need any particular skill to use the system, 
+				a civilian who has registered to SafeStreets. He doesn't need any particular skill to use the system, 
 				he is just supposed to have a smartphone (or tablet) with a functioning camera, an internet connection and
-				that his phone can send his current position. The user can send a report to notify the authorities various traffic
-				violation, he can view a map that highlight the streets with an higher number of reports. To do a report is sufficient
-				take a photo of the license plate, the violation's type and the system retrieves in autonomous the current position
+				a phone that can send its current position.  To make a report it is sufficient to
+				take a picutre of the license plate, the violation's type and the system retrieves autonomously the current position
 				of the user.
 			\item \textbf{Authority:}
-				An agent of the local police of a municipality using SafeStreets, that has access to all the reports made
-				 in his municipality. The authority can visualize the available reports and valuate them, that is telling if the
+				An agent of the local police of a certain municipality exploiting SafeStreets, that has access to all the reports made
+				 in his municipality. The authority can visualize the available reports and evaluate them, that is telling if the
 				violation reported by the user stands or it is not a proper violation. After seeing a report, the authority 
-				changes its status to Approved or Rejected and if they activated
-				an optional service they can check the streets with the highest number of accident and receive
-				a suggestion (made by the system) about improve the safety.
+				changes its status to Approved or Rejected. By activateing
+				an optional service, authorities can check the streets with the highest number of accidents and receive
+				suggestions (chosen by the system) to improve safety.
 		\end{itemize}
 	\section{Assumptions, dependencies and constraints}
 	\subsection{Domain assumption} 
@@ -253,7 +246,7 @@ The following are the assumptions made to simplify and clarify some situation th
 			\item \textbf{D3}: The name of the street where a violation occured is retrieved from the GPS position.
 			\item \textbf{D4}: Authorities never make mistakes in evaluating a report.
 			\item \textbf{D5}: Reports are evaluated only one time.
-			\item \textbf{D6}: The user sends the report staying in the same place of the violation. attached to reports.
+			\item \textbf{D6}: The user sends the report staying in the same place of the violation.
 			\item \textbf{D7}: The picture of the license plate is taken at the moment and shows the right car.
 		\end{itemize}
 
@@ -398,23 +391,23 @@ The following are the assumptions made to simplify and clarify some situation th
 				\item{[R6]:} When a license plate is recognized, the system must show the number of approved reports for that car.
 				\item{[R9]:} If the same violation is reported twice, it counts only one time on the map.
 			\end{itemize}
+
+\paragraph{Scenarios}
+
 				\subparagraph{Scenario 1}
 					Mario, an elderly person who has a reserved parking lot, always has to spend time looking for a free
-					car park because someone frequently steals the one reserved to him without being sanctioned by
-					authorities. With the help of SafeStreet Mario can report the parking thief to authorities and verify
+					car park, because someone frequently steals the one reserved to him without being sanctioned by the
+					authorities. With the help of SafeStreets, Mario can report the parking thief to authorities and verify
 					that he gets sanctioned.
 					
 				\subparagraph{Scenario 2}
-					Luigi uses very frequently SafeStreet, but he is not sure if what he is doing is considered by authorities,
-					thanks to SafeStreets' reports history now he is certain on which reports has been useful and which
-					were useless.
+					Luigi uses very frequently SafeStreets, but he is not sure if what he is doing is considered by authorities.
+					Thanks to SafeStreets' reports history, now he is certain about which reports has been useful and which ones
+					were wrong.
 					
 				\subparagraph{Scenario 3}
-					Giuseppe is collecting some data about traffic and traffic violation for an University project, to retrieve more
-					information it use the Map offered by SafeStreets to know which zones are more indicated to traffic violations
-					
-				
-				In this paragraph will be illustrated all the use cases diagram, use cases and sequence diagrams.
+					Giuseppe is collecting some data about traffic and traffic violations for a University project. To retrieve more
+					information he uses the map offered by SafeStreets, in order to learn which zones are more affected by traffic violations.
 					
 				\begin{figure}[H]
 					\begin{subfigure}{\textwidth}
@@ -437,11 +430,11 @@ The following are the assumptions made to simplify and clarify some situation th
 						Events Flows &{ 
 								\vskip 4pt
 								\begin{enumerate}
-									\item The user click on the "Sign up" option
+									\item The user clicks on the ``Sign up" option
 									\item The user fills all the mandatory fields
-									\item The user agree with the SafeStreet's privacy policy
-									\item The user click the confirmation option
-									\item The system proceed to verify user's data and to save them
+									\item The user agrees with the SafeStreet's privacy policy
+									\item The user clicks on the confirmation option
+									\item The system proceeds to verify user's data and to save them
 								\end{enumerate}
 								\vskip 4pt}\\
 						\hline
@@ -480,10 +473,10 @@ The following are the assumptions made to simplify and clarify some situation th
 						Events Flows &{ 
 								\vskip 4pt
 								\begin{enumerate}
-									\item The user click on the "Log in" option
+									\item The user clicks on the ``Log in" option
 									\item The user fills all the Username and password fields
-									\item The user click the confirmation option
-									\item The system proceed to verify user's data
+									\item The user clicks the confirmation option
+									\item The system proceeds to verify user's data
 									\item The user has free access to the service now
 								\end{enumerate}
 								\vskip 4pt}\\
@@ -513,19 +506,19 @@ The following are the assumptions made to simplify and clarify some situation th
 						\hline
 						Actor & {User} \\
 						\hline
-						Entry condition & {The User want to report a traffic violation so open the application and log in,
-									then choose the "report" option} \\
+						Entry condition & {The User wants to report a traffic violation, so he opens the application and logs in,
+									then he chooses the ``report" option} \\
 						\hline
 						Events Flows &{ 
 								\vskip 4pt
 								\begin{enumerate}
-									\item The User clicks on "Report" option
-									\item The User take a photo of the violation and the license plate of vehicle
-									\item The system tries to understand the plate from the photo
-									\item The user check that the system recognized correctly the plate
-									\item The user insert the type of violation.
-									\item The user clicks on "send report".
-									\item The system retrieve device's position and date and time to fill the last fields
+									\item The User clicks on ``Report" option
+									\item The User takes a photo of the violation and the license plate of vehicle
+									\item The system tries to read the plate from the photo
+									\item The user checks that the system recognized correctly the plate
+									\item The user inserts the type of violation.
+									\item The user clicks on ``send report".
+									\item The system retrieves the device street, date and time to fill the last fields
 										of the report
 								\end{enumerate}
 								\vskip 4pt}\\
@@ -561,13 +554,13 @@ The following are the assumptions made to simplify and clarify some situation th
 						Events Flows &{ 
 								\vskip 4pt
 								\begin{enumerate}
-									\item The user clicks on "History" option
+									\item The user clicks on ``History" option
 									\item The system searches and sends a recap of all the user's reports
 									\item The user can check all his reports
 								\end{enumerate}
 								\vskip 4pt}\\
 						\hline
-						Exit Conditions & {The user clicks on "Exit" option} \\
+						Exit Conditions & {The user clicks on ``Exit" option} \\
 						\hline
 						Exceptions & {
 								\vskip 4pt
@@ -591,14 +584,14 @@ The following are the assumptions made to simplify and clarify some situation th
 						\hline
 						Actor & {User} \\
 						\hline
-						Entry condition & {The User open SafeStreet, log in and choose the "Visualize Map" option} \\
+						Entry condition & {The User opens SafeStreets, logs in and chooses the ``Visualize Map" option} \\
 						\hline
 						Events Flows &{ 
 								\vskip 4pt
 								\begin{enumerate}
-									\item The user click on "Visualize Map"
-									\item The system retrieve the device's position and obtain information about
-										the near streets' reports number to calculate their "level" and display
+									\item The user clicks on ``Visualize Map"
+									\item The system retrieves the device position and obtains information about
+										the near streets' reports number to calculate their ``level" and displays
 										it correctly
 									\item The user can navigate in the map seeing each street and their level
 								\end{enumerate}
@@ -672,6 +665,8 @@ The following are the assumptions made to simplify and clarify some situation th
 					\item{[R10:]} The system must guarantee that each municipality is covered by at least one authority.
 					\item{[R11]:} The system must include a simple recommender system that, according on the number of each type of violation, suggests a possible intervention to the authorities of a municipality.
 				\end{itemize}
+
+\paragraph{Scenarios}
 				\subparagraph{Scenario 1}
 					Eddie Edison, an officer had noticed a vertiginous increment of traffic violations, so to increase the control
 					on the streets decide to join SafeStreets
@@ -681,13 +676,14 @@ The following are the assumptions made to simplify and clarify some situation th
 					succeed, so he decide to try to subscribe to and advanced option offered by SafeStreets trying to receive
 					new suggestion to improve the security
 					
-				In this paragraph will be illustrated all the use cases diagram, use cases and sequence diagrams, the "sing up" and "log in"
+				In this paragraph will be illustrated all the use cases diagram, use cases and sequence diagrams, the ``sign up" and ``log in"
 				are not reported because are the same as above.
+
 			
 			\begin{figure}[H]
 				\begin{subfigure}{\textwidth}
 					\includegraphics[scale = 0.75, center]{UseCaseA}
-					\caption{Sequence diagram on the behavior of reports for citizen}
+					\caption{Sequence diagram on the behavior of reports for users}
 				\end{subfigure}
 			\end{figure}
 			
@@ -698,16 +694,16 @@ The following are the assumptions made to simplify and clarify some situation th
 					\hline
 					Name & {Evaluate report} \\
 					\hline
-					Actor & {Authorities} \\
+					Actor & {Authority} \\
 					\hline
-					Entry condition & {The authorities is logged in} \\
+					Entry condition & {The authority is logged in} \\
 					\hline
 					Events Flows &{ 
 							\vskip 4pt
 							\begin{enumerate}
-								\item The authority click on the "Evaluate reports" options
-								\item The system retrieve all the pending reports
-								\item The authority choose if accept or reject each single report based on the information
+								\item The authority clicks on the ``Evaluate reports" options
+								\item The system retrieves all the pending reports
+								\item The authority chooses if accept or reject each single report based on the information
 									contained in the report
 							\end{enumerate}
 							\vskip 4pt}\\
@@ -727,22 +723,22 @@ The following are the assumptions made to simplify and clarify some situation th
 					\hline
 					Name & {Suggestion} \\
 					\hline
-					Actor & {Authorities} \\
+					Actor & {Authority} \\
 					\hline
-					Entry condition & {The authorities is logged in} \\
+					Entry condition & {The authority is logged in} \\
 					\hline
 					Events Flows &{ 
 							\vskip 4pt
 							\begin{enumerate}
-								\item The authority click on the "Suggestion" options
-								\item He choose one Street under his control
-								\item The system based on the street and the accidents give a recommendation
+								\item The authority clicks on the ``Suggestion" option
+								\item He chooses one Street under his control
+								\item The system based on the street and the accidents gives a recommendation
 							\end{enumerate}
 							\vskip 4pt}\\
 					\hline
-					Exit Conditions & {The user clicks on exit button} \\
+					Exit Conditions & {The authority clicks on exit button} \\
 					\hline
-					Exceptions & {The authorities hasn't activated this optional functionality} \\
+					Exceptions & {The authority hasn't activated this optional functionality} \\
 					\hline
 				\end{tabular}
 				\caption{Evaluate report}
@@ -752,19 +748,19 @@ The following are the assumptions made to simplify and clarify some situation th
 			\begin{figure}[H]
 				\begin{subfigure}{\textwidth}
 					\includegraphics[scale = 0.75, center]{EvaluateSequenceDiagram}
-					\caption{Sequence diagram on the behavior of reports for citizen}
+					\caption{Sequence diagram on the behavior of reports for users}
 				\end{subfigure}
 			\end{figure}
 
 			\begin{figure}[H]
 				\begin{subfigure}{\textwidth}
 					\includegraphics[scale = 0.75, center]{SuggestionSequenceDiagram}
-					\caption{Sequence diagram on the behavior of reports for citizen}
+					\caption{Sequence diagram on the behavior of reports for users}
 				\end{subfigure}
 			\end{figure}
 
 	\subsection{World and Machine}
-		In this subsection will be explained the World and Machine matrix
+		In this subsection the World and Machine matrix is presented.
 		\begin{table}[H]
 			\centering
 			\begin{tabular}{|c|c|c|}
@@ -801,8 +797,9 @@ The following are the assumptions made to simplify and clarify some situation th
 			\label{tab: }
 		\end{table}
 	
+\newpage
 	\subsection{Traceability Matrix}
-			In the following we are going to recap all the various requirements and Use cases linking each other in the Traceability Matrix
+			The following figure shows all the various requirements and use cases linking to each other.
 			\begin{table}[H]
 				\centering
 				\begin{tabular}{|c|c|}
@@ -844,27 +841,26 @@ The following are the assumptions made to simplify and clarify some situation th
 			
 	
 	\section{Performance Requirments}
-		The System has to be able to serve a large number of Users and Authorities simultaneously guaranteeing quick, 
+		The System has to be able to serve a large number of users and authorities, simultaneously guaranteeing quick, 
 		reactive and correct responses. It's important to underline that the accuracy of the suggestions received by the system
-		are based on the data shared with SafeStreets and the system doesn't guarantee that the proposed solution will surely
-		resolve the problem, the system will calculate the probability that the solution will resolve entirely the problem.
+		are based on the data shared with SafeStreets and that the system does not guarantee that the proposed solution will surely
+		solve the problem.
 	\section{Design constraints}
 		\subsection{Standards compliance}
-			The error of the users position is expressed in meters or feet, it depends on the unity preferred by the authorities
-			, and has to be less than 10 meters.\\
-			The system is designed to protect to the privacy of users' data, as a matter of fact the entire 
+			The error of the user's position is expressed in meters or feet (it depends on the unity preferred by the authorities) and has to be less than 10 meters.\\
+			The system is designed to protect the privacy of users' data, as a matter of fact the entire 
 			project is subject to the General Data Protection Regulation (GDPR), a regulation in EU 
-			law on data protect on and privacy for all individuals within the European Union (EU) and 
+			law on data protection and privacy for all individuals within the European Union (EU) and 
 			the European Economic Area (EEA).
 		\subsection{Hardware limitations}
-			As specified in the “Dependencies and constraints” section, hardware requirements are present 
-			only in relation to specific functionalities, for example to make report is necessary a device with
-			a functioning internet connection, a camera and a gps system.\\
-			To recap all the hardware requirements are:
+			As specified in the ”dependencies and constraints” section, hardware requirements are present 
+			only in relation to specific functionalities. For example, to make a report it is necessary a device with
+			a functioning internet connection, a camera and a GPS sensor.\\
+			So all the hardware requirements are:
 			\begin{itemize}
-				\item Any type of internet connection;
-				\item a functioning gps system;
-				\item a camera.
+				\item any type of Internet connection;
+				\item a working gps sensor;
+				\item a working camera.
 			\end{itemize}
 		\subsection{Any other costraint}
 			The system does not have any other type of particular constraints. In order to protect users' privacy is important
@@ -872,23 +868,21 @@ The following are the assumptions made to simplify and clarify some situation th
 			and that SafeStreets will respect the GDPR regulation.	\section{Software System Attributes}
 		\subsection{Reliability}
 			The system must be able to run continuously without any interruptions. In order to do that, it must 
-			be ensured  that  the system is fault tolerant, this means that will be some precaution to avoid that the system
-			will be offline or unavailable. One of the many will be a daily backup of all the data on another server to avoid major
-			data loss.
+			be ensured  that  the system is fault tolerant, this means that some precautions will be taken to avoid the system
+			to be offline or unavailable. One of the many will be a daily backup of all the data on another server to avoid major
+			data losses.
 		\subsection{Availability}
-			The system has to be fault tolerant architecture, the most important availability is about the reports and is supposed
-			to be 99.999\%  of the time available (otherwise a huge number of reports will be lost and the system will never recover them). The other
-			functionality are suppose to be 99.99\% of the time available.
+			The system must have a fault tolerant architecture, the most important availability is about the reports and is supposed
+			to be 99.999\%  of the time available (otherwise a huge number of reports could be lost and the system would never recover them). The other
+			functionalities are supposed to be available 99.99\% of the time.
 		\subsection{Security}
-			The privacy is granted to both communication's side: the user doesn't know who evaluated his report and the authorities
-			only see a nickname for the user, they cannot see any information like name or e mail. The communication is crypted with
-			with a shared key at the beginning of the session to avoid that any unauthorized user could intercepts any message.
+			The privacy is granted to both communication sides: the user doesn't know who evaluated his report and the authorities
+			only see a number representing the user, so they cannot see any information like name or e mail. Client-server communication is granted using a PKC. The public key is used at the beginning of the session to exchange a secret symmetric key. The communication continues encrypting the messages with the symmetric key (e.g. an AES-256 key). 
 		\subsection{Maintainability}
-			The system is studied in a way that it will be very easy to modify or substitute any part to improve it, it is studied
-			with a modular structure, so if one day a better recommender system is designed to solve the suggestion part the
+			The system is realised with a modular structure, so it will be very easy to improve or substitute any part of it. For example, if one day a better recommender system is designed, the
 			introduction of the new one will not impact the rest of the system.
 		\subsection{Portablity}
-			The system could be used on any mobile device with an internet connection available.
+			The application can be used on any mobile device respecting the hardware constraints.
 
 
 	
@@ -940,21 +934,20 @@ This chapter shows the analysis of the Alloy model of the proposed system. Obvio
 		\centering
 		\begin{tabular}{|c|c|c|}
 			\hline
-			Chapter & Frangi(hours) & Fucci(hours)\\
+			Chapter & Frangi (hours) & Fucci (hours)\\
 			\hline
 			\hline
 			Chapter 1 & 1 & 2\\
 			\hline
-			Chapter 2 & 4 & 4\\
+			Chapter 2 & 7 & 4\\
 			\hline
 			Chapter 3 & 8 & 5\\
 			\hline
 			Chapter 4 & 2 & 8\\
 			\hline
-			Total hours: & 14 & 19\\
+			Total hours: & 18 & 19\\
 			\hline
 		\end{tabular}
-		\caption{Use case on Visualize Map}
 		\label{tab: }
 	\end{table}
 %End of fifth chapter
