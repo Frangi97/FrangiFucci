@@ -62,7 +62,7 @@ Moreover, if the municipality offers a service that allows users to retrieve the
 
 	\section{Scope}
 	\subsection{General description}
-Safestreet is an application to be used both from civilians (users) and authorities, in order to help the latter and reduce traffic violations. Registered authorities can automatically receive reports made by users, so the service acts as an intermediary. Reports are made of a picture of the violation and some... 
+Safestreet is an application to be used both from civilians (users) and authorities, in order to help the latter and reduce traffic violations. Registered authorities can automatically receive reports made by users, so the service acts as an intermediary. The next paragraph gives a more formal description of what is the purpose of the application.
 	%(to be reviewed and completed)
 	\subsection{Goals}
 	The following list describes the goals from the S2B perspective:
@@ -115,19 +115,16 @@ Safestreet is an application to be used both from civilians (users) and authorit
 			\end{itemize}
 
 	\section{Reference documents}
-	\begin{itemize}
-	\item {Specification document}: ``SafeStreets Mandatory Project Assignment''
-	%to be completed
-	\end{itemize}
+	The main reference document is ``SafeStreets Mandatory Project Assignment'' specification document. In 				chapter 6 the complete list of references is provided.
 
 	\section{Document structure}
 	\begin{itemize}
-	\item \textbf{Chapter 1} is an introduction: it presents the document and the S2B with its scope and goals. It also helps the reader to understand, by giving the necessary definitions and explaining acronyms and abbreviations. 
-	\item \textbf{Chapter 2} is a summary description of all the project and how the main parts work. %Non so, ti va bene? i
-	\item \textbf{Chapter 3} is the core of the document...
-	\item \textbf{Chapter 4} contains the Alloy model of critical aspects that require special attention. Here it is shown how the project has been modeled and a proof of the model consistency is provided. Moreover, examples of some of the generated world are shown.
-	\item \textbf{Chapter 5} is meant to show how work was divided between the two components of the group and how much time was spent.
-	\item \textbf{Chapter 6} contains the list of references...
+	\item \textbf{Chapter 1} is an introduction: it presents the document and the S2B with its scope and goals. It also helps the reader to understand, by giving the necessary definitions and explaining acronyms and abbreviations; 
+	\item \textbf{Chapter 2} is a summary description of all the project. It gives a general idea of how the application works and shows the assumpions made in the development;
+	\item \textbf{Chapter 3} presents the requirements to be guaranteed in order to achieve every goal of the project, analyzing every use case. It shows the constraints and the attributes of the system in terms of availability, mantainability, secturity etc.;
+	\item \textbf{Chapter 4} contains the Alloy model of critical aspects that require special attention. Here it is shown how the project has been modeled and a proof of the model consistency is provided. Moreover, examples of some of the generated world are shown;
+	\item \textbf{Chapter 5} is meant to show how work was divided between the two components of the group and how much time was spent;
+	\item \textbf{Chapter 6} lists the reference documents and the tools used to develop this document.
 	\end{itemize}
 
 % End of first chapter
@@ -247,9 +244,8 @@ Safestreet is an application to be used both from civilians (users) and authorit
 				a suggestion (made by the system) about improve the safety.
 		\end{itemize}
 	\section{Assumptions, dependencies and constraints}
-	\subsection{Domain assumption}
-% Forse ce ne vuole qualcuna in più?
-Maybe trivial assumptions can be omitted?
+	\subsection{Domain assumption} 
+The following are the assumptions made to simplify and clarify some situation that could uselessly complicate the development of the application. Notice that some trivial assumptions are not included, in order to avoid their repetition in every situation (e.g. ``The devices always work without failure").
 		\begin{itemize}
 			\item \textbf{D1}: The users always provide a picture that allows both the algorithm to read the license plate and
 					        the authority to identify the violation.
@@ -347,8 +343,6 @@ Maybe trivial assumptions can be omitted?
 	\section{Functional Requirements}
 		This section presents the requirements to be satisfied to reach each goal, in addition to the domain assumptions that must stand.
 		\subsection{User} 
-			%inizio parte frangi
-			\paragraph{Scenarios}
 				\subparagraph{Scenario 1}
 					Mario, an elderly person who has a reserved parking lot, always has to spend time looking for a free
 					car park because someone frequently steals the one reserved to him without being sanctioned by
@@ -605,10 +599,10 @@ Maybe trivial assumptions can be omitted?
 			\begin{itemize}
 				\item{[D1]:} The users always provide a picture that allows both the algorithm to read the license plate and the authority to identify the violation.
 				\item{[D2]:} Every user is provided with a device capable to share the exact GPS position at any moment.
-				\item{[D3]:} Every user is provided with a device capable to share the exact GPS position at any moment.
+				\item{[D3]:} The name of the street where a violation occured is retrieved from the GPS position.
 				\item{[D5]:} Date, time and street of the violation are automatically inferred by the application.
 				\item{[D6]:} The user sends the report staying in the same place of the violation attached to the report.
-		 		\item{[D7]:} : The picture of the license plate is taken at the moment and shows the right car.
+		 		\item{[D7]:} The picture of the license plate is taken at the moment and shows the right car.
 			\end{itemize}
 			\begin{itemize}
 				\item{[R1]:} The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
@@ -681,7 +675,6 @@ Maybe trivial assumptions can be omitted?
 					\item{[R10:]} The system must guarantee that each municipality is covered by at least one authority.
 					\item{[R11]:} The system must include a simple recommender system that, according on the number of each type of violation, suggests a possible intervention to the authorities of a municipality.
 				\end{itemize}
-\paragraph{Scenarios}
 				\subparagraph{Scenario 1}
 					Eddie Edison, an officer had noticed a vertiginous increment of traffic violations, so to increase the control
 					on the streets decide to join SafeStreets

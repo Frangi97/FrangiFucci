@@ -28,22 +28,21 @@
 \contentsline {subsection}{\numberline {3.1.4}Communication interfaces}{15}{subsection.3.1.4}% 
 \contentsline {section}{\numberline {3.2}Functional Requirements}{15}{section.3.2}% 
 \contentsline {subsection}{\numberline {3.2.1}User}{15}{subsection.3.2.1}% 
-\contentsline {paragraph}{Scenarios}{15}{section*.12}% 
-\contentsline {subparagraph}{Scenario 1}{15}{section*.13}% 
-\contentsline {subparagraph}{Scenario 2}{15}{section*.14}% 
-\contentsline {subparagraph}{Scenario 3}{15}{section*.15}% 
-\contentsline {paragraph}{G1:}{24}{section*.25}% 
-\contentsline {paragraph}{G2:}{24}{section*.26}% 
-\contentsline {paragraph}{G3:}{25}{section*.27}% 
-\contentsline {paragraph}{G4:}{25}{section*.28}% 
-\contentsline {paragraph}{G5:}{25}{section*.29}% 
+\contentsline {subparagraph}{Scenario 1}{15}{section*.12}% 
+\contentsline {subparagraph}{Scenario 2}{15}{section*.13}% 
+\contentsline {subparagraph}{Scenario 3}{15}{section*.14}% 
+\contentsline {paragraph}{G1:}{24}{section*.24}% 
+\contentsline {paragraph}{G2:}{24}{section*.25}% 
+\contentsline {paragraph}{G3:}{25}{section*.26}% 
+\contentsline {paragraph}{G4:}{25}{section*.27}% 
+\contentsline {paragraph}{G5:}{25}{section*.28}% 
 \contentsline {subsection}{\numberline {3.2.2}Authority}{26}{subsection.3.2.2}% 
-\contentsline {paragraph}{G6:}{26}{section*.30}% 
-\contentsline {paragraph}{G7:}{26}{section*.31}% 
-\contentsline {paragraph}{G8:}{27}{section*.32}% 
-\contentsline {paragraph}{Scenarios}{27}{section*.33}% 
-\contentsline {subparagraph}{Scenario 1}{27}{section*.34}% 
-\contentsline {subparagraph}{Scenario 2}{27}{section*.35}% 
+\contentsline {paragraph}{G6:}{26}{section*.29}% 
+\contentsline {paragraph}{G7:}{26}{section*.30}% 
+\contentsline {paragraph}{G8:}{27}{section*.31}% 
+\contentsline {paragraph}{Scenarios}{27}{section*.32}% 
+\contentsline {subparagraph}{Scenario 1}{27}{section*.33}% 
+\contentsline {subparagraph}{Scenario 2}{27}{section*.34}% 
 \contentsline {subsection}{\numberline {3.2.3}Traceability Matrix}{31}{subsection.3.2.3}% 
 \contentsline {section}{\numberline {3.3}Performance Requirments}{31}{section.3.3}% 
 \contentsline {section}{\numberline {3.4}Design constraints}{32}{section.3.4}% 
