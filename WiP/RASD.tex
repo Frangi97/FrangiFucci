@@ -12,6 +12,15 @@
 \usepackage{float}
 \usepackage{tabularx}
 
+% To build a clickable ToC
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,  %choose some color if you want links to stand out
+}
+
 % To import alloy source code
 \usepackage[dvipsnames]{xcolor}
 \usepackage{listings}
@@ -858,17 +867,29 @@ This chapter shows the analysis of the Alloy model of the proposed system. Obvio
 
 	\lstinputlisting[language=alloy]{Model.als}
 
+	\newpage
+
 	\section{Results}
-	The following is the result of the Alloy Analizer with the input shown in the previous section. The \emph{world1} predicate is used to generate a world suitable to be read, which will be shown in the next section.
+	The following is the result of the Alloy Analizer with the input shown in the previous section. 
 		\begin{figure}[H]
 				\includegraphics[scale = 0.9, center]{Consistency}
 				\caption{Results}
 		\end{figure}
+	The \emph{world1} predicate is used to generate a world suitable to be read, which will be shown in the next section.
+	
+
+	\newpage
 
 	\section{Generated world}
+	Here is shown one of the possible worlds obtained by running \emph{world1}.
+
+
 		\begin{figure}[H]
-				\includegraphics[scale = 1, center]{world1}
+				\includegraphics[scale = 1.4, center]{world1}				
+				\caption{Generated world with two users, two reports}
 		\end{figure}
+
+	Of the two reports, only one has been evaluated and produced a notification that is correctly shown to the user. As said before, in the Alloy model every user has a different password, just to avoid arrows going all across the graph. 
 % End of fourth chapter
 
 \chapter{Effort Spent}

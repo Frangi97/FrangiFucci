@@ -124,6 +124,13 @@ fact {
 	all r : Report, en : EvaluatedNotification, u: User | (r not in u.reports and en.report = r) 
 		implies (en not in u.notifications)
 }
+
+
+
+-- every report must not produce more than one evaluated notification
+fact {
+	all r : Report | lone en : EvaluatedNotification | en.report = r
+}
 	
 assert EveryReportIsReceived {
 	all r : Report | some a : Authority | r in a.notifications.report
