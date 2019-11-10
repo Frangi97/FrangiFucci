@@ -31,12 +31,12 @@
 \contentsline {paragraph}{G1:}{15}{section*.12}% 
 \contentsline {paragraph}{G2:}{15}{section*.13}% 
 \contentsline {paragraph}{G3:}{16}{section*.14}% 
-\contentsline {paragraph}{G4:}{16}{section*.15}% 
+\contentsline {paragraph}{G4:}{17}{section*.15}% 
 \contentsline {paragraph}{G5:}{17}{section*.16}% 
 \contentsline {paragraph}{Scenarios}{17}{section*.17}% 
 \contentsline {subparagraph}{Scenario 1}{17}{section*.18}% 
 \contentsline {subparagraph}{Scenario 2}{17}{section*.19}% 
-\contentsline {subparagraph}{Scenario 3}{17}{section*.20}% 
+\contentsline {subparagraph}{Scenario 3}{18}{section*.20}% 
 \contentsline {subsection}{\numberline {3.2.2}Authority}{26}{subsection.3.2.2}% 
 \contentsline {paragraph}{G6:}{26}{section*.30}% 
 \contentsline {paragraph}{G7:}{26}{section*.31}% 
