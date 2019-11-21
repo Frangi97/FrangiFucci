@@ -1,0 +1,98 @@
+\documentclass[12pt,a4paper]{report}
+
+%Set language
+\usepackage[english]{babel}
+\usepackage{enumerate}
+
+% To import and adjust images
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage[center]{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{tabularx}
+
+% To build a clickable Toc
+\usepackage{color} %May be necessary if you want to color links
+\usepackage{hyperref}
+
+
+% Command to hide subsections in the Toc
+\setcounter{tocdepth}{1}
+
+% I don't like dots in the Toc
+\usepackage{tocloft}
+\renewcommand{\cftdot}{}
+
+
+% Path relative to the .tex file containing the \includegraphics command
+\graphicspath{ {./images/} }  
+
+% To change the ToC title
+\addto\captionsenglish{ \renewcommand {\contentsname} {Table of
+contents}}
+
+
+% Here we go
+\title{SafeStreets - DD \\ \large version 1.0}
+\author{Frangi Alberto, Fucci Tiziano}
+\date{A.Y. 2019/2020}
+\begin{document}
+	\maketitle
+	%Index
+	\tableofcontents 
+	\chapter{Introduction}
+		\section{Purpose}
+		\section{Scope}
+		\section{Definitions, Acronyms, Abbreviations}
+		\section{Revision History}
+		\section{Reference Documents}
+		\section{Document Structure}
+	%end of first chapter
+	
+	\chapter{Architectural design}
+		\section{Overview:	High-level	components	and	their	interaction}
+		\section{Component view}
+		\section{Deployment view}
+		\section{Runtime view}
+		\section{Component interfaces}
+		\section{Selected architectural styles and patterns}
+		\section{Other design decisions}
+	%end of second chapter
+	
+	\chapter{User interfaces design}
+	%end of third chapter
+
+	\chapter{Requirements Traceability}
+	%end of fourth chapter
+
+	\chapter{Implementation, Integration and Test plan}
+	%end of fiveth chapter
+
+	\chapter{Effort Spent}
+		\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			Chapter & Frangi (hours) & Fucci (hours)\\
+			\hline
+			\hline
+			Chapter 1 & ? & ?\\
+			\hline
+			Chapter 2 & ? & ?\\
+			\hline
+			Chapter 3 & ? & ?\\
+			\hline
+			Chapter 4 & ? & ?\\
+			\hline
+			Chapter 5 & ? & ?\\
+			\hline
+			Total hours: & ? & ?\\
+			\hline
+		\end{tabular}
+		\label{tab: }
+	\end{table}
+	%end of sixth chapter
+	\chapter{References}
+	%end of seventh chapter
+\end{document}
