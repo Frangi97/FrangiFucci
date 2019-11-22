@@ -16,6 +16,8 @@
 \usepackage{color} %May be necessary if you want to color links
 \usepackage{hyperref}
 
+%To load PoLitecnico's logo
+\usepackage{titling}
 
 % Command to hide subsections in the Toc
 \setcounter{tocdepth}{1}
@@ -32,6 +34,13 @@
 \addto\captionsenglish{ \renewcommand {\contentsname} {Table of
 contents}}
 
+%logo 
+\pretitle{
+	 \begin{center}
+	 \LARGE
+	 \includegraphics[width = 0.6\textwidth]{logo}\\[\bigskipamount]
+}
+\posttitle{\end{center}}
 
 % Here we go
 \title{SafeStreets - DD \\ \large version 1.0}
