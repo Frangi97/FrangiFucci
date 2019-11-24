@@ -52,11 +52,85 @@ contents}}
 	\tableofcontents 
 	\chapter{Introduction}
 		\section{Purpose}
+			The purpose of this document consists of giving more technical details than the RASD concerning the SafeStreets
+			system.\\
+			The RASD document completely describes the system in terms of functional and nonfunctional requirements and
+			serves as a contractual basis between the customer and the developer and it must be written in the language of
+			the customer's domain of business/expertise, the DD's purpose instead is to provide a description for how the new
+			system will be constructed, it provides a description of the system architecture, software, hardware, database
+			design, and security.\\
+			In particular this document will explain the following topics:
+			\begin{itemize}
+				\item High level architecture and its components' requirements;
+				\item Run-time behavior;
+				\item Design patterns;
+				\item Additional user interfaces information;
+				\item Implementation, integration and testing plan.
+			\end{itemize}
 		\section{Scope}
+			Safestreet is an application to be used both from civilians (users) and authorities, in order to help the latter and
+			reduce traffic violations. Registered authorities can automatically receive reports made by users, so the service acts
+			as an intermediary. The next paragraph gives a more formal description of which is the purpose of the application.
+
 		\section{Definitions, Acronyms, Abbreviations}
+			\subsection{Definitions}
+				\begin{itemize}
+				\item \textbf{User}: a civilian customer that can use the application to:
+					\begin{itemize}
+					\item notify authorities of some violation;
+					\item check which are the most dangerous (i.e. with the most violations) streets.
+					\end{itemize}
+				In this document, ``user", ``citizen" and ``civiian" are completely equivalent, where not specified.
+				\item \textbf{Authority}: a member of the local police who has access to reports made by users. The
+					authorities evaluate the reports sent by the user to determine if the violation stands.
+				\item \textbf{Report}: a message consisting of:
+					\begin{itemize}
+					\item a picture showing the car in order to show the occurring violation;
+					\item date and time of the picture;
+					\item GPS position of the place where the violation occurred;
+					\item the street where the violation occurred (automatically retrieved from the geographical position);
+					\item the type of the violation (input by the user)
+					\end{itemize}
+				\item \textbf{Available}: a report is available for an authority if its position is within the municipality assigned
+					to the authority.
+				\item \textbf{Violation}: a situation that, according to the user who sent the report, is a violation of the
+					traffic laws.
+				\item \textbf{Intervention}: a brief text suggesting a possible solution in order to improve safety and
+					discourage future violations.
+				\end{itemize}
+			\subsection{Acronyms}
+				\begin{itemize}
+				\item \textbf{API}: \emph{Application Programming Interface.}
+				\item \textbf{GPS}: \emph{Global Positioning System.}
+				\item \textbf{UI}: \emph{User Interface.}
+				\item \textbf{RASD:} \emph{Requirements Analysis and Specifications Document}
+				\item \textbf{DD:} \emph{Design Document}
+				\item \textbf{DMZ:} \emph{DeMilitarized Zone}			
+				\item \textbf{PKC}: \emph{Public Key Cryptography.}		
+				\item \textbf{AES}: \emph{Advanced Encryption Standard.}		
+				\end{itemize}
 		\section{Revision History}
+			\begin{itemize}
+				\item \textbf{Version 1.0:} 
+				\begin{itemize}
+					\item First release.
+				\end{itemize}
+			\end {itemize}
 		\section{Reference Documents}
+			\begin{itemize}
+				\item \textbf{Specification document:} "Mandatory project assignment AY 2019/20".
+			\end{itemize}
 		\section{Document Structure}
+			\begin{itemize}
+				\item \textbf{Chapter 1}: brief explanation on the DD purpose and a quick introduction to SafeStreets.
+				\item \textbf{Chapter 2}: aims to provide a description of the system's architecture. 
+				\item \textbf{Chapter 3}: specifies the design of user interfaces and describes the user-application
+					interaction.
+				\item \textbf{Chapter 4}: contains requirements traceability.
+				\item \textbf{Chapter 5}: describes the implementation plan.
+				\item \textbf{Chapter 6}: shows the effort of each group member.
+				\item \textbf{Chapter 7}: it contains all the references used to make this document. 
+			\end{itemize}
 	%end of first chapter
 	
 	\chapter{Architectural design}
