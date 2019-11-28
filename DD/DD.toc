@@ -1,0 +1,21 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Purpose}{2}{section.1.1}% 
+\contentsline {section}{\numberline {1.2}Scope}{2}{section.1.2}% 
+\contentsline {section}{\numberline {1.3}Definitions, Acronyms, Abbreviations}{2}{section.1.3}% 
+\contentsline {section}{\numberline {1.4}Revision History}{2}{section.1.4}% 
+\contentsline {section}{\numberline {1.5}Reference Documents}{2}{section.1.5}% 
+\contentsline {section}{\numberline {1.6}Document Structure}{2}{section.1.6}% 
+\contentsline {chapter}{\numberline {2}Architectural design}{3}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Overview: High-level components and their interaction}{3}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}Component view}{3}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}Deployment view}{3}{section.2.3}% 
+\contentsline {section}{\numberline {2.4}Runtime view}{3}{section.2.4}% 
+\contentsline {section}{\numberline {2.5}Component interfaces}{3}{section.2.5}% 
+\contentsline {section}{\numberline {2.6}Selected architectural styles and patterns}{3}{section.2.6}% 
+\contentsline {section}{\numberline {2.7}Other design decisions}{3}{section.2.7}% 
+\contentsline {chapter}{\numberline {3}User interfaces design}{4}{chapter.3}% 
+\contentsline {chapter}{\numberline {4}Requirements Traceability}{5}{chapter.4}% 
+\contentsline {chapter}{\numberline {5}Implementation, Integration and Test plan}{6}{chapter.5}% 
+\contentsline {chapter}{\numberline {6}Effort Spent}{7}{chapter.6}% 
+\contentsline {chapter}{\numberline {7}References}{8}{chapter.7}% 

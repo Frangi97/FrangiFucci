@@ -11,7 +11,8 @@
 
 # uncompleted PDFs
 
-WiP/*.pdf
+RASD/*.pdf
+DD/*.pdf
 
 # svg vector files
 
