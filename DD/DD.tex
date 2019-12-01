@@ -128,19 +128,38 @@ contents}}
 			\end{itemize}
 		\section{Document Structure}
 			\begin{itemize}
-				\item \textbf{Chapter 1}: brief explanation on the DD purpose and a quick introduction to SafeStreets.
-				\item \textbf{Chapter 2}: aims to provide a description of the system's architecture. 
-				\item \textbf{Chapter 3}: specifies the design of user interfaces and describes the user-application
+				\item \textbf{Chapter 1} provides a brief explanation on the DD purpose and a quick introduction to SafeStreets.
+				\item \textbf{Chapter 2} aims to provide a description of the system's architecture. 
+				\item \textbf{Chapter 3} specifies the design of user interfaces and describes the user-application
 					interaction.
-				\item \textbf{Chapter 4}: contains requirements traceability.
-				\item \textbf{Chapter 5}: describes the implementation plan.
-				\item \textbf{Chapter 6}: shows the effort of each group member.
-				\item \textbf{Chapter 7}: it contains all the references used to make this document. 
+				\item \textbf{Chapter 4} contains requirements traceability.
+				\item \textbf{Chapter 5} describes the implementation plan.
+				\item \textbf{Chapter 6} shows the effort of each group member.
+				\item \textbf{Chapter 7} contains all the references used to make this document. 
 			\end{itemize}
 	%end of first chapter
 	
 	\chapter{Architectural design}
-		\section{Overview:	High-level	components	and	their	interaction}
+		\section{Overview:	high-level	components	and	their	interaction} 
+	The application is built following the principles of the three-tier architecture: the three logic layers of presentation, 				application and data access rely on three corresponding hardware layers. This architecture is prefered to one-tier and 			two-tier architectures due to some important characteristics, some of which are:
+	\begin{itemize}
+	\item \emph{Flexibility:} each tier can be manged or scaled independently at any time, without affecting the others;
+	\item \emph{Scalability:} following a scale-out approach, performances can be improved through node replication, without affecting the other tiers.
+	Load balancing systems distribute the working load among the nodes;
+	\item \emph{Mantainability:} because each tier is independent from the others, updates or changes can be released
+	without affecting the whole system;
+	\item \emph{Availbility:} with this architecture, it is less likely to have failures that compromise the whole application.
+	Load balancing and node replication minimize the performance loss when a failure occures.
+	\end{itemize}
+	A general view of the system architecture is provided in the following picture:
+	\begin{figure}[H]
+				\includegraphics[scale = 0.6, center]{sysarch}
+				\caption{System architecture}
+		\end{figure}
+	Users and authorities are provided with mobile devices and access the service through
+	the SafeStreets mobile app. The mobile app communicates with the application layer, which
+	is made by one or more application servers, linked to the database servers. The scale-out approach allows to adjust the number of hardware resources at any time. For what concerns the data access layer, database servers contain sensitive information, such as password hashes, license plate numbers, identification numbers and so on, so it is important to protect all the back-end of the application. In order to do this, the application and data access levels are protected by a firewall that performs traffic control at the level of the single packet, creating a DMZ in which the communication is safe.
+
 		\section{Component view}
 		\section{Deployment view}
 		\section{Runtime view}

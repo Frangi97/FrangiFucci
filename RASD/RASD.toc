@@ -40,7 +40,7 @@
 \contentsline {subsection}{\numberline {3.2.2}Authority}{26}{subsection.3.2.2}% 
 \contentsline {paragraph}{G6:}{26}{section*.30}% 
 \contentsline {paragraph}{G7:}{26}{section*.31}% 
-\contentsline {paragraph}{G8:}{26}{section*.32}% 
+\contentsline {paragraph}{G8:}{27}{section*.32}% 
 \contentsline {paragraph}{Scenarios}{27}{section*.33}% 
 \contentsline {subparagraph}{Scenario 1}{27}{section*.34}% 
 \contentsline {subparagraph}{Scenario 2}{27}{section*.35}% 
