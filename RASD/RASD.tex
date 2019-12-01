@@ -22,6 +22,9 @@
     urlcolor = black
 }
 
+%To load PoLitecnico's logo
+\usepackage{titling}
+
 % Command to hide subsections in the Toc
 \setcounter{tocdepth}{1}
 
@@ -40,6 +43,13 @@
 % To change the ToC title
 \addto\captionsenglish{ \renewcommand {\contentsname} {Table of contents}}
 
+%logo 
+\pretitle{
+	 \begin{center}
+	 \LARGE
+	 \includegraphics[width = 0.6\textwidth]{logo}\\[\bigskipamount]
+}
+\posttitle{\end{center}}
 
 % Here we go
 \title{SafeStreets - RASD \\ \large version 1.0}
@@ -342,9 +352,9 @@ The following are the assumptions made to simplify and clarify some situation th
 
 			\paragraph {G1:} The application must allow the users to register entering an e-mail address and a password.
 			\begin{itemize}
-				\item{[R1]:} Registration must be allowed only entering an e-mail address that is not already associated to an existing SafeStreets account.
+				\item{[R1]:} Registration must be allowed only entering a valid e-mail address that is not already associated to an existing SafeStreets account.
 				\item{[R2]:} Registration must be allowed only entering a password that satisfies the safety conditions.
-				\item{[R8]:} The system must store the hash of every password, using a safe cryptographic hash function.
+				\item{[R3]:} The system must store the hash of every password, using a safe cryptographic hash function.
 			\end{itemize}
 
 			\paragraph {G2:} The application must allow the users to notify traffic violations, providing the type of violation and a picture of the vehicle.
@@ -357,9 +367,9 @@ The following are the assumptions made to simplify and clarify some situation th
 		 		\item{[D7]:} The picture of the license plate is taken at the moment and shows the right car.
 			\end{itemize}
 			\begin{itemize}
-				\item{[R1]:} The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
-				\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
-				\item{[R3]:} The system must correctly read the license plate given a picture attached to a report.
+				\item{[R4]:} The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
+				\item{[R5]:} The system must add the right date, time and street of the violation to the data provided by the user.
+				\item{[R6]:} The system must correctly read the license plate given a picture attached to a report.
 			\end{itemize}
 
 			\paragraph {G3:} The application must be able to show to the users the streets and the vehicles with the highest frequency of violations.
@@ -369,16 +379,16 @@ The following are the assumptions made to simplify and clarify some situation th
 				\item{[D5]:} Reports are evaluated only one time.
 			\end{itemize}
 			\begin{itemize}
-				\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
-				\item{[R4]:} The system must exploit Google Maps APIs to show to the user the map of the violations.
-				\item{[R5]:} The system must show the right colors on the map, given the number of approved reports for each street.
-				\item{[R6]:} When a license plate is recognized, the system must show the number of approved reports for that car.
-				\item{[R9]:} If the same violation is reported twice, it counts only one time on the map.
+				\item{[R5]:} The system must add the right date, time and street of the violation to the data provided by the user.
+				\item{[R7]:} The system must exploit Google Maps APIs to show to the user the map of the violations.
+				\item{[R8]:} The system must show the right colors on the map, given the number of approved reports for each street.
+				\item{[R9]:} When a license plate is recognized, the system must show the number of approved reports for that car.
+				\item{[R10]:} If the same violation is reported twice, it counts only one time on the map.
 			\end{itemize}
 				\paragraph {G4:}  The application must allow the user to see all of his reports and their status.
 			\begin{itemize}
-				\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
-				\item{[R7]:} The system must assign to each report a unique identification number.
+				\item{[R5]:} The system must add the right date, time and street of the violation to the data provided by the user.
+				\item{[R11]:} The system must assign to each report a unique identification number.
 			\end{itemize}
 			\paragraph {G5:} The system must notify the user when one of his reports is evaluated.
 			\begin{itemize}
@@ -387,11 +397,11 @@ The following are the assumptions made to simplify and clarify some situation th
 				\item{[D5]:} Reports are evaluated only one time.
 			\end{itemize}
 			\begin{itemize}
-				\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
-				\item{[R4]:} The system must exploit Google Maps APIs to show to the user the map of the violations.
-				\item{[R5]:} The system must show the right colors on the map, given the number of approved reports for each street.
-				\item{[R6]:} When a license plate is recognized, the system must show the number of approved reports for that car.
-				\item{[R9]:} If the same violation is reported twice, it counts only one time on the map.
+				\item{[R5]:} The system must add the right date, time and street of the violation to the data provided by the user.
+				\item{[R7]:} The system must exploit Google Maps APIs to show to the user the map of the violations.
+				\item{[R8]:} The system must show the right colors on the map, given the number of approved reports for each street.
+				\item{[R9]:} When a license plate is recognized, the system must show the number of approved reports for that car.
+				\item{[R10]:} If the same violation is reported twice, it counts only one time on the map.
 			\end{itemize}
 
 \paragraph{Scenarios}
@@ -636,11 +646,12 @@ The following are the assumptions made to simplify and clarify some situation th
 				\end{figure}	
 		\subsection{Authority}
 			
-			\paragraph {G6:} The application must allow the authorities to register providing a valid identification number and a valid password.
+			\paragraph {G6:} The application must allow the authorities to register providing a valid identification number, a valid e-mail address and a valid password.
 				\begin{itemize}
-					\item{[R1]:} Registration must be allowed only entering an e-mail address that is not already associated to an existing SafeStreets account.
+					\item{[R1]:} Registration must be allowed only entering a valid e-mail address that is not already associated to an existing SafeStreets account.
 					\item{[R2]:} Registration must be allowed only entering a password that satisfies the safety conditions.
-					\item{[R8]:} The system must store the hash of every password, using a safe cryptographic hash function.
+					\item{[R12]:} Registration must be allowed only entering a valid identification number that is not already associated to an existing SafeStreets account
+					\item{[R3]:} The system must store the hash of every password, using a safe cryptographic hash function.
 				\end{itemize}
 
 			\paragraph {G7:} The application must allow authorities to retrieve and evaluate the available reports.
@@ -649,11 +660,11 @@ The following are the assumptions made to simplify and clarify some situation th
 					\item{[D5]:} Reports are evaluated only one time.
 				\end{itemize}
 				\begin{itemize}
-					\item{[R1]:} The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
-					\item{[R2]:} The system must add the right date, time and street of the violation to the data provided by the user.
-					\item{[R7]:} The system must assign to each report a unique identification number.
-					\item{[R10:]} The system must guarantee that each municipality is covered by at least one authority.
-					\item{[R12]:} The system must notify the authorities when a new report is available.
+					\item{[R13]:} The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
+					\item{[R5]:} The system must add the right date, time and street of the violation to the data provided by the user.
+					\item{[R11]:} The system must assign to each report a unique identification number.
+					\item{[R13:]} The system must guarantee that each municipality is covered by at least one authority.
+					\item{[R14]:} The system must notify the authorities when a new report is available.
 				\end{itemize}
 			\paragraph {G8:} The application must be able to identify potentially unsafe areas and suggest possible interventions.
 				\begin{itemize}
@@ -663,9 +674,9 @@ The following are the assumptions made to simplify and clarify some situation th
 			 		\item{[D6]:} The user sends the report staying in the same place of the violation.
 				\end{itemize}
 				\begin{itemize}
-					\item{[R9]:} If the same violation is reported twice, it counts only one time on the map.
-					\item{[R10:]} The system must guarantee that each municipality is covered by at least one authority.
-					\item{[R11]:} The system must include a simple recommender system that, according on the number of each type of violation, suggests a possible intervention to the authorities of a municipality.
+					\item{[R10]:} If the same violation is reported twice, it counts only one time on the map.
+					\item{[R13:]} The system must guarantee that each municipality is covered by at least one authority.
+					\item{[R15]:} The system must include a simple recommender system that, according on the number of each type of violation, suggests a possible intervention to the authorities of a municipality.
 				\end{itemize}
 
 \paragraph{Scenarios}
@@ -960,7 +971,7 @@ This chapter shows the analysis of the Alloy model of the proposed system. Obvio
 	\begin{itemize}
 	\item Course slides from Software Engineering 2 - \emph{Professor Elisabetta Di Nitto};
 	\item 830-1998, IEEE Recommended Practice for Software Requirements Specifications - \emph{IEEE};
-	\item 29148-2011, ISO/IEC/IEEE International Standard - Systems and software engineering - Life cycle processes-Requirements engineering - \emph{IEEE}.
+	\item 29148-2011, ISO/IEC/IEEE International Standard - Systems and software engineering - Life cycle processes - Requirements engineering - \emph{IEEE}.
 	\end{itemize}
 
 	\section{Tools}
