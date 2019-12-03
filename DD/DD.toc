@@ -17,7 +17,9 @@
 \contentsline {section}{\numberline {2.6}Selected architectural styles and patterns}{7}{section.2.6}% 
 \contentsline {section}{\numberline {2.7}Other design decisions}{7}{section.2.7}% 
 \contentsline {chapter}{\numberline {3}User interfaces design}{8}{chapter.3}% 
-\contentsline {chapter}{\numberline {4}Requirements Traceability}{9}{chapter.4}% 
-\contentsline {chapter}{\numberline {5}Implementation, Integration and Test plan}{10}{chapter.5}% 
-\contentsline {chapter}{\numberline {6}Effort Spent}{11}{chapter.6}% 
-\contentsline {chapter}{\numberline {7}References}{12}{chapter.7}% 
+\contentsline {section}{\numberline {3.1}User}{8}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Authority}{9}{section.3.2}% 
+\contentsline {chapter}{\numberline {4}Requirements Traceability}{10}{chapter.4}% 
+\contentsline {chapter}{\numberline {5}Implementation, Integration and Test plan}{11}{chapter.5}% 
+\contentsline {chapter}{\numberline {6}Effort Spent}{12}{chapter.6}% 
+\contentsline {chapter}{\numberline {7}References}{13}{chapter.7}% 
