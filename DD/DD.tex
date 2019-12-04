@@ -159,7 +159,7 @@ contents}}
 		\end{figure}
 	Users and authorities are provided with mobile devices and access the service through
 	the SafeStreets mobile app. The mobile app communicates with the application layer, which
-	is made by one or more application servers, linked to the database servers. The scale-out approach allows to adjust the number of hardware resources at any time. For what concerns the data access layer, database servers contain sensitive information, such as password hashes, license plate numbers, identification numbers and so on, so it is important to protect all the back-end of the application. In order to do this, the application and data access levels are protected by a firewall that performs traffic control at the level of the single packet, creating a DMZ in which the communication is safe.
+	is made by one or more application servers, linked to the database servers. The scale-out approach allows to adjust the number of hardware resources at any time. For what concerns the data access layer, database servers contain sensitive information, such as password hashes, license plate numbers, identification numbers and so on, so it is important to protect all the back-end of the application. In order to do this, the application and data access levels are protected by a firewall that performs traffic control at the level of the single packet, creating a DMZ in which the communication is safe. Another solution to reduce the computational load, as well as the messages, is the use of caches in the presentation tier: the mobile app stores on the mobile device memory part of the user's data, such as the sent reports and the results of reports evaluation, in order to make them available even when the users (or the authorities) have no access to Internet. This avoids many repeated requests for the same data, with heavy impact on the application and data acces layers' performance.
 
 		\section{Component view}
 		\section{Deployment view}
@@ -190,15 +190,16 @@ contents}}
 	%end of second chapter
 	
 	\chapter{User interfaces design}
+	In chapter 3 of the RASD document some screenshots from the user interface were shown. This chapter describes the navigation in the user interface, both for the users and the authorities. The following UX diagrams refer to the mockups shown in the RASD, which are only the most relevant of the following.
 	\section{User}
 		\begin{figure}[H]
-				\includegraphics[scale = 0.6, center]{userux}
-				\caption{}
+				\includegraphics[scale = 0.65, center]{userux}
+				\caption{UX diagram - user}
 		\end{figure}
 	\section{Authority}		
 		\begin{figure}[H]
-				\includegraphics[scale = 0.65, center]{authorityux}
-				\caption{}
+				\includegraphics[scale = 0.6, center]{authorityux}
+				\caption{UX diagram - authority}
 		\end{figure}
 	%end of third chapter
 
