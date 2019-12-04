@@ -13,13 +13,17 @@
 \contentsline {section}{\numberline {2.2}Component view}{7}{section.2.2}% 
 \contentsline {section}{\numberline {2.3}Deployment view}{7}{section.2.3}% 
 \contentsline {section}{\numberline {2.4}Runtime view}{7}{section.2.4}% 
-\contentsline {section}{\numberline {2.5}Component interfaces}{7}{section.2.5}% 
-\contentsline {section}{\numberline {2.6}Selected architectural styles and patterns}{7}{section.2.6}% 
-\contentsline {section}{\numberline {2.7}Other design decisions}{7}{section.2.7}% 
-\contentsline {chapter}{\numberline {3}User interfaces design}{8}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}User}{8}{section.3.1}% 
-\contentsline {section}{\numberline {3.2}Authority}{9}{section.3.2}% 
-\contentsline {chapter}{\numberline {4}Requirements Traceability}{10}{chapter.4}% 
-\contentsline {chapter}{\numberline {5}Implementation, Integration and Test plan}{11}{chapter.5}% 
-\contentsline {chapter}{\numberline {6}Effort Spent}{12}{chapter.6}% 
-\contentsline {chapter}{\numberline {7}References}{13}{chapter.7}% 
+\contentsline {subsection}{\numberline {2.4.1}Making report}{7}{subsection.2.4.1}% 
+\contentsline {subsection}{\numberline {2.4.2}Visualize Maps}{8}{subsection.2.4.2}% 
+\contentsline {subsection}{\numberline {2.4.3}Visualize reports' history}{8}{subsection.2.4.3}% 
+\contentsline {subsection}{\numberline {2.4.4}Evaluate report}{9}{subsection.2.4.4}% 
+\contentsline {section}{\numberline {2.5}Component interfaces}{9}{section.2.5}% 
+\contentsline {section}{\numberline {2.6}Selected architectural styles and patterns}{9}{section.2.6}% 
+\contentsline {section}{\numberline {2.7}Other design decisions}{9}{section.2.7}% 
+\contentsline {chapter}{\numberline {3}User interfaces design}{10}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}User}{11}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Authority}{12}{section.3.2}% 
+\contentsline {chapter}{\numberline {4}Requirements Traceability}{13}{chapter.4}% 
+\contentsline {chapter}{\numberline {5}Implementation, Integration and Test plan}{14}{chapter.5}% 
+\contentsline {chapter}{\numberline {6}Effort Spent}{15}{chapter.6}% 
+\contentsline {chapter}{\numberline {7}References}{16}{chapter.7}% 
