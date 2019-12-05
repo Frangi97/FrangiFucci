@@ -113,7 +113,8 @@ contents}}
 				\item \textbf{DD:} \emph{Design Document}
 				\item \textbf{DMZ:} \emph{DeMilitarized Zone}			
 				\item \textbf{PKC}: \emph{Public Key Cryptography.}		
-				\item \textbf{AES}: \emph{Advanced Encryption Standard.}		
+				\item \textbf{AES}: \emph{Advanced Encryption Standard.}	
+				\item \textbf{OCR}: \emph{Optical Character Recognition.}	
 				\end{itemize}
 		\section{Revision History}
 			\begin{itemize}
@@ -154,9 +155,9 @@ contents}}
 	\end{itemize}
 	A general view of the system architecture is provided in the following picture:
 	\begin{figure}[H]
-				\includegraphics[scale = 0.6, center]{sysarch}
-				\caption{System architecture}
-		\end{figure}
+			\includegraphics[scale = 0.6, center]{sysarch}
+			\caption{System architecture}
+	\end{figure}
 	Users and authorities are provided with mobile devices and access the service through
 	the SafeStreets mobile app. The mobile app communicates with the application layer, which
 	is made by one or more application servers, linked to the database servers. The scale-out approach allows to adjust the number of hardware resources at any time. For what concerns the data access layer, database servers contain sensitive information, such as password hashes, license plate numbers, identification numbers and so on, so it is important to protect all the back-end of the application. In order to do this, the application and data access levels are protected by a firewall that performs traffic control at the level of the single packet, creating a DMZ in which the communication is safe. Another solution to reduce the computational load, as well as the messages, is the use of caches in the presentation tier: the mobile app stores on the mobile device memory part of the user's data, such as the sent reports and the results of reports evaluation, in order to make them available even when the users (or the authorities) have no access to Internet. This avoids many repeated requests for the same data, with heavy impact on the application and data acces layers' performance.
@@ -164,26 +165,92 @@ contents}}
 		\section{Component view}
 		\section{Deployment view}
 		\section{Runtime view}
+			In this section will be presented the sequence diagrams of the various functionality, is up to the application
+			controlling and guaranteeing that each user can access only to the right functionality.
 			\subsection{Making report}					
 				\begin{figure}[H]
 						\includegraphics[width = 1.5\textwidth, center]{Report}
-						\caption{}
+						\caption{How the report works}
+						\label{fig: diagrams}
 				\end{figure}
+				This sequence diagrams explain the process through which a user can report a traffic violation.\\
+				Once he has opened the application and logged in/signed up he can chose the ``Report violation" option,
+				when he does that the application send the request to a router that forward the request to the right
+				component (in this case the ``Report Manager").\\
+				The first information the app request to the manager is to retrieve the user position, the request is forwarded 
+				to the Report manager and then to the Position manager (all request are centralized to the report manager).
+				Then the user has to fill the form to report the traffic violations with the violation type and a photo of the
+				violation and a photo of the plate. The request cannot be sent until all the form is completed.\\
+				Is up to the application to verify that in the plate photo there is actually a plate. %How about that?
+				Once the form has been sent the manager take care of the rest. First thing first the manager has to convert
+				the photo of the plate into a String, so it send the plate's photo to the OCR manager, in this way using some
+				photo manipulation techniques the system is able to obtain a String with the license plate.\\
+				Once obtained that the report manager use a query to look up the database trying to find if there is already a
+				pending (or resolved) report involving that car, in this way a car won't be reported twice for the same
+				violations. If the vehicle has been already reported the application will display a message like ``I'm sorry but
+				this vehicle has been already reported", to notify the user that the request failed.\\
+				If it's not already reported the report is stored into the database, and a notification is sent to the authorities
+				(using the notification manager).
 			\subsection{Visualize Maps}					
 				\begin{figure}[H]
 						\includegraphics[width = \textwidth, center]{Maps}
-						\caption{}
+						\caption{How map visualization works}
+						\label{fig: diagrams}
 				\end{figure}
+				
+				This sequence diagrams explain the process through which a user can visualize the map to indentify which
+				streets have the highest number of violations.\\
+				Once he has opened the application and logged in/signed up he can chose the ``Visualize map" option,
+				when he does that the application send the request to a router that forward the request to the right
+				component (in this case the ``Maps Manager").\\
+				The manager take care of everything, it obtain the user position in order to load the correct map from google
+				maps, then it contact the db to retrieve information about the streets in that map to apply the correct colors
+				and in the end it sends all to the application.
 			\subsection{Visualize reports' history}					
 				\begin{figure}[H]
 						\includegraphics[width = \textwidth, center]{history}
-						\caption{}
+						\caption{How reports' history works}
+						\label{fig: diagrams}
 				\end{figure}
+				This sequence diagrams explain the process through which a user can visualize the history of his previous
+				reports.\\
+				Once he has opened the application and logged in/signed up he can chose the ``My reports" option,
+				when he does that the application send the request to a router that forward the request to the right
+				component (in this case the ``Chronology Manager").\\
+				The manager simply obtains all the previous reports by querying the db, if there aren't reports the manager
+				will send a message to the app and will be displayed something like ``I am sorry, it seems that you didn't any
+				report up to now". 
+				The user will see date\&time of each report, the status (pending, approved or rejected), the street and the
+				type of violation.\\
+				The plate won't be displayed to protect the privacy of the other citizens.
 			\subsection{Evaluate report}					
 				\begin{figure}[H]
 						\includegraphics[width = \textwidth, center]{Evaluate}
-						\caption{}
+						\caption{How reports are evaluated}
+						\label{fig: diagrams}
 				\end{figure}
+				This sequence diagrams explain the process through which an authorities can evaluate pending reports.\\
+				Once he has opened the application and logged in/signed up he can chose the ``Evaluate" option,
+				when he does that the application send the request to a router that forward the request to the right
+				component (in this case the ``Evaluation Manager").\\
+				The manager retrieve from the db all the unsolved reports and send them to the application module, each
+				time that an authority resolve a report the manager update the db and, using the notification manager, send
+				a notification to the user who made it to notify him the updated status.
+			\subsection{Asking for recommendation}
+				\begin{figure}[H]
+						\includegraphics[width = \textwidth, center]{recommendation}
+						\caption{How reports are evaluated}
+						\label{fig: diagrams}
+				\end{figure}
+				This sequence diagrams explain the process through which an authorities can receive suggestion to improve
+				the safety on the streets.\\
+				Once he has opened the application and logged in/signed up he can chose the ``Recommend" option,
+				when he does that the application send the request to a router that forward the request to the right
+				component (in this case the ``Recommendation Manager").\\
+				To receive recommendation on how to improve the safety on the streets the manager will use a recommender
+				system based on content base approach based on item content matrix. To receive suggestion the manager
+				will consult the recommender system and obtain the best possible solution, then it will be forwarded to the
+				application.
 		\section{Component interfaces}
 		\section{Selected architectural styles and patterns}
 		\section{Other design decisions}
