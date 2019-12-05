@@ -156,12 +156,29 @@ contents}}
 	\begin{figure}[H]
 				\includegraphics[scale = 0.6, center]{sysarch}
 				\caption{System architecture}
-		\end{figure}
+	\end{figure}
 	Users and authorities are provided with mobile devices and access the service through
 	the SafeStreets mobile app. The mobile app communicates with the application layer, which
 	is made by one or more application servers, linked to the database servers. The scale-out approach allows to adjust the number of hardware resources at any time. For what concerns the data access layer, database servers contain sensitive information, such as password hashes, license plate numbers, identification numbers and so on, so it is important to protect all the back-end of the application. In order to do this, the application and data access levels are protected by a firewall that performs traffic control at the level of the single packet, creating a DMZ in which the communication is safe. Another solution to reduce the computational load, as well as the messages, is the use of caches in the presentation tier: the mobile app stores on the mobile device memory part of the user's data, such as the sent reports and the results of reports evaluation, in order to make them available even when the users (or the authorities) have no access to Internet. This avoids many repeated requests for the same data, with heavy impact on the application and data acces layers' performance.
+The system also includes a recommender system: exploiting data mining techniques, such as association rules, it can suggest to the authorities of one municipality possible interventions to improve security on the streets.
 
 		\section{Component view}
+
+	\begin{figure}[H]
+				\includegraphics[scale = 0.4, center]{ComponentDiagramMaps}
+				\caption{Component diagram - Google Maps}
+	\end{figure}
+
+	\begin{figure}[H]
+				\includegraphics[scale = 0.5, center]{ComponentDiagramResponse}
+				\caption{Component diagram - Response}
+	\end{figure}
+
+	\begin{figure}[H]
+				\includegraphics[scale = 0.4, center]{ComponentDiagramDBMS}
+				\caption{Component diagram - DBMS}
+	\end{figure}
+
 		\section{Deployment view}
 		\section{Runtime view}
 			\subsection{Making report}					
