@@ -34,13 +34,13 @@
 
 
 % Path relative to the .tex file containing the \includegraphics command
-\graphicspath{ {./images/} }  
+\graphicspath{ {./images/} }
 
 % To change the ToC title
 \addto\captionsenglish{ \renewcommand {\contentsname} {Table of
 contents}}
 
-%logo 
+%logo
 \pretitle{
 	 \begin{center}
 	 \LARGE
@@ -55,7 +55,7 @@ contents}}
 \begin{document}
 	\maketitle
 	%Index
-	\tableofcontents 
+	\tableofcontents
 	\chapter{Introduction}
 		\section{Purpose}
 			The purpose of this document consists of giving more technical details than the RASD concerning the SafeStreets
@@ -111,14 +111,14 @@ contents}}
 				\item \textbf{UI}: \emph{User Interface.}
 				\item \textbf{RASD:} \emph{Requirements Analysis and Specifications Document}
 				\item \textbf{DD:} \emph{Design Document}
-				\item \textbf{DMZ:} \emph{DeMilitarized Zone}			
-				\item \textbf{PKC}: \emph{Public Key Cryptography.}		
-				\item \textbf{AES}: \emph{Advanced Encryption Standard.}	
-				\item \textbf{OCR}: \emph{Optical Character Recognition.}	
+				\item \textbf{DMZ:} \emph{DeMilitarized Zone}
+				\item \textbf{PKC}: \emph{Public Key Cryptography.}
+				\item \textbf{AES}: \emph{Advanced Encryption Standard.}
+				\item \textbf{OCR}: \emph{Optical Character Recognition.}
 				\end{itemize}
 		\section{Revision History}
 			\begin{itemize}
-				\item \textbf{Version 1.0:} 
+				\item \textbf{Version 1.0:}
 				\begin{itemize}
 					\item First release.
 				\end{itemize}
@@ -131,18 +131,18 @@ contents}}
 			\begin{itemize}
 				\item \textbf{Chapter 1} provides a brief explanation on the DD purpose and a quick introduction
 					SafeStreets.
-				\item \textbf{Chapter 2} aims to provide a description of the system's architecture. 
+				\item \textbf{Chapter 2} aims to provide a description of the system's architecture.
 				\item \textbf{Chapter 3} specifies the design of user interfaces and describes the user-application
 					interaction.
 				\item \textbf{Chapter 4} contains requirements traceability.
 				\item \textbf{Chapter 5} describes the implementation plan.
 				\item \textbf{Chapter 6} shows the effort of each group member.
-				\item \textbf{Chapter 7} contains all the references used to make this document. 
+				\item \textbf{Chapter 7} contains all the references used to make this document.
 			\end{itemize}
 	%end of first chapter
-	
+
 	\chapter{Architectural design}
-		\section{Overview:	high-level	components	and	their	interaction} 
+		\section{Overview:	high-level	components	and	their	interaction}
 	The application is built following the principles of the three-tier architecture: the three logic layers of presentation, 				application and data access rely on three corresponding hardware layers. This architecture is prefered to one-tier and 			two-tier architectures due to some important characteristics, some of which are:
 	\begin{itemize}
 	\item \emph{Flexibility:} each tier can be manged or scaled independently at any time, without affecting the others;
@@ -161,13 +161,30 @@ contents}}
 	Users and authorities are provided with mobile devices and access the service through
 	the SafeStreets mobile app. The mobile app communicates with the application layer, which
 	is made by one or more application servers, linked to the database servers. The scale-out approach allows to adjust the number of hardware resources at any time. For what concerns the data access layer, database servers contain sensitive information, such as password hashes, license plate numbers, identification numbers and so on, so it is important to protect all the back-end of the application. In order to do this, the application and data access levels are protected by a firewall that performs traffic control at the level of the single packet, creating a DMZ in which the communication is safe. Another solution to reduce the computational load, as well as the messages, is the use of caches in the presentation tier: the mobile app stores on the mobile device memory part of the user's data, such as the sent reports and the results of reports evaluation, in order to make them available even when the users (or the authorities) have no access to Internet. This avoids many repeated requests for the same data, with heavy impact on the application and data acces layers' performance.
+The system also includes a recommender system: exploiting data mining techniques, such as association rules, it can suggest to the authorities of one municipality possible interventions to improve security on the streets.
 
 		\section{Component view}
+
+	\begin{figure}[H]
+				\includegraphics[scale = 0.4, center]{ComponentDiagramMaps}
+				\caption{Component diagram - Google Maps}
+	\end{figure}
+
+	\begin{figure}[H]
+				\includegraphics[scale = 0.5, center]{ComponentDiagramResponse}
+				\caption{Component diagram - Response}
+	\end{figure}
+
+	\begin{figure}[H]
+				\includegraphics[scale = 0.4, center]{ComponentDiagramDBMS}
+				\caption{Component diagram - DBMS}
+	\end{figure}
+
 		\section{Deployment view}
 		\section{Runtime view}
 			In this section will be presented the sequence diagrams of the various functionality, is up to the application
 			controlling and guaranteeing that each user can access only to the right functionality.
-			\subsection{Making report}					
+			\subsection{Making report}
 				\begin{figure}[H]
 						\includegraphics[width = 1.5\textwidth, center]{Report}
 						\caption{How the report works}
@@ -177,7 +194,7 @@ contents}}
 				Once he has opened the application and logged in/signed up he can chose the ``Report violation" option,
 				when he does that the application send the request to a router that forward the request to the right
 				component (in this case the ``Report Manager").\\
-				The first information the app request to the manager is to retrieve the user position, the request is forwarded 
+				The first information the app request to the manager is to retrieve the user position, the request is forwarded
 				to the Report manager and then to the Position manager (all request are centralized to the report manager).
 				Then the user has to fill the form to report the traffic violations with the violation type and a photo of the
 				violation and a photo of the plate. The request cannot be sent until all the form is completed.\\
@@ -191,13 +208,13 @@ contents}}
 				this vehicle has been already reported", to notify the user that the request failed.\\
 				If it's not already reported the report is stored into the database, and a notification is sent to the authorities
 				(using the notification manager).
-			\subsection{Visualize Maps}					
+			\subsection{Visualize Maps}
 				\begin{figure}[H]
 						\includegraphics[width = \textwidth, center]{Maps}
 						\caption{How map visualization works}
 						\label{fig: diagrams}
 				\end{figure}
-				
+
 				This sequence diagrams explain the process through which a user can visualize the map to indentify which
 				streets have the highest number of violations.\\
 				Once he has opened the application and logged in/signed up he can chose the ``Visualize map" option,
@@ -206,7 +223,7 @@ contents}}
 				The manager take care of everything, it obtain the user position in order to load the correct map from google
 				maps, then it contact the db to retrieve information about the streets in that map to apply the correct colors
 				and in the end it sends all to the application.
-			\subsection{Visualize reports' history}					
+			\subsection{Visualize reports' history}
 				\begin{figure}[H]
 						\includegraphics[width = \textwidth, center]{history}
 						\caption{How reports' history works}
@@ -219,11 +236,11 @@ contents}}
 				component (in this case the ``Chronology Manager").\\
 				The manager simply obtains all the previous reports by querying the db, if there aren't reports the manager
 				will send a message to the app and will be displayed something like ``I am sorry, it seems that you didn't any
-				report up to now". 
+				report up to now".
 				The user will see date\&time of each report, the status (pending, approved or rejected), the street and the
 				type of violation.\\
 				The plate won't be displayed to protect the privacy of the other citizens.
-			\subsection{Evaluate report}					
+			\subsection{Evaluate report}
 				\begin{figure}[H]
 						\includegraphics[width = \textwidth, center]{Evaluate}
 						\caption{How reports are evaluated}
@@ -255,7 +272,7 @@ contents}}
 		\section{Selected architectural styles and patterns}
 		\section{Other design decisions}
 	%end of second chapter
-	
+
 	\chapter{User interfaces design}
 	In chapter 3 of the RASD document some screenshots from the user interface were shown. This chapter describes the navigation in the user interface, both for the users and the authorities. The following UX diagrams refer to the mockups shown in the RASD, which are only the most relevant of the following.
 	\section{User}
@@ -263,7 +280,7 @@ contents}}
 				\includegraphics[scale = 0.65, center]{userux}
 				\caption{UX diagram - user}
 		\end{figure}
-	\section{Authority}		
+	\section{Authority}
 		\begin{figure}[H]
 				\includegraphics[scale = 0.6, center]{authorityux}
 				\caption{UX diagram - authority}
