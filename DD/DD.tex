@@ -450,6 +450,92 @@ The system also includes a recommender system: exploiting data mining techniques
 	%end of third chapter
 
 	\chapter{Requirements Traceability}
+	Chapter 3 of the RASD presented the functional requirements necessary
+	to guarantee the goals of the application: this chapter shows how every
+	component of the system contributes to satisfy them. For each of the requirements,
+	all the involved components in the application server are listed and their function
+	is explained.
+	\begin{itemize}
+	\item\textbf{R1}: Registration must be allowed only entering a valid e-mail address that is not already associated to an existing SafeStreets account.
+		\begin{itemize}
+		\item\textbf{SignUpManager}: Checks if the e-mail address is already in the DB. In case of sign up, if the address already exists, the request is refused.
+		In case of login, checks if the password hashes correspond.
+		\end{itemize}
+		
+	\item\textbf{R2}: Registration must be allowed only entering a password that satisfies the safety conditions.
+		This check is made by the client, since the application server can never receive a password as plaintext. Moreover, it is impossible to determine whether
+		a string satisfies the safety conditions by reading its hash.
+		
+	\item\textbf{R3}: The system must store the hash of every password, using a safe cryptographic hash function.
+		\begin{itemize}
+		\item\textbf{SignUpManager}: Forwards the received hash (computed by the mobile app) to the DB.
+		\end{itemize}
+		
+	\item\textbf{R4}: The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
+		\begin{itemize}
+		\item\textbf{MapsManager}: 
+		\end{itemize}
+	
+	\item\textbf{R5}: The system must add the right date, time and street of the violation to the data provided by the user.
+		All this information is added by the mobile app, which exploits Google Maps APIs as well. Date and time are provided by the OS of the device.
+		
+	\item\textbf{R6}: The system must correctly read the license plate given a picture attached to a report.
+		\begin{itemize}
+		\item\textbf{OCRManager}: Given the picture of the violation, recognizes the license plate by running an OCS algorithm. This is made by the server to
+		respect the thin client architecture.
+		\end{itemize}	
+		
+	\item\textbf{R7}: The system must exploit Google Maps APIs to show to the user the map of the violations.
+		\begin{itemize}
+		\item\textbf{OCRManager}:
+		\end{itemize}
+			
+	\item\textbf{R8}: The system must show the right colors on the map, given the number of approved reports for each street.
+		\begin{itemize}
+		\item\textbf{OCRManager}:
+		\end{itemize}
+			
+	\item\textbf{R9}: When a license plate is recognized, the system must show the number of approved reports for that car.
+		\begin{itemize}
+		\item\textbf{ReportManager}: Once the string is obtained from the OCRManager, checks if in the DB are present some violations committed by the same vehicle.
+		\end{itemize}
+			
+	\item\textbf{R10}: If the same violation is reported twice, it counts only one time on the map.
+		\begin{itemize}
+		\item\textbf{ReportManager}: Checks if in the DB is already present an identical violation, reported in the last 24 hours.
+		\end{itemize}
+			
+	\item\textbf{R11}: The system must assign to each report a unique identification number.
+		\begin{itemize}
+		\item\textbf{ReportManager}: Assigns the unique identification number to each report.
+		\end{itemize}
+			
+	\item\textbf{R12}: Registration must be allowed only entering a valid identification number that is not already associated to an existing SafeStreets account.
+		\begin{itemize}
+		\item\textbf{SignUpManager}: Checks if in the DB the same identification number is already present.
+		\end{itemize}
+			
+	\item\textbf{R13}: The system must guarantee that each municipality is covered by at least one authority.
+		\begin{itemize}
+		\item\textbf{OCRManager}:
+		\end{itemize}
+			
+	\item\textbf{R14}: The system must notify the authorities when a new report is available.
+		\begin{itemize}
+		\item\textbf{ReportManager}: After succesfully inserting a new report in the DB, calls the NotificationManager.
+		\item\textbf{NotificationManager}: Alerts all the agents assigned to the municipality of the new report.
+		\end{itemize}
+			
+	\item\textbf{R15}: The system must include a simple recommender system that, according on the number of each type of violation, suggests a possible intervention to the authorities of a municipality.
+		\begin{itemize}
+		\item\textbf{RecommendationManager}:
+		\end{itemize}
+			
+	\item\textbf{R16}: Login must be allowed only if both e-mail address and password are correct.
+		\begin{itemize}
+		\item\textbf{LogInManager}: Checks if the e-mail address is already in the DB, then if the password hash matches.
+		\end{itemize}
+	\end{itemize}
 	%end of fourth chapter
 
 	\chapter{Implementation, Integration and Test plan}

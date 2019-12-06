@@ -8,22 +8,30 @@
 \contentsline {section}{\numberline {1.4}Revision History}{4}{section.1.4}% 
 \contentsline {section}{\numberline {1.5}Reference Documents}{4}{section.1.5}% 
 \contentsline {section}{\numberline {1.6}Document Structure}{4}{section.1.6}% 
-\contentsline {chapter}{\numberline {2}Architectural design}{5}{chapter.2}% 
-\contentsline {section}{\numberline {2.1}Overview: high-level components and their interaction}{5}{section.2.1}% 
-\contentsline {section}{\numberline {2.2}Component view}{7}{section.2.2}% 
+\contentsline {chapter}{\numberline {2}Architectural design}{6}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Overview: high-level components and their interaction}{6}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}Component view}{8}{section.2.2}% 
 \contentsline {section}{\numberline {2.3}Deployment view}{9}{section.2.3}% 
 \contentsline {section}{\numberline {2.4}Runtime view}{9}{section.2.4}% 
-\contentsline {subsection}{\numberline {2.4.1}Making report}{9}{subsection.2.4.1}% 
-\contentsline {subsection}{\numberline {2.4.2}Visualize Maps}{10}{subsection.2.4.2}% 
-\contentsline {subsection}{\numberline {2.4.3}Visualize reports' history}{10}{subsection.2.4.3}% 
-\contentsline {subsection}{\numberline {2.4.4}Evaluate report}{11}{subsection.2.4.4}% 
-\contentsline {section}{\numberline {2.5}Component interfaces}{11}{section.2.5}% 
-\contentsline {section}{\numberline {2.6}Selected architectural styles and patterns}{11}{section.2.6}% 
-\contentsline {section}{\numberline {2.7}Other design decisions}{11}{section.2.7}% 
-\contentsline {chapter}{\numberline {3}User interfaces design}{12}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}User}{13}{section.3.1}% 
-\contentsline {section}{\numberline {3.2}Authority}{14}{section.3.2}% 
-\contentsline {chapter}{\numberline {4}Requirements Traceability}{15}{chapter.4}% 
-\contentsline {chapter}{\numberline {5}Implementation, Integration and Test plan}{16}{chapter.5}% 
-\contentsline {chapter}{\numberline {6}Effort Spent}{17}{chapter.6}% 
-\contentsline {chapter}{\numberline {7}References}{18}{chapter.7}% 
+\contentsline {subsection}{\numberline {2.4.1}Making report}{10}{subsection.2.4.1}% 
+\contentsline {subsection}{\numberline {2.4.2}Visualize Maps}{11}{subsection.2.4.2}% 
+\contentsline {subsection}{\numberline {2.4.3}Visualize reports' history}{12}{subsection.2.4.3}% 
+\contentsline {subsection}{\numberline {2.4.4}Evaluate report}{13}{subsection.2.4.4}% 
+\contentsline {subsection}{\numberline {2.4.5}Asking for recommendation}{14}{subsection.2.4.5}% 
+\contentsline {section}{\numberline {2.5}Component interfaces}{15}{section.2.5}% 
+\contentsline {subsection}{\numberline {2.5.1}Overall summary}{15}{subsection.2.5.1}% 
+\contentsline {subsection}{\numberline {2.5.2}Main page}{15}{subsection.2.5.2}% 
+\contentsline {subsection}{\numberline {2.5.3}Report}{17}{subsection.2.5.3}% 
+\contentsline {subsection}{\numberline {2.5.4}History}{18}{subsection.2.5.4}% 
+\contentsline {subsection}{\numberline {2.5.5}Map}{19}{subsection.2.5.5}% 
+\contentsline {subsection}{\numberline {2.5.6}Evaluate}{20}{subsection.2.5.6}% 
+\contentsline {subsection}{\numberline {2.5.7}Suggestion}{21}{subsection.2.5.7}% 
+\contentsline {section}{\numberline {2.6}Selected architectural styles and patterns}{21}{section.2.6}% 
+\contentsline {section}{\numberline {2.7}Other design decisions}{21}{section.2.7}% 
+\contentsline {chapter}{\numberline {3}User interfaces design}{22}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}User}{23}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Authority}{24}{section.3.2}% 
+\contentsline {chapter}{\numberline {4}Requirements Traceability}{25}{chapter.4}% 
+\contentsline {chapter}{\numberline {5}Implementation, Integration and Test plan}{28}{chapter.5}% 
+\contentsline {chapter}{\numberline {6}Effort Spent}{29}{chapter.6}% 
+\contentsline {chapter}{\numberline {7}References}{30}{chapter.7}% 
