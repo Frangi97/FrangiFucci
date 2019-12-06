@@ -115,6 +115,7 @@ contents}}
 				\item \textbf{PKC}: \emph{Public Key Cryptography.}
 				\item \textbf{AES}: \emph{Advanced Encryption Standard.}
 				\item \textbf{OCR}: \emph{Optical Character Recognition.}
+				\item \textbf{DB}: \emph{Data base}
 				\end{itemize}
 		\section{Revision History}
 			\begin{itemize}
@@ -269,6 +270,167 @@ The system also includes a recommender system: exploiting data mining techniques
 				will consult the recommender system and obtain the best possible solution, then it will be forwarded to the
 				application.
 		\section{Component interfaces}
+			\subsection{Overall summary}
+				In this section will be analyzed the interfaces necessary to each function, explaining the purpose of the main
+				functions.
+			\subsection{Main page}
+				\begin{figure}[H]
+						\includegraphics[width = \textwidth, center]{mainInterface}
+						\label{fig: interfaces}
+				\end{figure}
+				\newpage In the figure above is represented the interface to manage the main page of the application.
+				It is important to underline that it is the task of the application to ensure that each user can access the
+				functions dedicated to him and not to others (for example a citizen can't see the evaluate option).
+				%Is also up
+				%to the system to check the validity of the created reports.
+				%Here a quick description of the functions illustrated above:
+					\begin{itemize}
+						\item \textbf{App}
+						\begin{itemize}
+							\item \textbf{logIn} This method obtain the information from the ``Username" and the
+								``Password" fields, and then call the logInManager
+							\item \textbf{signUP} This method display the sign up form, then it obtain all the data
+								from the fields and it controls their validity, then to complete the procedure and
+								save the user in the db it calls the method ``sign up" from  ``sign up manager"
+							\item \textbf{makeReport} This method display the form to report traffic violations and
+								it starts the procedure, it will call all the methods of ``reportManager"
+								(will be explained in detail to follow). 
+							\item \textbf{evaluate} This method display the screen to evaluate traffic violations and
+								it starts the procedure, it will call all the methods of ``evaluateManager"
+								(will be explained in detail to follow).
+							\item \textbf{history} This method display the history of the user's reported traffic
+								violations and it starts the procedure, it will call all the methods of
+								``historyManager" (will be explained in detail to follow).
+							\item \textbf{map} This method display the map with the streets colored in function of the
+								traffic violations' number.
+							\item \textbf{recommendation} This method will give a suggestion on how to improve the
+								safety on a particular street, the methods involved will be explained in detail to
+								follow in the  ``recommendationManager".
+						\end{itemize}
+						\item \textbf{signUpManager}
+						\begin{itemize}
+							\item \textbf{signUp} This method will communicate in a safe way to the DB using an
+								asymmetric key, it will memorize into the DB the Username and the hash of the
+								password.
+						\end{itemize}
+						\item \textbf{logInManager}
+						\begin{itemize}
+							\item \textbf{logIn} This method will communicate in a safe way to the DB using
+								symmetric encryption (established at the begging of the communication using
+								asymmetric encryption), it will obtain the password's hash from the DB and it will
+								confront it to the hash of the one the user inserted.
+						\end{itemize}
+					\end{itemize}
+			\subsection{Report}
+				\begin{figure}[H]
+						\includegraphics[width = \textwidth, center]{reportInterface}
+						%\caption{How reports are evaluated}
+						\label{fig: interfaces}
+				\end{figure}
+				\begin{itemize}
+					\item \textbf{reportManager}
+					\begin{itemize}
+						\item \textbf{sendReport} This method take the created reports and save it onto the DB adding
+						the status (pending), and the username who created it.
+						\item \textbf{userPosition} This method contact the position manager to retrieve the user
+						position and send it to the client to include it in the report.
+						\item \textbf{sendPlateForOCR} This method is called by the client, is used to translate the
+						plate's photo into a String to include it into the DB and facilitate further operation of query
+						\item \textbf{updateDb} This is the method that take care of every communication with the DB.
+						\item \textbf{sendNotification} This method is used to notify the authorities of new reports.
+					\end{itemize}
+					\item \textbf{ocrManager}
+					\begin{itemize}
+						\item \textbf{translate} This is the method that using OCR techniques obtain the license plate
+						from the photo.
+					\end{itemize}
+					\newpage \item \textbf{notificationManager}
+					\begin{itemize}
+						\item \textbf{sendNotification}  This method is up to contact the users required (both citizens
+						and authorities) to notify them new reports (or updated status of previous ones).
+					\end{itemize}
+					\item \textbf{positionManager}
+					\begin{itemize}
+						\item \textbf{userPosition} This method is up to retrieve the user position using some techniques
+						(not only using the GPS system but also using mobile data or wi-fi)
+					\end{itemize}
+					\item \textbf{gpsManager}
+					\begin{itemize}
+						\item \textbf{retreivePosition} This method is specific to retrieve the user position using only the
+							GPS system.
+					\end{itemize}
+				\end{itemize}
+			\subsection{History}
+				\begin{figure}[H]
+						\includegraphics[center]{historyInterface}
+						%\caption{How reports are evaluated}
+						\label{fig: interfaces}
+				\end{figure}
+				\begin{itemize}
+					\item \textbf{getHistory} This method has to communicate with the application, receiving requests and
+						sending back the data.
+					\item \textbf{retreiveData} This method is specific to contact and query the DB to obtain the history of
+						user's reports. 
+				\end{itemize}
+			\subsection{Map}
+				\begin{figure}[H]
+						\includegraphics[width = \textwidth, center]{mapInterface}
+						%\caption{How reports are evaluated}
+						\label{fig: interfaces}
+				\end{figure}
+				\begin{itemize}
+						\item \textbf{mapManager}
+						\begin{itemize}
+							\item \textbf{visualizeMap} The method retrieve the data about reports and the streets
+								and then combine it assigning each street the right color. 
+							\item \textbf{obtainMap} Is called by visualizeMap and contact the gpsManager to
+								retrieve the user position and then google Map to obtain the map around him.
+							\item \textbf{obtainData} Is called by visualizeMap and this method has to contact the DB
+								and it has to obtain the number of reports in each street visualized on the map in
+								order to make able visualizeMap to coloring it correctly.
+						\end{itemize}
+						\item \textbf{gpsManager}
+						\begin{itemize}
+							\item \textbf{retreivePosition} Same as said above (in report).
+						\end{itemize}
+				\end{itemize}
+			\subsection{Evaluate}
+				\begin{figure}[H]
+						\includegraphics[width = \textwidth, center]{evaluateInterface}
+						%\caption{How reports are evaluated}
+						\label{fig: interfaces}
+				\end{figure}
+				\begin{itemize}
+						\item \textbf{evaluateManager}
+						\begin{itemize}
+							\item \textbf{evaluate:} Communicate with the client sending the pending reports and
+								receiving all updated reports.
+							\item \textbf{getReports:} This method is called by evaluate and obtain all pending
+								reports in the area under the jurisdiction of the authority who made the request.
+							\item \textbf{updateDB:} This method is called by evaluate and updates the DB with the
+								new status of the evaluated reports
+							\item \textbf{sendNotification:} allert the user which report has been evaluated
+						\end{itemize}
+						\item \textbf{notificationManager}
+						\begin{itemize}
+							\item \textbf{sendNotification:} as said above
+						\end{itemize}
+				\end{itemize}
+			\subsection{Suggestion}
+				\begin{figure}[H]
+						\includegraphics [center]{recommendationInterface}
+						%\caption{How reports are evaluated}
+						\label{fig: interfaces}
+				\end{figure}
+				\begin{itemize}
+					\item \textbf{getRecommendation} This method receive the request and, with the matrix already
+						compiled it take the 3 most similar recommendation made by the system and forward them to the
+						authority.
+					\item \textbf{computeSimilarityMatrix} This method is used each time some data are added, it compute
+					the similarity matrix between the most frequent problem (each problem is divided in small aspect and
+					each of them is an attribute) and a ICM where each item is a possible solution (the attributes are some
+					aspect of the problems that each solution can resolve)
+				\end{itemize}
 		\section{Selected architectural styles and patterns}
 		\section{Other design decisions}
 	%end of second chapter
