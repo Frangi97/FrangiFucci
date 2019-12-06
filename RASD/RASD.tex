@@ -347,14 +347,16 @@ The following are the assumptions made to simplify and clarify some situation th
 		\subsection{Communication interfaces}
 			The system has no communication interfaces.
 	\section{Functional Requirements}
-		This section presents the requirements to be satisfied to reach each goal, in addition to the domain assumptions that must stand.
+		This section presents the requirements to be satisfied to reach each goal, in addition to the domain assumptions that must stand. Notice that the
+		most trivial requirements (e.g. "The system always work properly") are omitted, in order to simplify the description.
 		\subsection{User} 
 
-			\paragraph {G1:} The application must allow the users to register entering an e-mail address and a password.
+			\paragraph {G1:} The application must allow the users to register, entering an e-mail address and a password, and to log in.
 			\begin{itemize}
 				\item{[R1]:} Registration must be allowed only entering a valid e-mail address that is not already associated to an existing SafeStreets account.
 				\item{[R2]:} Registration must be allowed only entering a password that satisfies the safety conditions.
 				\item{[R3]:} The system must store the hash of every password, using a safe cryptographic hash function.
+				\item{[R16]}: Login must be allowed only if both e-mail address and password are correct.
 			\end{itemize}
 
 			\paragraph {G2:} The application must allow the users to notify traffic violations, providing the type of violation and a picture of the vehicle.
@@ -646,12 +648,14 @@ The following are the assumptions made to simplify and clarify some situation th
 				\end{figure}	
 		\subsection{Authority}
 			
-			\paragraph {G6:} The application must allow the authorities to register providing a valid identification number, a valid e-mail address and a valid password.
+			\paragraph {G6:} The application must allow the authorities to register, providing a valid identification number, a valid e-mail address and a valid password,
+			and to log in.
 				\begin{itemize}
 					\item{[R1]:} Registration must be allowed only entering a valid e-mail address that is not already associated to an existing SafeStreets account.
 					\item{[R2]:} Registration must be allowed only entering a password that satisfies the safety conditions.
-					\item{[R12]:} Registration must be allowed only entering a valid identification number that is not already associated to an existing SafeStreets account
 					\item{[R3]:} The system must store the hash of every password, using a safe cryptographic hash function.
+					\item{[R12]:} Registration must be allowed only entering a valid identification number that is not already associated to an existing SafeStreets account.
+					\item{[R16]:} Login must be allowed only if both e-mail address and password are correct.
 				\end{itemize}
 
 			\paragraph {G7:} The application must allow authorities to retrieve and evaluate the available reports.
@@ -660,7 +664,7 @@ The following are the assumptions made to simplify and clarify some situation th
 					\item{[D5]:} Reports are evaluated only one time.
 				\end{itemize}
 				\begin{itemize}
-					\item{[R13]:} The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
+					\item{[R4]:} The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
 					\item{[R5]:} The system must add the right date, time and street of the violation to the data provided by the user.
 					\item{[R11]:} The system must assign to each report a unique identification number.
 					\item{[R13:]} The system must guarantee that each municipality is covered by at least one authority.
@@ -681,15 +685,15 @@ The following are the assumptions made to simplify and clarify some situation th
 
 \paragraph{Scenarios}
 				\subparagraph{Scenario 1}
-					Eddie Edison, an officer had noticed a vertiginous increment of traffic violations, so to increase the control
-					on the streets decide to join SafeStreets
+					Eddie Edison, an officer, has noticed a vertiginous increment of traffic violations, so, to increase the control
+					on the streets, he decides to join SafeStreets.
 					
 				\subparagraph{Scenario 2}
-					Major Clancy Winchester had noticed that even with various tentative to reduce the car accidents he didn't
-					succeed, so he decide to try to subscribe to and advanced option offered by SafeStreets trying to receive
-					new suggestion to improve the security
+					Major Clancy Winchester has noticed that even with various tentatives to reduce the car accidents, he didn't
+					succeed, so he decides to try to subscribe to and advanced option offered by SafeStreets trying to receive
+					new suggestions to improve security.
 					
-				In this paragraph will be illustrated all the use cases diagram, use cases and sequence diagrams, the ``sign up" and ``log in"
+				In this paragraph all the use cases diagram , use cases and sequence diagrams will be illustrated, the ``sign up" and ``log in"
 				are not reported because are the same as above.
 
 			
