@@ -12,6 +12,9 @@
 \usepackage{float}
 \usepackage{tabularx}
 
+% To use monospaced font
+\usepackage{courier}
+
 % To build a clickable Toc
 \usepackage{color} %May be necessary if you want to color links
 \usepackage{hyperref}
@@ -115,7 +118,8 @@ contents}}
 				\item \textbf{PKC}: \emph{Public Key Cryptography.}
 				\item \textbf{AES}: \emph{Advanced Encryption Standard.}
 				\item \textbf{OCR}: \emph{Optical Character Recognition.}
-				\item \textbf{DB}: \emph{Data base}
+				\item \textbf{DB}: \emph{Data Base.}
+				\item \textbf{SHA-3}: \emph{Secure Hash Algorithm 3.}
 				\end{itemize}
 		\section{Revision History}
 			\begin{itemize}
@@ -463,41 +467,49 @@ The system also includes a recommender system: exploiting data mining techniques
 		\end{itemize}
 		
 	\item\textbf{R2}: Registration must be allowed only entering a password that satisfies the safety conditions.
+
 		This check is made by the client, since the application server can never receive a password as plaintext. Moreover, it is impossible to determine whether
 		a string satisfies the safety conditions by reading its hash.
 		
 	\item\textbf{R3}: The system must store the hash of every password, using a safe cryptographic hash function.
+
+		As said above, the encription must be made by the mobile application, which computes the hash of the password using a safe cryptografic hash function, like one of the SHA-3 family. For what concerns the application server components:
 		\begin{itemize}
 		\item\textbf{SignUpManager}: Forwards the received hash (computed by the mobile app) to the DB.
 		\end{itemize}
 		
 	\item\textbf{R4}: The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
 		\begin{itemize}
-		\item\textbf{MapsManager}: 
+		\item\textbf{ReportManager}: Retrieves the position from the report
+		\item\textbf{PositionManager}: Retrieves the street given the position, exploiting Google Maps APIs		
+		\item\textbf{ReportManager}: Checks in the DB if the street belongs to some registered municipality.
 		\end{itemize}
 	
 	\item\textbf{R5}: The system must add the right date, time and street of the violation to the data provided by the user.
+
 		All this information is added by the mobile app, which exploits Google Maps APIs as well. Date and time are provided by the OS of the device.
 		
 	\item\textbf{R6}: The system must correctly read the license plate given a picture attached to a report.
 		\begin{itemize}
+		\item\textbf{ReportManager}: Retrieves the picture attached to the report
 		\item\textbf{OCRManager}: Given the picture of the violation, recognizes the license plate by running an OCS algorithm. This is made by the server to
 		respect the thin client architecture.
 		\end{itemize}	
 		
 	\item\textbf{R7}: The system must exploit Google Maps APIs to show to the user the map of the violations.
-		\begin{itemize}
-		\item\textbf{OCRManager}:
-		\end{itemize}
+
+		This is another requirement fulfilled by the mobile application, which will display the map thanks to Google Maps APIs. The streets are shown with different
+		colours, as will be explained in R8.
 			
 	\item\textbf{R8}: The system must show the right colors on the map, given the number of approved reports for each street.
 		\begin{itemize}
-		\item\textbf{OCRManager}:
+		\item\textbf{MapsManager}: Given a set of streets, performs queries in the DB, in order to retrieve the number of violation for each of the streets. Then returns
+		the color to highlight the street with, according to rules that associate no color to the streets with less violations and red to the ones with the most violations.
 		\end{itemize}
 			
 	\item\textbf{R9}: When a license plate is recognized, the system must show the number of approved reports for that car.
 		\begin{itemize}
-		\item\textbf{ReportManager}: Once the string is obtained from the OCRManager, checks if in the DB are present some violations committed by the same vehicle.
+		\item\textbf{ReportManager}: Once the string is obtained from the OCRManager, checks if in the DB are present some violations committed by the same vehicle. 
 		\end{itemize}
 			
 	\item\textbf{R10}: If the same violation is reported twice, it counts only one time on the map.
@@ -516,9 +528,8 @@ The system also includes a recommender system: exploiting data mining techniques
 		\end{itemize}
 			
 	\item\textbf{R13}: The system must guarantee that each municipality is covered by at least one authority.
-		\begin{itemize}
-		\item\textbf{OCRManager}:
-		\end{itemize}
+
+		This check is done at data access level, implementing in DB a rule that requires at least one assigned authority for each municipality.
 			
 	\item\textbf{R14}: The system must notify the authorities when a new report is available.
 		\begin{itemize}
@@ -526,9 +537,10 @@ The system also includes a recommender system: exploiting data mining techniques
 		\item\textbf{NotificationManager}: Alerts all the agents assigned to the municipality of the new report.
 		\end{itemize}
 			
-	\item\textbf{R15}: The system must include a simple recommender system that, according on the number of each type of violation, suggests a possible intervention to the authorities of a municipality.
+	\item\textbf{R15}: The system must suggest a possible intervention to the authorities of a municipality, according on the number of each type of violation.
 		\begin{itemize}
-		\item\textbf{RecommendationManager}:
+		\item\textbf{RecommendationManager}: Checks every day if the Recommender system has some suggestions.		
+		\item\textbf{NotificationManager}: Alerts all the agents assigned to the municipality for which a new intervention is suggested.
 		\end{itemize}
 			
 	\item\textbf{R16}: Login must be allowed only if both e-mail address and password are correct.
