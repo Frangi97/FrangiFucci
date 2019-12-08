@@ -121,7 +121,9 @@ contents}}
 				\item \textbf{AES}: \emph{Advanced Encryption Standard.}
 				\item \textbf{OCR}: \emph{Optical Character Recognition.}
 				\item \textbf{DB}: \emph{Data Base.}				
+				\item \textbf{SS}: \emph{SafeStreets.}	
 				\item \textbf{DBMS}: \emph{Data Base Management System.}
+				\item \textbf{RDBMS}: \emph{Relational Data Base Management System.}
 				\item \textbf{SHA-3}: \emph{Secure Hash Algorithm 3.}
 				\end{itemize}
 		\section{Revision History}
@@ -227,6 +229,23 @@ The system also includes a recommender system: exploiting data mining techniques
 		\end{itemize}
 		
 		\section{Deployment view}
+This section shows how the core functionalities of the system are developed on different devices, in other words,
+how software artifacts are distributed on the deployment targets. 
+	\begin{figure}[H]
+			\includegraphics[scale = 0.6, center]{DeploymentDiagram}
+			\caption{DeploymentDiagram}
+	\end{figure}
+The deployment diagram follows UML standard notation and does not represent external systems, like the load balancer and the firewall, in order to focus only on what must effectively be deployed on the three tiers:
+\begin{itemize}
+	\item\textbf{Tier 1}: hosts all the presentation logic. The mobile application must be developed for both iOS
+and Android, to make it available for most of the devices. 
+	\item\textbf{Tier 2}: here the application logic must be deployed. The application server communicates with both
+the other tiers, handling all the requests.
+	\item\textbf{Tier 3}: hosts the data access logic. The database server hosts a relational DBMS. The RDBMS is
+preferred due to some reasons, like the possibility to use foreign keys in the tables or easily implement some rules
+(like the one of requirement R13). With a future growth of data amount, a hybrid approach can be taken into account, for instance with the use of structured storage.
+\end{itemize}
+
 		\section{Runtime view}
 			In this section will be presented the sequence diagrams of the various functionality, is up to the application
 			controlling and guaranteeing that each user can access only to the right functionality.
@@ -680,17 +699,17 @@ The system also includes a recommender system: exploiting data mining techniques
 				Chapter & Frangi (hours) & Fucci (hours)\\
 				\hline
 				\hline
-				Chapter 1 & 0.5 & 0.5\\
+				Chapter 1 & 1 & 0.5\\
 				
-				Chapter 2 & 1 & 2\\
+				Chapter 2 & 4.5 & 7\\
 				
-				Chapter 3 & 0.5 & 1\\
+				Chapter 3 & 0.5 & 1.5\\
 				
-				Chapter 4 & 1 & 5\\
+				Chapter 4 & 2 & 4\\
 				
-				Chapter 5 & 5.5 & 1\\
+				Chapter 5 & 5.5 & 1.5\\
 				
-				Total hours: & 8.5 & 9.5\\
+				Total hours: & 13.5 & 14.5\\
 				\hline
 			\end{tabular}
 			\label{tab: }
