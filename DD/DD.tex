@@ -120,7 +120,8 @@ contents}}
 				\item \textbf{PKC}: \emph{Public Key Cryptography.}
 				\item \textbf{AES}: \emph{Advanced Encryption Standard.}
 				\item \textbf{OCR}: \emph{Optical Character Recognition.}
-				\item \textbf{DB}: \emph{Data Base.}
+				\item \textbf{DB}: \emph{Data Base.}				
+				\item \textbf{DBMS}: \emph{Data Base Management System.}
 				\item \textbf{SHA-3}: \emph{Secure Hash Algorithm 3.}
 				\end{itemize}
 		\section{Revision History}
@@ -171,22 +172,60 @@ contents}}
 The system also includes a recommender system: exploiting data mining techniques, such as association rules, it can suggest to the authorities of one municipality possible interventions to improve security on the streets.
 
 		\section{Component view}
+		This section shows the internal composition of the application server, which is the core component of the system and contains the business logic,
+		and its interaction with the external interfaces. In order to obtain a clear and understandable view, the system is described with three different diagrams,
+		which contain the various components that communicate with a certain external component. The diagrams show the interaction of the application with the
+		Google Maps APIs, the mobile application and the DBMS. After each diagram, a brief explanation of each component's role is provided, exception made for the 
+		router, which is described before. Note that some managers can appear in more than on diagram, since they interact with more than one external
+		interface.	
+		
+		\begin{itemize}
+			\item\textbf{Router}: its role is to manage all the messages incoming from the other subsistems, forwording them to the right component and calling
+			the appropriate method on it.
+		\end{itemize}
+
 
 	\begin{figure}[H]
 				\includegraphics[scale = 0.4, center]{ComponentDiagramMaps}
 				\caption{Component diagram - Google Maps}
 	\end{figure}
-
+		\begin{itemize}
+			\item\textbf{PositionManager}: interacts with the client to retrieve the position of the user, then returns it to the caller.
+			\item\textbf{MapsManager}: contains all the necessary methods to display the map of the violations and interact with it. Given a set of streets, 
+			interacts with Google Maps APIs to obtain a map. 
+		\end{itemize}
+	
 	\begin{figure}[H]
 				\includegraphics[scale = 0.5, center]{ComponentDiagramResponse}
 				\caption{Component diagram - Response}
 	\end{figure}
+		\begin{itemize}
+			\item\textbf{ReportManager}: manages the logic inherent the notification of the authorities, when a new report is available.
+			\item\textbf{EvaluateReportManager}: as the ReportManager, but to notify users when one of their reports is evaluated.
+			\item\textbf{NotificationManager}: manages the communication with the mobile application, to make sure that the messages are received correctly.
+		\end{itemize}
 
 	\begin{figure}[H]
 				\includegraphics[scale = 0.4, center]{ComponentDiagramDBMS}
 				\caption{Component diagram - DBMS}
 	\end{figure}
-
+		\begin{itemize}
+			\item\textbf{SignUpManager}: handles the subscription process, both for users and authorities. Interacts with the DBMS to check if the provided
+			credentials are already associated to other accounts.
+			\item\textbf{LogInManager}: receives two strings, an e-mail address and a hash. Checks if the e-mail address is in the DBMS and if the password
+			hashes match.
+			\item\textbf{ReportManager}: contains all the logic necessary to complete a report: given all the information input by the user, completes it with
+			the missing ones, like the user position and the license plate number.
+			\item\textbf{PositionManager}: retrieves the device position to be attached to the report.
+			\item\textbf{OCRManager}: given a pitcure, runs the OCR algorithm and returns a string. Notifies the PositionManager if, for any reason, the license
+			plate number cannot be read.
+			\item\textbf{MapsManager}: interacts with the DBMS, in order to retrieve the number and the type of reports for a given set of streets.
+			\item\textbf{ChronologyManager}: when requested, obtains from the DBMS all the reports made by a given user and their status.
+			\item\textbf{EvaluateReportManager}: stores in the DB the result of the evaluation of a report.
+			\item\textbf{RecommendationManager}: implements the recommender system that periodically interacts with the DBMS, to check if some streets are
+			involved in particular types of violation. In that case, it will suggest an intervention to the authorities of that municipality.
+		\end{itemize}
+		
 		\section{Deployment view}
 		\section{Runtime view}
 			In this section will be presented the sequence diagrams of the various functionality, is up to the application
@@ -629,9 +668,7 @@ The system also includes a recommender system: exploiting data mining techniques
 			\end{itemize}
 		\section{Integration}
 			
-			
-
-	%end of fiveth chapter
+	%end of fifth chapter
 
 	\chapter{Effort Spent}
 		\begin{table}[H]
