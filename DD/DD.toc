@@ -26,14 +26,18 @@
 \contentsline {subsection}{\numberline {2.5.5}Map}{23}{subsection.2.5.5}% 
 \contentsline {subsection}{\numberline {2.5.6}Evaluate}{24}{subsection.2.5.6}% 
 \contentsline {subsection}{\numberline {2.5.7}Suggestion}{25}{subsection.2.5.7}% 
-\contentsline {section}{\numberline {2.6}Selected architectural styles and patterns}{25}{section.2.6}% 
-\contentsline {section}{\numberline {2.7}Other design decisions}{25}{section.2.7}% 
-\contentsline {chapter}{\numberline {3}User interfaces design}{26}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}User}{27}{section.3.1}% 
-\contentsline {section}{\numberline {3.2}Authority}{28}{section.3.2}% 
-\contentsline {chapter}{\numberline {4}Requirements Traceability}{29}{chapter.4}% 
-\contentsline {chapter}{\numberline {5}Implementation, Integration and Test plan}{32}{chapter.5}% 
-\contentsline {section}{\numberline {5.1}Implementation and test plan}{32}{section.5.1}% 
-\contentsline {section}{\numberline {5.2}Integration}{34}{section.5.2}% 
-\contentsline {chapter}{\numberline {6}Effort Spent}{35}{chapter.6}% 
-\contentsline {chapter}{\numberline {7}References}{36}{chapter.7}% 
+\contentsline {subsection}{\numberline {2.5.8}Class diagram}{25}{subsection.2.5.8}% 
+\contentsline {section}{\numberline {2.6}Selected architectural styles and patterns}{26}{section.2.6}% 
+\contentsline {subsection}{\numberline {2.6.1}RESTful architecture}{26}{subsection.2.6.1}% 
+\contentsline {subsection}{\numberline {2.6.2}Three-tier architecture}{28}{subsection.2.6.2}% 
+\contentsline {subsection}{\numberline {2.6.3}Model-view-controller pattern}{28}{subsection.2.6.3}% 
+\contentsline {section}{\numberline {2.7}Other design decisions}{28}{section.2.7}% 
+\contentsline {chapter}{\numberline {3}User interfaces design}{29}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}User}{30}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Authority}{31}{section.3.2}% 
+\contentsline {chapter}{\numberline {4}Requirements Traceability}{32}{chapter.4}% 
+\contentsline {chapter}{\numberline {5}Implementation, Integration and Test plan}{35}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Implementation and test plan}{35}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Integration}{37}{section.5.2}% 
+\contentsline {chapter}{\numberline {6}Effort Spent}{38}{chapter.6}% 
+\contentsline {chapter}{\numberline {7}References}{39}{chapter.7}% 
