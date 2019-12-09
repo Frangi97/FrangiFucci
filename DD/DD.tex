@@ -119,11 +119,15 @@ contents}}
 				\item \textbf{DMZ:} \emph{DeMilitarized Zone}
 				\item \textbf{PKC}: \emph{Public Key Cryptography.}
 				\item \textbf{AES}: \emph{Advanced Encryption Standard.}
+				\item \textbf{XML}: \emph{eXtensible Markup Language.}
+				\item \textbf{HTML}: \emph{HyperText Markup Language.}
 				\item \textbf{OCR}: \emph{Optical Character Recognition.}
 				\item \textbf{DB}: \emph{Data Base.}				
 				\item \textbf{SS}: \emph{SafeStreets.}	
 				\item \textbf{DBMS}: \emph{Data Base Management System.}
 				\item \textbf{RDBMS}: \emph{Relational Data Base Management System.}
+				\item \textbf{UML}: \emph{Unified Modeling Language.}
+				\item \textbf{REST}: \emph{REpresentational State Transfer.}
 				\item \textbf{SHA-3}: \emph{Secure Hash Algorithm 3.}
 				\end{itemize}
 		\section{Revision History}
@@ -163,7 +167,8 @@ contents}}
 	\item \emph{Availbility:} with this architecture, it is less likely to have failures that compromise the whole application.
 	Load balancing and node replication minimize the performance loss when a failure occures.
 	\end{itemize}
-	A general view of the system architecture is provided in the following picture:
+	These aspects will be even better explained in section 2.6.
+	A general view of the system architecture is provided in the following diagram, which provides an overview of the system architecture:
 	\begin{figure}[H]
 			\includegraphics[scale = 0.6, center]{sysarch}
 			\caption{System architecture}
@@ -495,7 +500,43 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 					each of them is an attribute) and a ICM where each item is a possible solution (the attributes are some
 					aspect of the problems that each solution can resolve)
 				\end{itemize}
+	
+	\subsection{Class diagram}
+	As in the RASD, the following UML diagram describes the organization of the model.
+
+		\begin{figure}[H]
+				\includegraphics [scale = 0.7, center]{uml}
+				\caption{UML diagram of the model}
+		\end{figure}
+
 		\section{Selected architectural styles and patterns}
+			\subsection{RESTful architecture}
+	REST is an architectural style that matches the needs for developing this application: in particular, it positively affects
+some properties of the system, such as performance, scalability, modifiability of components, portability and reliability. To obtain this proporties, the REST's architectural main constraints must be followed:
+\begin{itemize}
+	\item{Client-server}: this principle is natural for the objectives of the application: the user interface must be separated (logically and phisically) from the backend of the application.
+	\item{Stateless}: the client-server communication is constrained by no client context being stored on the server between requests. Each request from any client contains all the information necessary to accomplish the request, and the session state is held in the client. The client begins sending requests when it is ready to make the transition to a new state.
+	\item{Cacheable}: clients  responses from the server, that has to define them as cacheable or not to prevent clients storing the wrong information. Well-managed caching partially or completely eliminates some client-server interactions, further improving scalability and performance.
+	\item{Layered}: the client doesn't know if it's talking with an intermediate or the actual server. So if a proxy or load balancer is placed between the client and server, it won't affect their communications.. Intermediary servers can improve system scalability by enabling load balancing and by providing shared caches. Also, security can be added as a layer on top of the web services, and then clearly separate business logic from security logic.
+	\item{Uniform interface}: It simplifies and decouples the architecture, which enables each part to evolve independently. The four constraints for this uniform interface are:
+	\begin{itemize}
+		\item{Resource identification in requests}: the resources themselves are conceptually separate from the representations that are returned to the client. For example, the server could send data from its database as HTML or XML, none of which are the server's internal representation.
+		\item{Resource manipulation through representations}: when a client holds a representation of a resource, including any metadata attached, it has enough information to modify or delete the resource.
+		\item{Self-descriptive messages}: each message includes enough information to describe how to process the message.
+		\item{Hypermedia as the engine of application state}: a REST client should be able to use server-provided links dynamically to discover all the available actions and resources it needs. As access proceeds, the server responds with text that includes hyperlinks to other actions that are currently available. There is no need for the client to be hard-coded with information regarding the structure or dynamics of the application.
+	\end{itemize}
+	\end{itemize}
+\subsection{Three-tier architecture}
+The user interface (presentation tier), functional process logic (application tier) and data access tiers are developed and maintained as independent modules on separate platforms. Apart from the usual advantages of modular software with well-defined interfaces, the three-tier architecture is intended to allow any of the three tiers to be upgraded or replaced independently in response to changes in requirements or technology. For example, a change of operating system in the presentation tier would only affect the user interface code. The other main benefits of the three-tier architecture have been alreday explained in chapter 2.
+\subsection{Model-view-controller pattern}
+To split the internal representation of information from how it is presented to the user, this pattern divides the application into multiple layers of functionalities: 
+\begin{itemize}
+\item{Model}: it is the application's dynamic data structure, independent of the user interface. It directly manages the data, logic and rules of the application;
+\item{View}: represents the visualization of the data the model contains;
+\item{Controller}: controls the data flow into model objects and updates the view whenever data changes. It keeps view and model separate.
+\end{itemize}
+The main benefits of this pattern are cohesion, low coupling, ease of modification and simultaneous development of the application.
+
 		\section{Other design decisions}
 	%end of second chapter
 
