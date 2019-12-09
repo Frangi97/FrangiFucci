@@ -496,7 +496,23 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 					aspect of the problems that each solution can resolve)
 				\end{itemize}
 		\section{Selected architectural styles and patterns}
+		\newpage
 		\section{Other design decisions}
+			\subsection{Client}
+				A thin client is characterized by the fact that it is primarily designed to communicate with a server: its features 
+				are produced by servers. We opted for a thin client to maintain the line of thought underlined till now; this
+				design decision also made easier the usage of a MVC design pattern.\\
+				Indeed, this allows us to have an architecture in which the real business logic is implemented on the server.
+				The centralization of data management methods allows to have a completely thin client, because in case the
+				device is off line, the app cannot be used. This choice involves a lighter executive application on the users'
+				mobile devices giving them a better experience, furthermore thin clients are strictly dependent on a network 
+				connection, and in our case this is not an issue, since the application was conceived to operate most 
+				of the time online.\\
+			\subsection{DBMS}
+				Relational databases are a good choice when there is the need to deal with several transactions and 
+				when the data are linked by some relationships (users, reports, authorities etc.). Since there is no need for
+				data analysis with different granularity, it was decided not to use non-relational databases, so as to maintain
+				high performance with a reasonable saving of memory.
 	%end of second chapter
 
 	\chapter{User interfaces design}
@@ -619,10 +635,9 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 			some integration tests. The system will use also some external systems, in particular Google maps to have maps
 			always updated and a dbms to store all the data.
 			\begin{table}[H]
+				\rowcolors{2}{gray!25}{white}	
 				\centering
-				\rowcolors{1}{gray!25}{white}
-				\begin{tabular}{|c|c|c|}
-					 \rowcolor{gray!50}
+				\begin{tabular}[width = \textwidth, position = center]{|c|c|c|}
 					\hline
 					Subsystem & Importance for customers & Importance for development\\
 					\hline
@@ -691,9 +706,9 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 
 	\chapter{Effort Spent}
 		\begin{table}[H]
-			\centering
 			\rowcolors{2}{gray!25}{white}
-			\begin{tabular}{|c|c|c|}
+			\centering
+			\begin{tabular}[width = \textwidth]{|c|c|c|}
 				%\rowcolor{gray!50}
 				\hline
 				Chapter & Frangi (hours) & Fucci (hours)\\
