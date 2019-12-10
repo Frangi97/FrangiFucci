@@ -356,23 +356,23 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 					\begin{itemize}
 						\item \textbf{App}
 						\begin{itemize}
-							\item \textbf{logIn} This method obtain the information from the ``Username" and the
+							\item \textbf{forwardLogInRequest()} This method obtain the information from the ``Username" and the
 								``Password" fields, and then call the logInManager
-							\item \textbf{signUP} This method display the sign up form, then it obtain all the data
+							\item \textbf{forwardSignUpRequest} This method display the sign up form, then it obtain all the data
 								from the fields and it controls their validity, then to complete the procedure and
 								save the user in the db it calls the method ``sign up" from  ``sign up manager"
-							\item \textbf{makeReport} This method display the form to report traffic violations and
+							\item \textbf{forwardMakeReportRequest()} This method display the form to report traffic violations and
 								it starts the procedure, it will call all the methods of ``reportManager"
 								(will be explained in detail to follow). 
-							\item \textbf{evaluate} This method display the screen to evaluate traffic violations and
+							\item \textbf{fowardEvaluateRequest()} This method display the screen to evaluate traffic violations and
 								it starts the procedure, it will call all the methods of ``evaluateManager"
 								(will be explained in detail to follow).
-							\item \textbf{history} This method display the history of the user's reported traffic
+							\item \textbf{forwardHistoryrequest()} This method display the history of the user's reported traffic
 								violations and it starts the procedure, it will call all the methods of
 								``historyManager" (will be explained in detail to follow).
-							\item \textbf{map} This method display the map with the streets colored in function of the
+							\item \textbf{forwardMapRequest()} This method display the map with the streets colored in function of the
 								traffic violations' number.
-							\item \textbf{recommendation} This method will give a suggestion on how to improve the
+							\item \textbf{forwardRecommendationRequest()} This method will give a suggestion on how to improve the
 								safety on a particular street, the methods involved will be explained in detail to
 								follow in the  ``recommendationManager".
 						\end{itemize}
