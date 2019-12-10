@@ -83,7 +83,7 @@ contents}}
 			reduce traffic violations. Registered authorities can automatically receive reports made by users, so the service acts
 			as an intermediary. The next paragraph gives a more formal description of system's architecture.
 
-		\section{Definitions, Acronyms, Abbreviations}
+		\section{Definitions, acronyms, abbreviations}
 			\subsection{Definitions}
 				\begin{itemize}
 				\item \textbf{User}: a civilian customer that can use the application to:
@@ -114,9 +114,10 @@ contents}}
 				\item \textbf{API}: \emph{Application Programming Interface.}
 				\item \textbf{GPS}: \emph{Global Positioning System.}
 				\item \textbf{UI}: \emph{User Interface.}
-				\item \textbf{RASD:} \emph{Requirements Analysis and Specifications Document}
-				\item \textbf{DD:} \emph{Design Document}
-				\item \textbf{DMZ:} \emph{DeMilitarized Zone}
+				\item \textbf{RASD:} \emph{Requirements Analysis and Specifications Document.}
+				\item \textbf{DD:} \emph{Design Document.}
+				\item \textbf{IEEE:} \emph{Institute of Electrical and Electronics Engineers.}
+				\item \textbf{DMZ:} \emph{DeMilitarized Zone.	}
 				\item \textbf{PKC}: \emph{Public Key Cryptography.}
 				\item \textbf{AES}: \emph{Advanced Encryption Standard.}
 				\item \textbf{XML}: \emph{eXtensible Markup Language.}
@@ -130,18 +131,17 @@ contents}}
 				\item \textbf{REST}: \emph{REpresentational State Transfer.}
 				\item \textbf{SHA-3}: \emph{Secure Hash Algorithm 3.}
 				\end{itemize}
-		\section{Revision History}
+		\section{Revision history}
 			\begin{itemize}
 				\item \textbf{Version 1.0:}
 				\begin{itemize}
 					\item First release.
 				\end{itemize}
 			\end {itemize}
-		\section{Reference Documents}
-			\begin{itemize}
-				\item \textbf{Specification document:} "Mandatory project assignment AY 2019/20".
-			\end{itemize}
-		\section{Document Structure}
+		\section{Reference documents}
+			The main reference documents are the ``SafeStreets Mandatory Project Assignment" specification document and the SafeStreets RASD. The complete list of references is provided in chapter 6.
+
+		\section{Document structure}
 			\begin{itemize}
 				\item \textbf{Chapter 1} provides a brief explanation on the DD purpose and a quick introduction
 					SafeStreets.
@@ -238,7 +238,7 @@ This section shows how the core functionalities of the system are developed on d
 how software artifacts are distributed on the deployment targets. 
 	\begin{figure}[H]
 			\includegraphics[scale = 0.6, center]{DeploymentDiagram}
-			\caption{DeploymentDiagram}
+			\caption{Deployment Diagram}
 	\end{figure}
 The deployment diagram follows UML standard notation and does not represent external systems, like the load balancer and the firewall, in order to focus only on what must effectively be deployed on the three tiers:
 \begin{itemize}
@@ -573,7 +573,7 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 		\end{figure}
 	%end of third chapter
 
-	\chapter{Requirements Traceability}
+	\chapter{Requirements traceability}
 	Chapter 3 of the RASD presented the functional requirements necessary
 	to guarantee the goals of the application: this chapter shows how every
 	component of the system contributes to satisfy them. For each of the requirements,
@@ -616,10 +616,9 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 		respect the thin client architecture.
 		\end{itemize}	
 		
-	\item\textbf{R7}: The system must exploit Google Maps APIs to show to the user the map of the violations.
+	\item\textbf{R7}: The system must exploit external resources to show maps to the users.
 
-		This is another requirement fulfilled by the mobile application, which will display the map thanks to Google Maps APIs. The streets are shown with different
-		colours, as will be explained in R8.
+		This is another requirement fulfilled by the mobile application, which will display the map thanks to Google Maps APIs. The streets are shown with different colours, as will be explained in R8.
 			
 	\item\textbf{R8}: The system must show the right colors on the map, given the number of approved reports for each street.
 		\begin{itemize}
@@ -670,14 +669,14 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 	\end{itemize}
 	%end of fourth chapter
 
-	\chapter{Implementation, Integration and Test plan}
+	\chapter{Implementation, integration and test plan}
 		\section{Implementation and test plan}
 			To facilitate development, the system has been divided into subsystems, each of which corresponds to one of the
 			above mentioned managers. They will be developed individually with a bottom-up approach and the order will be
 			imposed by their importance to the systems (how many sub-systems are depending from it) and for the customers.
 			After the development of each subsystem they will be tested to check the correctness and then will be executed
-			some integration tests. The system will use also some external systems, in particular Google maps to have maps
-			always updated and a dbms to store all the data.
+			some integration tests. The system will use also some external systems, in particular Google Maps to have maps
+			always updated and a DBMS to store all the data.
 			\begin{table}[H]
 				\rowcolors{2}{gray!25}{white}	
 				\centering
@@ -775,7 +774,7 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 			
 	%end of fifth chapter
 
-	\chapter{Effort Spent}
+	\chapter{Effort spent}
 		\begin{table}[H]
 			\rowcolors{2}{gray!25}{white}
 			\centering
@@ -802,5 +801,20 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 		\end{table}
 	%end of sixth chapter
 	\chapter{References}
+
+	\section{Bibliography}
+	\begin{itemize}
+		\item Course slides from Software Engineering 2 - \emph{Professor Elisabetta Di Nitto};
+		\item SafeStreets Requirement Analysis and Specification Document - \emph{Alberto Frangi, Tiziano Fucci};
+		\item 1016-1987, IEEE Recommended Practice for Software Design Descriptions - \emph{IEEE}.
+	\end{itemize}
+	\section{Tools}	
+	\begin{itemize}		
+	\item StarUML 3.1.0 - to draw and export UML diagrams;
+	\item \url{lucidchart.com} - to draw, share and export sequence diagrams;
+	\item \url{draw.io} - to draw and export other diagrams;
+	\item TeX Live 2019 - to write and organize this document;
+	\item GitHub 2.23.0 - version control.
+	\end{itemize}
 	%end of seventh chapter
 \end{document}
