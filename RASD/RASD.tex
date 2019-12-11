@@ -118,7 +118,6 @@ SafeStreets is an application to be used both from civilians (users) and authori
 		\end{itemize}
 		\subsection{Acronyms}
 			\begin{itemize}
-			\item \textbf{API}: \emph{Application Programming Interface.}
 			\item \textbf{GPS}: \emph{Global Positioning System.}
 			\item \textbf{UI}: \emph{User Interface.}		
 			\item \textbf{S2B}: \emph{Software-to-be.}				
@@ -228,17 +227,17 @@ SafeStreets is an application to be used both from civilians (users) and authori
 			This functionality allows user to see a recap of all the reports they have made. The information that will be displayed
 			are: date and time, place, type of violation and status. The last one can be:
 			\begin{itemize}
-				\item \textbf{In queue:}
+				\item \textbf{In queue}:
 					in this status the report is waiting to be analyzed by an authority. The report's priority is based on
 					the user who created it. All the users, at the moment of the registration, have a standard value, that can increase or decrease basing on	how Safe Street is used. Some important factors are, for example, 
 					how many reports a user sent has been rejected, how many reports a user sent can decrease
 					the priority, but a wisely use of the system can increase it, like a streak of approved reports.
-				\item \textbf{Processing:}
+				\item \textbf{Processing}:
 					in this status the authorities has seen the report and are considering the violation and if it is a real
 					violation.
-				\item \textbf{Approved:}
+				\item \textbf{Approved}:
 					the report has been seen by authorities and the violation has been recognized and sanctioned. 
-				\item \textbf{Rejected:}
+				\item \textbf{Rejected}:
 					the report has been seen by authorities and the violation hasn't been recognized.
 			\end{itemize}
 		\subsection{Map}
@@ -249,13 +248,13 @@ SafeStreets is an application to be used both from civilians (users) and authori
 	\section{User characteristics}
 		The actors of the application are the following:
 		\begin{itemize}
-			\item \textbf{User:}
+			\item \textbf{User}:
 				a civilian who has registered to SafeStreets. He doesn't need any particular skill to use the system, 
 				he is just supposed to have a smartphone (or tablet) with a functioning camera, an internet connection and
 				a phone that can send its current position.  To make a report it is sufficient to
 				take a picture of the license plate, the violation's type and the system retrieves autonomously the current position
 				of the user.
-			\item \textbf{Authority:}
+			\item \textbf{Authority}:
 				An agent of the local police of a certain municipality exploiting SafeStreets, that has access to all the reports made
 				 in his municipality. The authority can visualize the available reports and evaluate them, that is telling if the
 				violation reported by the user stands or it is not a proper violation. After seeing a report, the authority 
@@ -368,57 +367,57 @@ The following are the assumptions made to simplify and clarify some situation th
 
 			\paragraph {G1:} The application must allow the users to register, entering an e-mail address and a password, and to log in.
 			\begin{itemize}
-				\item{[R1]:} Registration must be allowed only entering a valid e-mail address that is not already associated to an existing SafeStreets account.
-				\item{[R2]:} Registration must be allowed only entering a password that satisfies the safety conditions.
-				\item{[R3]:} The system must store the hash of every password, using a safe cryptographic hash function.
+				\item{[R1]}: Registration must be allowed only entering a valid e-mail address that is not already associated to an existing SafeStreets account.
+				\item{[R2]}: Registration must be allowed only entering a password that satisfies the safety conditions.
+				\item{[R3]}: The system must store the hash of every password, using a safe cryptographic hash function.
 				\item{[R16]}: Login must be allowed only if both e-mail address and password are correct.
 			\end{itemize}
 
 			\paragraph {G2:} The application must allow the users to notify traffic violations, providing the type of violation and a picture of the vehicle.
 			\begin{itemize}
-				\item{[D1]:} The users always provide a picture that allows both the algorithm to read the license plate and the authority to identify the violation.
-				\item{[D2]:} Every user is provided with a device capable to share the exact GPS position at any moment.
-				\item{[D3]:} The name of the street where a violation occurred is retrieved from the GPS position.
-				\item{[D5]:} Date, time and street of the violation are automatically inferred by the application.
-				\item{[D6]:} The user sends the report staying in the same place of the violation attached to the report.
-		 		\item{[D7]:} The picture of the license plate is taken at the moment and shows the right car.
+				\item{[D1]}: The users always provide a picture that allows both the algorithm to read the license plate and the authority to identify the violation.
+				\item{[D2]}: Every user is provided with a device capable to share the exact GPS position at any moment.
+				\item{[D3]}: The name of the street where a violation occurred is retrieved from the GPS position.
+				\item{[D5]}: Date, time and street of the violation are automatically inferred by the application.
+				\item{[D6]}: The user sends the report staying in the same place of the violation attached to the report.
+		 		\item{[D7]}: The picture of the license plate is taken at the moment and shows the right car.
 			\end{itemize}
 			\begin{itemize}
-				\item{[R4]:} The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
-				\item{[R5]:} The system must add the right date, time and street of the violation to the data provided by the user.
-				\item{[R6]:} The system must correctly read the license plate given a picture attached to a report.
+				\item{[R4]}: The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
+				\item{[R5]}: The system must add the right date, time and street of the violation to the data provided by the user.
+				\item{[R6]}: The system must correctly read the license plate given a picture attached to a report.
 			\end{itemize}
 
 			\paragraph {G3:} The application must be able to show to the users the streets and the vehicles with the highest frequency of violations.
 			\begin{itemize}
-				\item{[D3]:} The name of the street where a violation occurred is retrieved from the GPS position.
-				\item{[D4]:} Authorities never make mistakes in evaluating a report.
-				\item{[D5]:} Reports are evaluated only one time.
+				\item{[D3]}: The name of the street where a violation occurred is retrieved from the GPS position.
+				\item{[D4]}: Authorities never make mistakes in evaluating a report.
+				\item{[D5]}: Reports are evaluated only one time.
 			\end{itemize}
 			\begin{itemize}
-				\item{[R5]:} The system must add the right date, time and street of the violation to the data provided by the user.
-				\item{[R7]:} The system must exploit external resources to show maps to the users.
-				\item{[R8]:} The system must show the right colors on the map, given the number of approved reports for each street.
-				\item{[R9]:} When a license plate is recognized, the system must show the number of approved reports for that car.
-				\item{[R10]:} If the same violation is reported twice, it counts only one time on the map.
+				\item{[R5]}: The system must add the right date, time and street of the violation to the data provided by the user.
+				\item{[R7]}: The system must exploit external resources to show maps to the users.
+				\item{[R8]}: The system must show the right colors on the map, given the number of approved reports for each street.
+				\item{[R9]}: When a license plate is recognized, the system must show the number of approved reports for that car.
+				\item{[R10]}: If the same violation is reported twice, it counts only one time on the map.
 			\end{itemize}
 				\paragraph {G4:}  The application must allow the user to see all of his reports and their status.
 			\begin{itemize}
-				\item{[R5]:} The system must add the right date, time and street of the violation to the data provided by the user.
-				\item{[R11]:} The system must assign to each report a unique identification number.
+				\item{[R5]}: The system must add the right date, time and street of the violation to the data provided by the user.
+				\item{[R11]}: The system must assign to each report a unique identification number.
 			\end{itemize}
 			\paragraph {G5:} The system must notify the user when one of his reports is evaluated.
 			\begin{itemize}
-				\item{[D3]:} The name of the street where a violation occurred is retrieved from the GPS position.
-				\item{[D4]:} Authorities never make mistakes in evaluating a report.
-				\item{[D5]:} Reports are evaluated only one time.
+				\item{[D3]}: The name of the street where a violation occurred is retrieved from the GPS position.
+				\item{[D4]}: Authorities never make mistakes in evaluating a report.
+				\item{[D5]}: Reports are evaluated only one time.
 			\end{itemize}
 			\begin{itemize}
-				\item{[R5]:} The system must add the right date, time and street of the violation to the data provided by the user.
-				\item{[R7]:} The system must exploit external resources to show maps to the users.
-				\item{[R8]:} The system must show the right colors on the map, given the number of approved reports for each street.
-				\item{[R9]:} When a license plate is recognized, the system must show the number of approved reports for that car.
-				\item{[R10]:} If the same violation is reported twice, it counts only one time on the map.
+				\item{[R5]}: The system must add the right date, time and street of the violation to the data provided by the user.
+				\item{[R7]}: The system must exploit external resources to show maps to the users.
+				\item{[R8]}: The system must show the right colors on the map, given the number of approved reports for each street.
+				\item{[R9]}: When a license plate is recognized, the system must show the number of approved reports for that car.
+				\item{[R10]}: If the same violation is reported twice, it counts only one time on the map.
 			\end{itemize}
 
 \paragraph{Scenarios}
@@ -517,7 +516,7 @@ The following are the assumptions made to simplify and clarify some situation th
 								\begin{itemize}
 									\item Password wrong
 									\item Username wrong, in both case the system will ask to check and correct the 
-										log-in information
+										login information
 								\end{itemize}
 								\vskip 4pt
 						} \\
@@ -666,36 +665,36 @@ The following are the assumptions made to simplify and clarify some situation th
 			\paragraph {G6:} The application must allow the authorities to register, providing a valid identification number, a valid e-mail address and a valid password,
 			and to log in.
 				\begin{itemize}
-					\item{[R1]:} Registration must be allowed only entering a valid e-mail address that is not already associated to an existing SafeStreets account.
-					\item{[R2]:} Registration must be allowed only entering a password that satisfies the safety conditions.
-					\item{[R3]:} The system must store the hash of every password, using a safe cryptographic hash function.
-					\item{[R12]:} Registration must be allowed only entering a valid identification number that is not already associated to an existing SafeStreets account.
-					\item{[R16]:} Login must be allowed only if both e-mail address and password are correct.
+					\item{[R1]}: Registration must be allowed only entering a valid e-mail address that is not already associated to an existing SafeStreets account.
+					\item{[R2]}: Registration must be allowed only entering a password that satisfies the safety conditions.
+					\item{[R3]}: The system must store the hash of every password, using a safe cryptographic hash function.
+					\item{[R12]}: Registration must be allowed only entering a valid identification number that is not already associated to an existing SafeStreets account.
+					\item{[R16]}: Login must be allowed only if both e-mail address and password are correct.
 				\end{itemize}
 
 			\paragraph {G7:} The application must allow authorities to retrieve and evaluate the available reports.
 				\begin{itemize}
-					\item{[D3]:} The name of the street where a violation occurred is retrieved from the GPS position.
-					\item{[D5]:} Reports are evaluated only one time.
+					\item{[D3]}: The name of the street where a violation occurred is retrieved from the GPS position.
+					\item{[D5]}: Reports are evaluated only one time.
 				\end{itemize}
 				\begin{itemize}
-					\item{[R4]:} The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
-					\item{[R5]:} The system must add the right date, time and street of the violation to the data provided by the user.
-					\item{[R11]:} The system must assign to each report a unique identification number.
+					\item{[R4]}: The system must check if the location of the report belongs to some municipality exploiting SafeStreets.
+					\item{[R5]}: The system must add the right date, time and street of the violation to the data provided by the user.
+					\item{[R11]}: The system must assign to each report a unique identification number.
 					\item{[R13:]} The system must guarantee that each municipality is covered by at least one authority.
-					\item{[R14]:} The system must notify the authorities when a new report is available.
+					\item{[R14]}: The system must notify the authorities when a new report is available.
 				\end{itemize}
 			\paragraph {G8:} The application must be able to identify potentially unsafe areas and suggest possible interventions.
 				\begin{itemize}
-					\item{[D3]:} Every user is provided with a device capable to share the exact GPS position at any moment.
-			 		\item{[D4]:} Authorities never make mistakes in evaluating a report.
-					\item{[D5]:} Date, time and street of the violation are automatically inferred by the application.
-			 		\item{[D6]:} The user sends the report staying in the same place of the violation.
+					\item{[D3]}: Every user is provided with a device capable to share the exact GPS position at any moment.
+			 		\item{[D4]}: Authorities never make mistakes in evaluating a report.
+					\item{[D5]}: Date, time and street of the violation are automatically inferred by the application.
+			 		\item{[D6]}: The user sends the report staying in the same place of the violation.
 				\end{itemize}
 				\begin{itemize}
-					\item{[R10]:} If the same violation is reported twice, it counts only one time on the map.
+					\item{[R10]}: If the same violation is reported twice, it counts only one time on the map.
 					\item{[R13:]} The system must guarantee that each municipality is covered by at least one authority.
-					\item{[R15]:} The system must suggest a possible intervention to the authorities of a municipality, according on the number of each type of violation.
+					\item{[R15]}: The system must suggest a possible intervention to the authorities of a municipality, according on the number of each type of violation.
 				\end{itemize}
 
 \paragraph{Scenarios}
@@ -762,8 +761,8 @@ The following are the assumptions made to simplify and clarify some situation th
 							\vskip 4pt
 							\begin{enumerate}
 								\item The authority clicks on the ``Suggestion" option
-								\item He chooses one Street under his control
-								\item The system based on the street and the accidents gives a recommendation
+								\item He chooses one street under his control
+								\item The system based on the streets and the accidents gives a recommendation
 							\end{enumerate}
 							\vskip 4pt}\\
 					\hline
@@ -799,9 +798,9 @@ The following are the assumptions made to simplify and clarify some situation th
 				Phenomenon & Shared & Who controls it\\
 				\hline
 				\hline
-				Log-in & Y & M\\
+				Login & Y & M\\
 				\hline
-				Sign-up & Y & M\\
+				Sign up & Y & M\\
 				\hline
 				Someone made traffic violation & N & W\\
 				\hline

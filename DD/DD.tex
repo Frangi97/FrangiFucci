@@ -65,7 +65,7 @@ contents}}
 		\section{Purpose}
 			The purpose of this document consists of giving more technical details than the RASD concerning the SafeStreets
 			system.\\
-			The RASD document completely describes the system in terms of functional and nonfunctional requirements and
+			The RASD completely describes the system in terms of functional and nonfunctional requirements and
 			serves as a contractual basis between the customer and the developer and it must be written in the language of
 			the customer's domain of business/expertise, the DD's purpose instead is to provide a description for how the new
 			system will be constructed, it provides a description of the system architecture, software, hardware, database
@@ -79,7 +79,7 @@ contents}}
 				\item Implementation, integration and testing plan.
 			\end{itemize}
 		\section{Scope}
-			Safestreet is an application to be used both from civilians (users) and authorities, in order to help the latter and
+			SafeStreets is an application to be used both from civilians (users) and authorities, in order to help the latter and
 			reduce traffic violations. Registered authorities can automatically receive reports made by users, so the service acts
 			as an intermediary. The next paragraph gives a more formal description of system's architecture.
 
@@ -91,7 +91,7 @@ contents}}
 					\item notify authorities of some violation;
 					\item check which are the most dangerous (i.e. with the most violations) streets.
 					\end{itemize}
-				In this document, ``user", ``citizen" and ``civiian" are completely equivalent, where not specified.
+				In this document, ``user", ``citizen" and ``civilian" are completely equivalent, where not specified.
 				\item \textbf{Authority}: a member of the local police who has access to reports made by users. The
 					authorities evaluate the reports sent by the user to determine if the violation stands.
 				\item \textbf{Report}: a message consisting of:
@@ -111,29 +111,32 @@ contents}}
 				\end{itemize}
 			\subsection{Acronyms}
 				\begin{itemize}
-				\item \textbf{API}: \emph{Application Programming Interface.}
-				\item \textbf{GPS}: \emph{Global Positioning System.}
-				\item \textbf{UI}: \emph{User Interface.}
-				\item \textbf{RASD:} \emph{Requirements Analysis and Specifications Document.}
-				\item \textbf{DD:} \emph{Design Document.}
-				\item \textbf{IEEE:} \emph{Institute of Electrical and Electronics Engineers.}
-				\item \textbf{DMZ:} \emph{DeMilitarized Zone.	}
-				\item \textbf{PKC}: \emph{Public Key Cryptography.}
 				\item \textbf{AES}: \emph{Advanced Encryption Standard.}
-				\item \textbf{XML}: \emph{eXtensible Markup Language.}
-				\item \textbf{HTML}: \emph{HyperText Markup Language.}
-				\item \textbf{OCR}: \emph{Optical Character Recognition.}
-				\item \textbf{DB}: \emph{Data Base.}				
-				\item \textbf{SS}: \emph{SafeStreets.}	
+				\item \textbf{API}: \emph{Application Programming Interface.}
+				\item \textbf{DB}: \emph{Data Base.}			
 				\item \textbf{DBMS}: \emph{Data Base Management System.}
+				\item \textbf{DD}: \emph{Design Document.}
+				\item \textbf{DMZ}: \emph{DeMilitarized Zone.}
+				\item \textbf{GPS}: \emph{Global Positioning System.}
+				\item \textbf{HTML}: \emph{HyperText Markup Language.}
+				\item \textbf{ICM}: \emph{Item-Content Matrix.}
+				\item \textbf{IEEE}: \emph{Institute of Electrical and Electronics Engineers.}
+				\item \textbf{MVC}: \emph{Model-View-Controller.}
+				\item \textbf{OCR}: \emph{Optical Character Recognition.}
+				\item \textbf{PKC}: \emph{Public Key Cryptography.}
+				\item \textbf{RASD}: \emph{Requirements Analysis and Specifications Document.}
 				\item \textbf{RDBMS}: \emph{Relational Data Base Management System.}
-				\item \textbf{UML}: \emph{Unified Modeling Language.}
 				\item \textbf{REST}: \emph{REpresentational State Transfer.}
-				\item \textbf{SHA-3}: \emph{Secure Hash Algorithm 3.}
+				\item \textbf{SHA-3}: \emph{Secure Hash Algorithm 3.}	
+				\item \textbf{SS}: \emph{SafeStreets.}	
+				\item \textbf{UI}: \emph{User Interface.}
+				\item \textbf{UML}: \emph{Unified Modeling Language.}
+				\item \textbf{UX}: \emph{User eXperience.}
+				\item \textbf{XML}: \emph{eXtensible Markup Language.}
 				\end{itemize}
 		\section{Revision history}
 			\begin{itemize}
-				\item \textbf{Version 1.0:}
+				\item \textbf{Version 1.0}:
 				\begin{itemize}
 					\item First release.
 				\end{itemize}
@@ -157,15 +160,15 @@ contents}}
 
 	\chapter{Architectural design}
 		\section{Overview:	high-level	components	and	their	interaction}
-	The application is built following the principles of the three-tier architecture: the three logic layers of presentation, 				application and data access rely on three corresponding hardware layers. This architecture is prefered to one-tier and 			two-tier architectures due to some important characteristics, some of which are:
+	The application is built following the principles of the three-tier architecture: the three logic layers of presentation, 				application and data access rely on three corresponding hardware layers. This architecture is preferred to one-tier and 			two-tier architectures due to some important characteristics, some of which are:
 	\begin{itemize}
-	\item \emph{Flexibility:} each tier can be manged or scaled independently at any time, without affecting the others;
-	\item \emph{Scalability:} following a scale-out approach, performances can be improved through node replication, without affecting the other tiers.
+	\item \emph{Flexibility}: each tier can be manged or scaled independently at any time, without affecting the others;
+	\item \emph{Scalability}: following a scale-out approach, performances can be improved through node replication, without affecting the other tiers.
 	Load balancing systems distribute the working load among the nodes;
-	\item \emph{Mantainability:} because each tier is independent from the others, updates or changes can be released
+	\item \emph{Maintainability}: because each tier is independent from the others, updates or changes can be released
 	without affecting the whole system;
-	\item \emph{Availbility:} with this architecture, it is less likely to have failures that compromise the whole application.
-	Load balancing and node replication minimize the performance loss when a failure occures.
+	\item \emph{Availability}: with this architecture, it is less likely to have failures that compromise the whole application.
+	Load balancing and node replication minimize the performance loss when a failure occurs.
 	\end{itemize}
 	These aspects will be even better explained in section 2.6.
 	A general view of the system architecture is provided in the following diagram, which provides an overview of the system architecture:
@@ -175,7 +178,7 @@ contents}}
 	\end{figure}
 	Users and authorities are provided with mobile devices and access the service through
 	the SafeStreets mobile app. The mobile app communicates with the application layer, which
-	is made by one or more application servers, linked to the database servers. The scale-out approach allows to adjust the number of hardware resources at any time. For what concerns the data access layer, database servers contain sensitive information, such as password hashes, license plate numbers, identification numbers and so on, so it is important to protect all the back-end of the application. In order to do this, the application and data access levels are protected by a firewall that performs traffic control at the level of the single packet, creating a DMZ in which the communication is safe. Another solution to reduce the computational load, as well as the messages, is the use of caches in the presentation tier: the mobile app stores on the mobile device memory part of the user's data, such as the sent reports and the results of reports evaluation, in order to make them available even when the users (or the authorities) have no access to Internet. This avoids many repeated requests for the same data, with heavy impact on the application and data acces layers' performance.
+	is made by one or more application servers, linked to the database servers. The scale-out approach allows to adjust the number of hardware resources at any time. For what concerns the data access layer, database servers contain sensitive information, such as password hashes, license plate numbers, identification numbers and so on, so it is important to protect all the back-end of the application. In order to do this, the application and data access levels are protected by a firewall that performs traffic control at the level of the single packet, creating a DMZ in which the communication is safe. Another solution to reduce the computational load, as well as the messages, is the use of caches in the presentation tier: the mobile app stores on the mobile device memory part of the user's data, such as the sent reports and the results of reports evaluation, in order to make them available even when the users (or the authorities) have no access to Internet. This avoids many repeated requests for the same data, with heavy impact on the application and data access layers' performance.
 The system also includes a recommender system: exploiting data mining techniques, such as association rules, it can suggest to the authorities of one municipality possible interventions to improve security on the streets.
 
 		\section{Component view}
@@ -224,7 +227,7 @@ The system also includes a recommender system: exploiting data mining techniques
 			\item\textbf{ReportManager}: contains all the logic necessary to complete a report: given all the information input by the user, completes it with
 			the missing ones, like the user position and the license plate number.
 			\item\textbf{PositionManager}: retrieves the device position to be attached to the report.
-			\item\textbf{OCRManager}: given a pitcure, runs the OCR algorithm and returns a string. Notifies the PositionManager if, for any reason, the license
+			\item\textbf{OCRManager}: given a picture, runs the OCR algorithm and returns a string. Notifies the PositionManager if, for any reason, the license
 			plate number cannot be read.
 			\item\textbf{MapsManager}: interacts with the DBMS, in order to retrieve the number and the type of reports for a given set of streets.
 			\item\textbf{ChronologyManager}: when requested, obtains from the DBMS all the reports made by a given user and their status.
@@ -285,7 +288,7 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 						\label{fig: diagrams}
 				\end{figure}
 
-				This sequence diagrams explain the process through which a user can visualize the map to indentify which
+				This sequence diagrams explain the process through which a user can visualize the map to identify which
 				streets have the highest number of violations.\\
 				Once he has opened the application and logged in/signed up he can chose the ``Visualize map" option,
 				when he does that the application send the request to a router that forward the request to the right
@@ -472,17 +475,17 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 				\begin{itemize}
 						\item \textbf{evaluateManager}
 						\begin{itemize}
-							\item \textbf{evaluate:} Communicate with the client sending the pending reports and
+							\item \textbf{evaluate}: Communicate with the client sending the pending reports and
 								receiving all updated reports.
-							\item \textbf{getReports:} This method is called by evaluate and obtain all pending
+							\item \textbf{getReports}: This method is called by evaluate and obtain all pending
 								reports in the area under the jurisdiction of the authority who made the request.
-							\item \textbf{updateDB:} This method is called by evaluate and updates the DB with the
+							\item \textbf{updateDB}: This method is called by evaluate and updates the DB with the
 								new status of the evaluated reports
-							\item \textbf{sendNotification:} allert the user which report has been evaluated
+							\item \textbf{sendNotification}: alerts the user which report has been evaluated
 						\end{itemize}
 						\item \textbf{notificationManager}
 						\begin{itemize}
-							\item \textbf{sendNotification:} as said above
+							\item \textbf{sendNotification}: as said above
 						\end{itemize}
 				\end{itemize}
 			\subsection{Suggestion}
@@ -510,14 +513,11 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 		\end{figure}
 
 		\section{Selected architectural styles and patterns}
-<<<<<<< HEAD
-		\newpage
-=======
 			\subsection{RESTful architecture}
 	REST is an architectural style that matches the needs for developing this application: in particular, it positively affects
-some properties of the system, such as performance, scalability, modifiability of components, portability and reliability. To obtain this proporties, the REST's architectural main constraints must be followed:
+some properties of the system, such as performance, scalability, modifiability of components, portability and reliability. To obtain this properties, the REST's architectural main constraints must be followed:
 \begin{itemize}
-	\item{Client-server}: this principle is natural for the objectives of the application: the user interface must be separated (logically and phisically) from the backend of the application.
+	\item{Client-server}: this principle is natural for the objectives of the application: the user interface must be separated (logically and physically) from the back-end of the application.
 	\item{Stateless}: the client-server communication is constrained by no client context being stored on the server between requests. Each request from any client contains all the information necessary to accomplish the request, and the session state is held in the client. The client begins sending requests when it is ready to make the transition to a new state.
 	\item{Cacheable}: clients  responses from the server, that has to define them as cacheable or not to prevent clients storing the wrong information. Well-managed caching partially or completely eliminates some client-server interactions, further improving scalability and performance.
 	\item{Layered}: the client doesn't know if it's talking with an intermediate or the actual server. So if a proxy or load balancer is placed between the client and server, it won't affect their communications.. Intermediary servers can improve system scalability by enabling load balancing and by providing shared caches. Also, security can be added as a layer on top of the web services, and then clearly separate business logic from security logic.
@@ -540,7 +540,6 @@ To split the internal representation of information from how it is presented to 
 \end{itemize}
 The main benefits of this pattern are cohesion, low coupling, ease of modification and simultaneous development of the application.
 
->>>>>>> 062e3b0e4afaf0edc8a9973b1149c0f60bfa88f3
 		\section{Other design decisions}
 			\subsection{Client}
 				A thin client is characterized by the fact that it is primarily designed to communicate with a server: its features 
@@ -560,7 +559,7 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 	%end of second chapter
 
 	\chapter{User interfaces design}
-	In chapter 3 of the RASD document some screenshots from the user interface were shown. This chapter describes the navigation in the user interface, both for the users and the authorities. The following UX diagrams refer to the mockups shown in the RASD, which are only the most relevant of the following.
+	In chapter 3 of the RASD some screenshots from the user interface were shown. This chapter describes the navigation in the user interface, both for the users and the authorities. The following UX diagrams refer to the mockups shown in the RASD, which are only the most relevant of the following.
 	\section{User}
 		\begin{figure}[H]
 				\includegraphics[scale = 0.65, center]{userux}
@@ -593,7 +592,7 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 		
 	\item\textbf{R3}: The system must store the hash of every password, using a safe cryptographic hash function.
 
-		As said above, the encription must be made by the mobile application, which computes the hash of the password using a safe cryptografic hash function, like one of the SHA-3 family. For what concerns the application server components:
+		As said above, the encryption must be made by the mobile application, which computes the hash of the password using a safe cryptographic hash function, like one of the SHA-3 family. For what concerns the application server components:
 		\begin{itemize}
 		\item\textbf{SignUpManager}: Forwards the received hash (computed by the mobile app) to the DB.
 		\end{itemize}
@@ -618,7 +617,7 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 		
 	\item\textbf{R7}: The system must exploit external resources to show maps to the users.
 
-		This is another requirement fulfilled by the mobile application, which will display the map thanks to Google Maps APIs. The streets are shown with different colours, as will be explained in R8.
+		This is another requirement fulfilled by the mobile application, which will display the map thanks to Google Maps APIs. The streets are shown with different colors, as will be explained in R8.
 			
 	\item\textbf{R8}: The system must show the right colors on the map, given the number of approved reports for each street.
 		\begin{itemize}
@@ -652,7 +651,7 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 			
 	\item\textbf{R14}: The system must notify the authorities when a new report is available.
 		\begin{itemize}
-		\item\textbf{ReportManager}: After succesfully inserting a new report in the DB, calls the NotificationManager.
+		\item\textbf{ReportManager}: After successfully inserting a new report in the DB, calls the NotificationManager.
 		\item\textbf{NotificationManager}: Alerts all the agents assigned to the municipality of the new report.
 		\end{itemize}
 			
@@ -709,38 +708,38 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 			as a first step because all the others functionalities relies on these two (except the functionalities for the suggestion
 			about improve the security on the streets).
 			\begin{itemize}
-				\item \textbf{Sign up \& login manager:} even if these two are not a core functionality of the system have a
+				\item \textbf{Sign up \& login manager}: even if these two are not a core functionality of the system have a
 					great importance in SafeStreets, because some functionality require to keep trace in a unique way of
 					who did what (for example history or suggestion); so this part have to be prioritized over the others
 					(except ``Evaluate manager" and ``Report manager"). 
-				\item \textbf{Report manager:} is one of the core functionalities, has to developed with maximum prioritize
+				\item \textbf{Report manager}: is one of the core functionalities, has to developed with maximum prioritize
 					and tested as soon as possible, probably the more critic aspects are the OCR and the position, in order
 					to be developed it needs a functioning ``Position manager", otherwise it will not be possible to convert
 					the GPS position into a street name to understand where the traffic violation has been committed.
 					Even if the ``Notification manager"  is in theory a sub component of this, its development is not so
 					crucial for the correct functioning of the system, so it can be developed in a second moment.  
-				\item \textbf{Maps manager:}  this component must be developed after the components necessary to
+				\item \textbf{Maps manager}:  this component must be developed after the components necessary to
 					ensure the creation and evaluation of reports (``Evaluate manager'' and ``Report manager'). It is not
 					particularly important to choose the development order between the ``Map manager'' and ``History
 					manager', the important thing is that they are properly developed and integrated before developing
 					the other. This allow the use of the ``Visualize map" functionality, and see on the map the streets with
 					more car accidents.
-				\item \textbf{History manager:}  this component must be developed after the components necessary to
+				\item \textbf{History manager}:  this component must be developed after the components necessary to
 					ensure the creation and evaluation of reports (``Evaluate manager'' and ``Report manager'). It is not
 					particularly important to choose the development order between the ``Map manager'' and ``History
 					manager', the important thing is that they are properly developed and integrated before developing
 					the other. This functionality allow the user to see the chronology of his reports.
-				\item \textbf{Evaluate manager:} is the second core functionality of the system. This functionality have to be
+				\item \textbf{Evaluate manager}: is the second core functionality of the system. This functionality have to be
 					able to correct handle concurrency and various authorities that want to evaluate reports various
 					reports at the same time. After the correct development of both the core functionalities a integration
 					test is necessary to check the correct functioning of the complete system.  
-				\item \textbf{Suggestion manager:} this is completely uncorrelated with the rest of the system, so it would be
+				\item \textbf{Suggestion manager}: this is completely uncorrelated with the rest of the system, so it would be
 					better to develop it as last thing, in this way the focus is on the core functionality of the system and
 					the correct integration with the rest of the functionalities.
-				\item \textbf{Position manager:} this component allows you to get the road or location on the map of the
+				\item \textbf{Position manager}: this component allows you to get the road or location on the map of the
 					user, it has the maximum priority, indeed it allows the system to understand where the report has been
 					made.
-				\item \textbf{Notification manager:} this component send notification to the users, it can be developed at
+				\item \textbf{Notification manager}: this component send notification to the users, it can be developed at
 					last, on the top of the complete system because is not a crucial aspect of the core functionalities.
 			\end{itemize}
 		\section{Integration}
