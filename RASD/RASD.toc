@@ -9,60 +9,61 @@
 \contentsline {section}{\numberline {1.3}Definitions, acronyms, abbreviations}{4}{section.1.3}% 
 \contentsline {subsection}{\numberline {1.3.1}Definitions}{4}{subsection.1.3.1}% 
 \contentsline {subsection}{\numberline {1.3.2}Acronyms}{4}{subsection.1.3.2}% 
-\contentsline {section}{\numberline {1.4}Reference documents}{5}{section.1.4}% 
-\contentsline {section}{\numberline {1.5}Document structure}{5}{section.1.5}% 
-\contentsline {chapter}{\numberline {2}Overall description}{6}{chapter.2}% 
-\contentsline {section}{\numberline {2.1}Product perspective}{6}{section.2.1}% 
-\contentsline {section}{\numberline {2.2}Product functions}{9}{section.2.2}% 
-\contentsline {subsection}{\numberline {2.2.1}Report}{9}{subsection.2.2.1}% 
-\contentsline {subsection}{\numberline {2.2.2}Status}{9}{subsection.2.2.2}% 
-\contentsline {subsection}{\numberline {2.2.3}Map}{10}{subsection.2.2.3}% 
-\contentsline {section}{\numberline {2.3}User characteristics}{10}{section.2.3}% 
-\contentsline {section}{\numberline {2.4}Assumptions, dependencies and constraints}{10}{section.2.4}% 
-\contentsline {subsection}{\numberline {2.4.1}Domain assumption}{10}{subsection.2.4.1}% 
-\contentsline {chapter}{\numberline {3}Specific Requirments}{12}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}External interface requirments}{12}{section.3.1}% 
-\contentsline {subsection}{\numberline {3.1.1}User interfaces}{12}{subsection.3.1.1}% 
-\contentsline {subsection}{\numberline {3.1.2}Hardware interfaces}{15}{subsection.3.1.2}% 
-\contentsline {subsection}{\numberline {3.1.3}Software interfaces}{15}{subsection.3.1.3}% 
-\contentsline {subsection}{\numberline {3.1.4}Communication interfaces}{15}{subsection.3.1.4}% 
-\contentsline {section}{\numberline {3.2}Functional Requirements}{15}{section.3.2}% 
-\contentsline {subsection}{\numberline {3.2.1}User}{15}{subsection.3.2.1}% 
-\contentsline {paragraph}{G1:}{15}{section*.12}% 
-\contentsline {paragraph}{G2:}{15}{section*.13}% 
-\contentsline {paragraph}{G3:}{16}{section*.14}% 
-\contentsline {paragraph}{G4:}{17}{section*.15}% 
-\contentsline {paragraph}{G5:}{17}{section*.16}% 
-\contentsline {paragraph}{Scenarios}{17}{section*.17}% 
-\contentsline {subparagraph}{Scenario 1}{17}{section*.18}% 
-\contentsline {subparagraph}{Scenario 2}{17}{section*.19}% 
-\contentsline {subparagraph}{Scenario 3}{18}{section*.20}% 
-\contentsline {subsection}{\numberline {3.2.2}Authority}{26}{subsection.3.2.2}% 
-\contentsline {paragraph}{G6:}{26}{section*.30}% 
-\contentsline {paragraph}{G7:}{26}{section*.31}% 
-\contentsline {paragraph}{G8:}{27}{section*.32}% 
-\contentsline {paragraph}{Scenarios}{27}{section*.33}% 
-\contentsline {subparagraph}{Scenario 1}{27}{section*.34}% 
-\contentsline {subparagraph}{Scenario 2}{27}{section*.35}% 
-\contentsline {subsection}{\numberline {3.2.3}World and Machine}{31}{subsection.3.2.3}% 
-\contentsline {subsection}{\numberline {3.2.4}Traceability Matrix}{32}{subsection.3.2.4}% 
-\contentsline {section}{\numberline {3.3}Performance Requirments}{32}{section.3.3}% 
-\contentsline {section}{\numberline {3.4}Design constraints}{32}{section.3.4}% 
-\contentsline {subsection}{\numberline {3.4.1}Standards compliance}{32}{subsection.3.4.1}% 
-\contentsline {subsection}{\numberline {3.4.2}Hardware limitations}{33}{subsection.3.4.2}% 
-\contentsline {subsection}{\numberline {3.4.3}Any other costraint}{33}{subsection.3.4.3}% 
-\contentsline {section}{\numberline {3.5}Software System Attributes}{33}{section.3.5}% 
-\contentsline {subsection}{\numberline {3.5.1}Reliability}{33}{subsection.3.5.1}% 
-\contentsline {subsection}{\numberline {3.5.2}Availability}{33}{subsection.3.5.2}% 
-\contentsline {subsection}{\numberline {3.5.3}Security}{34}{subsection.3.5.3}% 
-\contentsline {subsection}{\numberline {3.5.4}Maintainability}{34}{subsection.3.5.4}% 
-\contentsline {subsection}{\numberline {3.5.5}Portablity}{34}{subsection.3.5.5}% 
-\contentsline {chapter}{\numberline {4}Formal Analysis}{35}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}Purpose}{35}{section.4.1}% 
-\contentsline {section}{\numberline {4.2}Model}{36}{section.4.2}% 
-\contentsline {section}{\numberline {4.3}Results}{39}{section.4.3}% 
-\contentsline {section}{\numberline {4.4}Generated world}{40}{section.4.4}% 
-\contentsline {chapter}{\numberline {5}Effort Spent}{41}{chapter.5}% 
-\contentsline {chapter}{\numberline {6}References}{42}{chapter.6}% 
-\contentsline {section}{\numberline {6.1}Bibliography}{42}{section.6.1}% 
-\contentsline {section}{\numberline {6.2}Tools}{42}{section.6.2}% 
+\contentsline {section}{\numberline {1.4}Revision history}{5}{section.1.4}% 
+\contentsline {section}{\numberline {1.5}Reference documents}{5}{section.1.5}% 
+\contentsline {section}{\numberline {1.6}Document structure}{5}{section.1.6}% 
+\contentsline {chapter}{\numberline {2}Overall description}{7}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Product perspective}{7}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}Product functions}{10}{section.2.2}% 
+\contentsline {subsection}{\numberline {2.2.1}Report}{10}{subsection.2.2.1}% 
+\contentsline {subsection}{\numberline {2.2.2}Status}{10}{subsection.2.2.2}% 
+\contentsline {subsection}{\numberline {2.2.3}Map}{11}{subsection.2.2.3}% 
+\contentsline {section}{\numberline {2.3}User characteristics}{11}{section.2.3}% 
+\contentsline {section}{\numberline {2.4}Assumptions, dependencies and constraints}{11}{section.2.4}% 
+\contentsline {subsection}{\numberline {2.4.1}Domain assumption}{11}{subsection.2.4.1}% 
+\contentsline {chapter}{\numberline {3}Specific Requirements}{13}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}External interface requirements}{13}{section.3.1}% 
+\contentsline {subsection}{\numberline {3.1.1}User interfaces}{13}{subsection.3.1.1}% 
+\contentsline {subsection}{\numberline {3.1.2}Hardware interfaces}{16}{subsection.3.1.2}% 
+\contentsline {subsection}{\numberline {3.1.3}Software interfaces}{16}{subsection.3.1.3}% 
+\contentsline {subsection}{\numberline {3.1.4}Communication interfaces}{16}{subsection.3.1.4}% 
+\contentsline {section}{\numberline {3.2}Functional requirements}{16}{section.3.2}% 
+\contentsline {subsection}{\numberline {3.2.1}User}{16}{subsection.3.2.1}% 
+\contentsline {paragraph}{G1:}{16}{section*.12}% 
+\contentsline {paragraph}{G2:}{16}{section*.13}% 
+\contentsline {paragraph}{G3:}{17}{section*.14}% 
+\contentsline {paragraph}{G4:}{18}{section*.15}% 
+\contentsline {paragraph}{G5:}{18}{section*.16}% 
+\contentsline {paragraph}{Scenarios}{18}{section*.17}% 
+\contentsline {subparagraph}{Scenario 1}{18}{section*.18}% 
+\contentsline {subparagraph}{Scenario 2}{18}{section*.19}% 
+\contentsline {subparagraph}{Scenario 3}{19}{section*.20}% 
+\contentsline {subsection}{\numberline {3.2.2}Authority}{27}{subsection.3.2.2}% 
+\contentsline {paragraph}{G6:}{27}{section*.30}% 
+\contentsline {paragraph}{G7:}{27}{section*.31}% 
+\contentsline {paragraph}{G8:}{28}{section*.32}% 
+\contentsline {paragraph}{Scenarios}{28}{section*.33}% 
+\contentsline {subparagraph}{Scenario 1}{28}{section*.34}% 
+\contentsline {subparagraph}{Scenario 2}{28}{section*.35}% 
+\contentsline {subsection}{\numberline {3.2.3}World and Machine}{32}{subsection.3.2.3}% 
+\contentsline {subsection}{\numberline {3.2.4}Traceability Matrix}{33}{subsection.3.2.4}% 
+\contentsline {section}{\numberline {3.3}Performance requirements}{33}{section.3.3}% 
+\contentsline {section}{\numberline {3.4}Design constraints}{33}{section.3.4}% 
+\contentsline {subsection}{\numberline {3.4.1}Standards compliance}{33}{subsection.3.4.1}% 
+\contentsline {subsection}{\numberline {3.4.2}Hardware limitations}{34}{subsection.3.4.2}% 
+\contentsline {subsection}{\numberline {3.4.3}Any other constraint}{34}{subsection.3.4.3}% 
+\contentsline {section}{\numberline {3.5}Software system attributes}{34}{section.3.5}% 
+\contentsline {subsection}{\numberline {3.5.1}Reliability}{34}{subsection.3.5.1}% 
+\contentsline {subsection}{\numberline {3.5.2}Availability}{34}{subsection.3.5.2}% 
+\contentsline {subsection}{\numberline {3.5.3}Security}{35}{subsection.3.5.3}% 
+\contentsline {subsection}{\numberline {3.5.4}Maintainability}{35}{subsection.3.5.4}% 
+\contentsline {subsection}{\numberline {3.5.5}Portability}{35}{subsection.3.5.5}% 
+\contentsline {chapter}{\numberline {4}Formal Analysis}{36}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Purpose}{36}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}Model}{37}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}Results}{40}{section.4.3}% 
+\contentsline {section}{\numberline {4.4}Generated world}{41}{section.4.4}% 
+\contentsline {chapter}{\numberline {5}Effort Spent}{42}{chapter.5}% 
+\contentsline {chapter}{\numberline {6}References}{43}{chapter.6}% 
+\contentsline {section}{\numberline {6.1}Bibliography}{43}{section.6.1}% 
+\contentsline {section}{\numberline {6.2}Tools}{43}{section.6.2}% 

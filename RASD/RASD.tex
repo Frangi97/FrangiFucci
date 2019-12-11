@@ -52,7 +52,7 @@
 \posttitle{\end{center}}
 
 % Here we go
-\title{SafeStreets - RASD \\ \large version 1.0}
+\title{SafeStreets - RASD \\  \large version 1.1}
 \author{Frangi Alberto, Fucci Tiziano}
 \date{A.Y. 2019/2020}
 \begin{document}
@@ -68,12 +68,12 @@ SafeStreets stores the information provided by users, completing it with suitabl
 
 The application allows both users and authorities to mine the information that has been received, for example by highlighting the streets (or the areas) with the highest frequency of violations, or the vehicles that commit the most violations. 
 
-Moreover, if the municipality offers a service that allows users to retrieve the information about the accidents that occur on the territory of the municipality, SafeStrees can cross this information with its own data to identify potentially unsafe areas, and suggest possible interventions (e.g., add a barrier between the bike lane and the part of the road for motorized vehicles to prevent unsafe parking).
+Moreover, if the municipality offers a service that allows users to retrieve the information about the accidents that occur on the territory of the municipality, SafeStreets can cross this information with its own data to identify potentially unsafe areas, and suggest possible interventions (e.g., add a barrier between the bike lane and the part of the road for motorized vehicles to prevent unsafe parking).
 
 
 	\section{Scope}
 	\subsection{General description}
-Safestreet is an application to be used both from civilians (users) and authorities, in order to help the latter and reduce traffic violations. Registered authorities can automatically receive reports made by users, so the service acts as an intermediary. The next paragraph gives a more formal description of which is the purpose of the application.
+SafeStreets is an application to be used both from civilians (users) and authorities, in order to help the latter and reduce traffic violations. Registered authorities can automatically receive reports made by users, so the service acts as an intermediary. The next paragraph gives a more formal description of which is the purpose of the application.
 
 	\subsection{Goals}
 	The following list describes the goals from the S2B perspective:
@@ -100,9 +100,9 @@ Safestreet is an application to be used both from civilians (users) and authorit
 		\item \textbf{User}: a civilian customer that can use the application to:
 			\begin{itemize}
 			\item notify authorities of some violation;
-			\item check which are the most dangerous (i.e. with the most violations) streets;
+			\item check which are the most dangerous (i.e. with the most violations) streets.
 			\end{itemize}
-		in this document, ``user", ``citizen" and ``civiian" are completely equivalent, where not specified.
+		in this document, ``user", ``citizen" and ``civilian" are completely equivalent, where not specified.
 		\item \textbf{Authority}: a member of the local police who has access to reports made by users. The 					authorities evaluate the reports sent by the user to determine if the violation stands.
 		\item \textbf{Report}: a message consisting of:
 			\begin{itemize}
@@ -110,7 +110,7 @@ Safestreet is an application to be used both from civilians (users) and authorit
 			\item date and time of the picture;
 			\item GPS position of the place where the violation occurred;
 			\item the street where the violation occurred (automatically retrieved from the geographical position);
-			\item the type of the violation (input by the user)
+			\item the type of the violation (input by the user).
 			\end{itemize}
 		\item \textbf{Available}: a report is available for an authority if its position is within the municipality assigned to the authority.
 		\item \textbf{Violation}: a situation that, according to the user who sent the report, is a violation of the traffic laws.
@@ -126,14 +126,29 @@ Safestreet is an application to be used both from civilians (users) and authorit
 			\item \textbf{AES}: \emph{Advanced Encryption Standard.}		
 			\end{itemize}
 
+	\section{Revision history}
+\begin{itemize}
+	\item\textbf{Version 1.0}:
+
+	First release.
+	\item\textbf{Version 1.1}:
+\begin{itemize}
+	\item{}Edit requirements numbering;
+	\item{}fix some typing errors;
+	\item{}other minor fixes.
+\end{itemize}
+
+\end{itemize}
+
+
 	\section{Reference documents}
 	The main reference document is the ``SafeStreets Mandatory Project Assignment'' specification document. The complete list of references is provided in chapter 6.
 
 	\section{Document structure}
 	\begin{itemize}
 	\item \textbf{Chapter 1} is an introduction: it presents the document and the S2B with its scope and goals. It also helps the reader to understand, by giving the necessary definitions and explaining acronyms and abbreviations; 
-	\item \textbf{Chapter 2} is a summary description of all the project. It gives a general idea of how the application works and shows the assumpions made in the development;
-	\item \textbf{Chapter 3} presents the requirements to be guaranteed in order to achieve every goal of the project, analyzing every use case. It shows the constraints and the attributes of the system in terms of availability, mantainability, secturity etc.;
+	\item \textbf{Chapter 2} is a summary description of all the project. It gives a general idea of how the application works and shows the assumptions made in the development;
+	\item \textbf{Chapter 3} presents the requirements to be guaranteed in order to achieve every goal of the project, analyzing every use case. It shows the constraints and the attributes of the system in terms of availability, maintainability, security etc.;
 	\item \textbf{Chapter 4} contains the Alloy model of critical aspects that require special attention. Here it is shown how the project has been modeled and a proof of the model consistency is provided. Moreover, examples of some of the generated world are shown;
 	\item \textbf{Chapter 5} is meant to show how work was divided between the two components of the group and how much time was spent;
 	\item \textbf{Chapter 6} lists the reference documents and the tools used to develop this document.
@@ -197,7 +212,7 @@ Safestreet is an application to be used both from civilians (users) and authorit
 				\caption{State diagram on how reports work for authorities}
 			\end{subfigure}
 		\end{figure}
-		This last diagram represents the last major functionality offered by SafeStreet. It consists in a system that offers suggestions
+		This last diagram represents the last major functionality offered by SafeStreets. It consists in a system that offers suggestions
 		on how improve safety on particular streets, based on the occurrences of car accidents and street violations data that
 		the authorities choose to share with SafeStreets.
 		  
@@ -229,7 +244,7 @@ Safestreet is an application to be used both from civilians (users) and authorit
 		\subsection{Map}
 			This function allows the user to open the map and see the ``level of violations" of the different areas. These ``levels" are
 			based on how many reports have been approved in that area: higher the level, higher the number of violation.
-			There are 4 levels, which are indicated with different color, from no colour (level 0) to red (level 3).
+			There are 4 levels, which are indicated with different color, from no color (level 0) to red (level 3).
 			
 	\section{User characteristics}
 		The actors of the application are the following:
@@ -238,13 +253,13 @@ Safestreet is an application to be used both from civilians (users) and authorit
 				a civilian who has registered to SafeStreets. He doesn't need any particular skill to use the system, 
 				he is just supposed to have a smartphone (or tablet) with a functioning camera, an internet connection and
 				a phone that can send its current position.  To make a report it is sufficient to
-				take a picutre of the license plate, the violation's type and the system retrieves autonomously the current position
+				take a picture of the license plate, the violation's type and the system retrieves autonomously the current position
 				of the user.
 			\item \textbf{Authority:}
 				An agent of the local police of a certain municipality exploiting SafeStreets, that has access to all the reports made
 				 in his municipality. The authority can visualize the available reports and evaluate them, that is telling if the
 				violation reported by the user stands or it is not a proper violation. After seeing a report, the authority 
-				changes its status to Approved or Rejected. By activateing
+				changes its status to Approved or Rejected. By activating
 				an optional service, authorities can check the streets with the highest number of accidents and receive
 				suggestions (chosen by the system) to improve safety.
 		\end{itemize}
@@ -255,7 +270,7 @@ The following are the assumptions made to simplify and clarify some situation th
 			\item \textbf{D1}: The users always provide a picture that allows both the algorithm to read the license plate and
 					        the authority to identify the violation.
 			\item \textbf{D2}: Every user is provided with a device capable to share the exact GPS position at any moment.
-			\item \textbf{D3}: The name of the street where a violation occured is retrieved from the GPS position.
+			\item \textbf{D3}: The name of the street where a violation occurred is retrieved from the GPS position.
 			\item \textbf{D4}: Authorities never make mistakes in evaluating a report.
 			\item \textbf{D5}: Reports are evaluated only one time.
 			\item \textbf{D6}: The user sends the report staying in the same place of the violation.
@@ -265,8 +280,8 @@ The following are the assumptions made to simplify and clarify some situation th
 
 % End of second chapter
 
-\chapter{Specific Requirments}
-	\section{External interface requirments}
+\chapter{Specific Requirements}
+	\section{External interface requirements}
 		\subsection{User interfaces}
 		In this section some screenshots from the user interface are shown.
 		\begin{figure}[H]
@@ -346,9 +361,9 @@ The following are the assumptions made to simplify and clarify some situation th
 			The system has no software interfaces.
 		\subsection{Communication interfaces}
 			The system has no communication interfaces.
-	\section{Functional Requirements}
+	\section{Functional requirements}
 		This section presents the requirements to be satisfied to reach each goal, in addition to the domain assumptions that must stand. Notice that the
-		most trivial requirements (e.g. "The system always work properly") are omitted, in order to simplify the description.
+		most trivial requirements (e.g. ``The system always work properly") are omitted, in order to simplify the description.
 		\subsection{User} 
 
 			\paragraph {G1:} The application must allow the users to register, entering an e-mail address and a password, and to log in.
@@ -363,7 +378,7 @@ The following are the assumptions made to simplify and clarify some situation th
 			\begin{itemize}
 				\item{[D1]:} The users always provide a picture that allows both the algorithm to read the license plate and the authority to identify the violation.
 				\item{[D2]:} Every user is provided with a device capable to share the exact GPS position at any moment.
-				\item{[D3]:} The name of the street where a violation occured is retrieved from the GPS position.
+				\item{[D3]:} The name of the street where a violation occurred is retrieved from the GPS position.
 				\item{[D5]:} Date, time and street of the violation are automatically inferred by the application.
 				\item{[D6]:} The user sends the report staying in the same place of the violation attached to the report.
 		 		\item{[D7]:} The picture of the license plate is taken at the moment and shows the right car.
@@ -376,7 +391,7 @@ The following are the assumptions made to simplify and clarify some situation th
 
 			\paragraph {G3:} The application must be able to show to the users the streets and the vehicles with the highest frequency of violations.
 			\begin{itemize}
-				\item{[D3]:} The name of the street where a violation occured is retrieved from the GPS position.
+				\item{[D3]:} The name of the street where a violation occurred is retrieved from the GPS position.
 				\item{[D4]:} Authorities never make mistakes in evaluating a report.
 				\item{[D5]:} Reports are evaluated only one time.
 			\end{itemize}
@@ -394,7 +409,7 @@ The following are the assumptions made to simplify and clarify some situation th
 			\end{itemize}
 			\paragraph {G5:} The system must notify the user when one of his reports is evaluated.
 			\begin{itemize}
-				\item{[D3]:} The name of the street where a violation occured is retrieved from the GPS position.
+				\item{[D3]:} The name of the street where a violation occurred is retrieved from the GPS position.
 				\item{[D4]:} Authorities never make mistakes in evaluating a report.
 				\item{[D5]:} Reports are evaluated only one time.
 			\end{itemize}
@@ -438,7 +453,7 @@ The following are the assumptions made to simplify and clarify some situation th
 						\hline
 						Actor & {User, Authorities} \\
 						\hline
-						Entry condition & {The User want to use for the first time SafeStreet and open the application on
+						Entry condition & {The User want to use for the first time SafeStreets and open the application on
 									his device} \\
 						\hline
 						Events Flows &{ 
@@ -446,7 +461,7 @@ The following are the assumptions made to simplify and clarify some situation th
 								\begin{enumerate}
 									\item The user clicks on the ``Sign up" option
 									\item The user fills all the mandatory fields
-									\item The user agrees with the SafeStreet's privacy policy
+									\item The user agrees with the SafeStreets' privacy policy
 									\item The user clicks on the confirmation option
 									\item The system proceeds to verify user's data and to save them
 								\end{enumerate}
@@ -563,7 +578,7 @@ The following are the assumptions made to simplify and clarify some situation th
 						\hline
 						Actor & {User} \\
 						\hline
-						Entry condition & {The User open and log in the SafeStreet application} \\
+						Entry condition & {The User open and log in the SafeStreets application} \\
 						\hline
 						Events Flows &{ 
 								\vskip 4pt
@@ -660,7 +675,7 @@ The following are the assumptions made to simplify and clarify some situation th
 
 			\paragraph {G7:} The application must allow authorities to retrieve and evaluate the available reports.
 				\begin{itemize}
-					\item{[D3]:} The name of the street where a violation occured is retrieved from the GPS position.
+					\item{[D3]:} The name of the street where a violation occurred is retrieved from the GPS position.
 					\item{[D5]:} Reports are evaluated only one time.
 				\end{itemize}
 				\begin{itemize}
@@ -689,8 +704,7 @@ The following are the assumptions made to simplify and clarify some situation th
 					on the streets, he decides to join SafeStreets.
 					
 				\subparagraph{Scenario 2}
-					Major Clancy Winchester has noticed that even with various tentatives to reduce the car accidents, he didn't
-					succeed, so he decides to try to subscribe to and advanced option offered by SafeStreets trying to receive
+					Major Clancy Winchester has noticed that even with various attempts to reduce the car accidents, he didn't	succeed, so he decides to try to subscribe to and advanced option offered by SafeStreets trying to receive
 					new suggestions to improve security.
 					
 				In this paragraph all the use cases diagram , use cases and sequence diagrams will be illustrated, the ``sign up" and ``log in"
@@ -785,25 +799,25 @@ The following are the assumptions made to simplify and clarify some situation th
 				Phenomenon & Shared & Who controls it\\
 				\hline
 				\hline
-				Log-in & N & M\\
+				Log-in & Y & M\\
 				\hline
-				Sign-up & N & M\\
+				Sign-up & Y & M\\
 				\hline
 				Someone made traffic violation & N & W\\
 				\hline
 				Report & Y & M\\
 				\hline
-				Visualize Map & N & M\\
+				Visualize map & N & M\\
 				\hline
 				Color on the map & N & M\\
 				\hline
 				Violations number & Y & W\\
 				\hline
-				Report Evaluated & Y & W\\
+				Report evaluated & Y & W\\
 				\hline
 				Notification received & N & M\\
 				\hline
-				Accident Occurs & N & W\\
+				Accident occurs & N & W\\
 				\hline
 				A suggestion is made & N & M\\
 				\hline
@@ -838,11 +852,11 @@ The following are the assumptions made to simplify and clarify some situation th
 					\hline
 					R7 &  \shortstack{\\Report} \\
 					\hline
-					R8 &  \shortstack{\\Sign up \&Log in} \\
+					R8 &  \shortstack{\\Sign up \& Log in} \\
 					\hline
-					R9 &  \shortstack{\\Reports \\Visualize Map} \\
+					R9 &  \shortstack{\\Report \\Visualize Map} \\
 					\hline
-					R10 &  \shortstack{\\Reports \\ Evaluate report} \\
+					R10 &  \shortstack{\\Report \\ Evaluate report} \\
 					\hline
 					R11 &  \shortstack{\\Make suggestion} \\
 					\hline
@@ -857,7 +871,7 @@ The following are the assumptions made to simplify and clarify some situation th
 
 			
 	
-	\section{Performance Requirments}
+	\section{Performance requirements}
 		The System has to be able to serve a large number of users and authorities, simultaneously guaranteeing quick, 
 		reactive and correct responses. It's important to underline that the accuracy of the suggestions received by the system
 		are based on the data shared with SafeStreets and that the system does not guarantee that the proposed solution will surely
@@ -866,23 +880,23 @@ The following are the assumptions made to simplify and clarify some situation th
 		\subsection{Standards compliance}
 			The error of the user's position is expressed in meters or feet (it depends on the unity preferred by the authorities) and has to be less than 10 meters.\\
 			The system is designed to protect the privacy of users' data, as a matter of fact the entire 
-			project is subject to the General Data Protection Regulation (GDPR), a regulation in EU 
-			law on data protection and privacy for all individuals within the European Union (EU) and 
-			the European Economic Area (EEA).
+			project is subject to the General Data Protection Regulation, a regulation in EU 
+			law on data protection and privacy for all individuals within the European Union and 
+			the European Economic Area.
 		\subsection{Hardware limitations}
-			As specified in the ”dependencies and constraints” section, hardware requirements are present 
+			As specified in the ``dependencies and constraints” section, hardware requirements are present 
 			only in relation to specific functionalities. For example, to make a report it is necessary a device with
 			a functioning internet connection, a camera and a GPS sensor.\\
 			So all the hardware requirements are:
 			\begin{itemize}
 				\item any type of Internet connection;
-				\item a working gps sensor;
+				\item a working GPS sensor;
 				\item a working camera.
 			\end{itemize}
-		\subsection{Any other costraint}
+		\subsection{Any other constraint}
 			The system does not have any other type of particular constraints. In order to protect users' privacy is important
 			to remind that the data will be maintained secret (the authorities will not be able to see which user made a report)
-			and that SafeStreets will respect the GDPR regulation.	\section{Software System Attributes}
+			and that SafeStreets will respect the General Data Protection Regulation.	\section{Software system attributes}
 		\subsection{Reliability}
 			The system must be able to run continuously without any interruptions. In order to do that, it must 
 			be ensured  that  the system is fault tolerant, this means that some precautions will be taken to avoid the system
@@ -896,9 +910,9 @@ The following are the assumptions made to simplify and clarify some situation th
 			The privacy is granted to both communication sides: the user doesn't know who evaluated his report and the authorities
 			only see a number representing the user, so they cannot see any information like name or e mail. Confidentiality of client-server communication is granted exploiting PKC. The public key is used at the beginning of the session to exchange a secret symmetric key. The communication continues encrypting the messages with the symmetric key (e.g. an AES key). 
 		\subsection{Maintainability}
-			The system is realised with a modular structure, so it will be very easy to improve or substitute any part of it. For example, if one day a better recommender system is designed, the
+			The system is realized with a modular structure, so it will be very easy to improve or substitute any part of it. For example, if one day a better recommender system is designed, the
 			introduction of the new one will not impact the rest of the system.
-		\subsection{Portablity}
+		\subsection{Portability}
 			The application can be used on any mobile device respecting the hardware constraints.
 
 
@@ -924,7 +938,7 @@ This chapter shows the analysis of the Alloy model of the proposed system. Obvio
 	\newpage
 
 	\section{Results}
-	The following is the result of the Alloy Analizer with the input shown in the previous section. 
+	The following is the result of the Alloy Analyzer with the input shown in the previous section. 
 		\begin{figure}[H]
 				\includegraphics[scale = 0.9, center]{Consistency}
 				\caption{Results}
@@ -982,8 +996,8 @@ This chapter shows the analysis of the Alloy model of the proposed system. Obvio
 	\begin{itemize}
 	\item StarUML 3.1.0 - to draw and export UML diagrams;
 	\item \url{lucidchart.com} - to draw, share and export state diagrams, sequence diagrams;
-	\item Alloy Analizer 4.2 - to write and test the Alloy model of the application;
-	\item Adobe Illustrator CC 2019 - to create mockups of the user interfeace;
+	\item Alloy Analyzer 4.2 - to write and test the Alloy model of the application;
+	\item Adobe Illustrator CC 2019 - to create mockups of the user interface;
 	\item TeX Live 2019 - to write and organize this document;
 	\item GitHub 2.23.0 - version control.
 	\end{itemize}
