@@ -79,6 +79,8 @@ contents}}
 				\item Implementation, integration and testing plan.
 			\end{itemize}
 		\section{Scope}
+			Here a review of which is the scope of the application is made referring to what	has been stated in the RASD
+			document.\\
 			SafeStreets is an application to be used both from civilians (users) and authorities, in order to help the latter and
 			reduce traffic violations. Registered authorities can automatically receive reports made by users, so the service acts
 			as an intermediary. The next paragraph gives a more formal description of system's architecture.
@@ -357,27 +359,32 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 				%to the system to check the validity of the created reports.
 				%Here a quick description of the functions illustrated above:
 					\begin{itemize}
-						\item \textbf{App}
+						\item \textbf{Router}
 						\begin{itemize}
-							\item \textbf{forwardLogInRequest()} This method obtain the information from the ``Username" and the
-								``Password" fields, and then call the logInManager
-							\item \textbf{forwardSignUpRequest} This method display the sign up form, then it obtain all the data
-								from the fields and it controls their validity, then to complete the procedure and
-								save the user in the db it calls the method ``sign up" from  ``sign up manager"
-							\item \textbf{forwardMakeReportRequest()} This method display the form to report traffic violations and
-								it starts the procedure, it will call all the methods of ``reportManager"
-								(will be explained in detail to follow). 
-							\item \textbf{fowardEvaluateRequest()} This method display the screen to evaluate traffic violations and
-								it starts the procedure, it will call all the methods of ``evaluateManager"
-								(will be explained in detail to follow).
-							\item \textbf{forwardHistoryrequest()} This method display the history of the user's reported traffic
-								violations and it starts the procedure, it will call all the methods of
-								``historyManager" (will be explained in detail to follow).
-							\item \textbf{forwardMapRequest()} This method display the map with the streets colored in function of the
-								traffic violations' number.
-							\item \textbf{forwardRecommendationRequest()} This method will give a suggestion on how to improve the
-								safety on a particular street, the methods involved will be explained in detail to
-								follow in the  ``recommendationManager".
+							\item \textbf{forwardLogInRequest()} This method obtain the signUp request and
+								forward it to the sign up manager, the request is an aggregate of an unique id to
+								identify it, the username and the password.
+							\item \textbf{forwardSignUpRequest} This method obtain the signUp request and forward 
+								it to the sign up manager, the request is an aggregate of an unique id to identify it,
+								the desired username and password.
+							\item \textbf{forwardMakeReportRequest()} This method receive the reportRequest,
+								then it extracts the data of the reports and forward it to the report manager.
+								(will be explained in detail to follow).  The request consist into an id to identify it,
+								and the complete form of the report.
+							\item \textbf{fowardEvaluateRequest()} This method it receives the EvaulationRequest,
+								extracts it and forward it to the ``evaluateManager"
+								(will be explained in detail to follow). The request consists in an unique id to identify
+								it and an authority's id that allows the system to retrieve all the pending reports
+								in the zone under the authority's control.
+							\item \textbf{forwardHistoryrequest()} It will call all the methods of
+								``historyManager" after obtained information about the user who requested it (will
+								be explained in detail to follow).
+							\item \textbf{forwardMapRequest()} It receive the request to visualize the map, then it
+								extract the data and forward the request to the ``Mao Manager". The request
+								consists in an unique id, and the user position.
+							\item \textbf{forwardRecommendationRequest()} It receive the request to obtain
+								suggestion about some street. The request is a series of streets name that will be
+								sent to the manager to obtain the suggestion about them.
 						\end{itemize}
 						\item \textbf{signUpManager}
 						\begin{itemize}
@@ -460,10 +467,6 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 							\item \textbf{obtainData} Is called by visualizeMap and this method has to contact the DB
 								and it has to obtain the number of reports in each street visualized on the map in
 								order to make able visualizeMap to coloring it correctly.
-						\end{itemize}
-						\item \textbf{gpsManager}
-						\begin{itemize}
-							\item \textbf{retreivePosition} Same as said above (in report).
 						\end{itemize}
 				\end{itemize}
 			\subsection{Evaluate}
@@ -800,20 +803,19 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 		\end{table}
 	%end of sixth chapter
 	\chapter{References}
-
-	\section{Bibliography}
-	\begin{itemize}
-		\item Course slides from Software Engineering 2 - \emph{Professor Elisabetta Di Nitto};
-		\item SafeStreets Requirement Analysis and Specification Document - \emph{Alberto Frangi, Tiziano Fucci};
-		\item 1016-1987, IEEE Recommended Practice for Software Design Descriptions - \emph{IEEE}.
-	\end{itemize}
-	\section{Tools}	
-	\begin{itemize}		
-	\item StarUML 3.1.0 - to draw and export UML diagrams;
-	\item \url{lucidchart.com} - to draw, share and export sequence diagrams;
-	\item \url{draw.io} - to draw and export other diagrams;
-	\item TeX Live 2019 - to write and organize this document;
-	\item GitHub 2.23.0 - version control.
-	\end{itemize}
+		\section{Bibliography}
+		\begin{itemize}
+			\item Course slides from Software Engineering 2 - \emph{Professor Elisabetta Di Nitto};
+			\item SafeStreets Requirement Analysis and Specification Document - \emph{Alberto Frangi, Tiziano Fucci};
+			\item 1016-1987, IEEE Recommended Practice for Software Design Descriptions - \emph{IEEE}.
+		\end{itemize}
+		\section{Tools}	
+		\begin{itemize}		
+		\item StarUML 3.1.0 - to draw and export UML diagrams;
+		\item \url{lucidchart.com} - to draw, share and export sequence diagrams;
+		\item \url{draw.io} - to draw and export other diagrams;
+		\item TeX Live 2019 - to write and organize this document;
+		\item GitHub 2.23.0 - version control.
+		\end{itemize}
 	%end of seventh chapter
 \end{document}
