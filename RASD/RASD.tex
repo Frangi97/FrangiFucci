@@ -52,7 +52,7 @@
 \posttitle{\end{center}}
 
 % Here we go
-\title{SafeStreets - RASD \\  \large version 1.1}
+\title{SafeStreets \\ \Large Requirement Analysis and Specification Document \\ \large version 1.1}
 \author{Frangi Alberto, Fucci Tiziano}
 \date{A.Y. 2019/2020}
 \begin{document}
@@ -80,7 +80,7 @@ SafeStreets is an application to be used both from civilians (users) and authori
 		\subsubsection{User}
 	% Dot list 
 	\begin{itemize}
-		\item \textbf{G1}: The application must allow the users to register entering an e-mail address and a password.
+		\item \textbf{G1}: The application must allow the users to register entering a valid e-mail address and a valid password.
 		\item \textbf{G2}: The application must allow the users to notify traffic violations, providing  the type of violation and a picture of the vehicle.
 		\item \textbf{G3}: The application must be able to show to the users the streets and the vehicles with the highest frequency of violations.
 		\item \textbf{G4}: The application must allow the users to see all of their reports and their status.
@@ -133,7 +133,7 @@ SafeStreets is an application to be used both from civilians (users) and authori
 	\item\textbf{Version 1.1}:
 \begin{itemize}
 	\item{}Edit requirements numbering;
-	\item{}fix some typing errors;
+	\item{}correct some typing errors;
 	\item{}other minor fixes.
 \end{itemize}
 
@@ -269,7 +269,7 @@ The following are the assumptions made to simplify and clarify some situation th
 			\item \textbf{D1}: The users always provide a picture that allows both the algorithm to read the license plate and
 					        the authority to identify the violation.
 			\item \textbf{D2}: Every user is provided with a device capable to share the exact GPS position at any moment.
-			\item \textbf{D3}: The name of the street where a violation occurred is retrieved from the GPS position.
+			\item \textbf{D3}: The name of the street where a violation occurred can always be retrieved from the GPS position.
 			\item \textbf{D4}: Authorities never make mistakes in evaluating a report.
 			\item \textbf{D5}: Reports are evaluated only one time.
 			\item \textbf{D6}: The user sends the report staying in the same place of the violation.
@@ -365,7 +365,7 @@ The following are the assumptions made to simplify and clarify some situation th
 		most trivial requirements (e.g. ``The system always work properly") are omitted, in order to simplify the description.
 		\subsection{User} 
 
-			\paragraph {G1:} The application must allow the users to register, entering an e-mail address and a password, and to log in.
+			\paragraph {G1:} The application must allow the users to register, entering a valid e-mail address and a valid password, and to log in.
 			\begin{itemize}
 				\item{[R1]}: Registration must be allowed only entering a valid e-mail address that is not already associated to an existing SafeStreets account.
 				\item{[R2]}: Registration must be allowed only entering a password that satisfies the safety conditions.
@@ -377,7 +377,7 @@ The following are the assumptions made to simplify and clarify some situation th
 			\begin{itemize}
 				\item{[D1]}: The users always provide a picture that allows both the algorithm to read the license plate and the authority to identify the violation.
 				\item{[D2]}: Every user is provided with a device capable to share the exact GPS position at any moment.
-				\item{[D3]}: The name of the street where a violation occurred is retrieved from the GPS position.
+				\item{[D3]}: The name of the street where a violation occurred can always be retrieved from the GPS position.
 				\item{[D5]}: Date, time and street of the violation are automatically inferred by the application.
 				\item{[D6]}: The user sends the report staying in the same place of the violation attached to the report.
 		 		\item{[D7]}: The picture of the license plate is taken at the moment and shows the right car.
@@ -390,7 +390,7 @@ The following are the assumptions made to simplify and clarify some situation th
 
 			\paragraph {G3:} The application must be able to show to the users the streets and the vehicles with the highest frequency of violations.
 			\begin{itemize}
-				\item{[D3]}: The name of the street where a violation occurred is retrieved from the GPS position.
+				\item{[D3]}: The name of the street where a violation occurred can always be retrieved from the GPS position.
 				\item{[D4]}: Authorities never make mistakes in evaluating a report.
 				\item{[D5]}: Reports are evaluated only one time.
 			\end{itemize}
@@ -408,7 +408,7 @@ The following are the assumptions made to simplify and clarify some situation th
 			\end{itemize}
 			\paragraph {G5:} The system must notify the user when one of his reports is evaluated.
 			\begin{itemize}
-				\item{[D3]}: The name of the street where a violation occurred is retrieved from the GPS position.
+				\item{[D3]}: The name of the street where a violation occurred can always be retrieved from the GPS position.
 				\item{[D4]}: Authorities never make mistakes in evaluating a report.
 				\item{[D5]}: Reports are evaluated only one time.
 			\end{itemize}
@@ -674,7 +674,7 @@ The following are the assumptions made to simplify and clarify some situation th
 
 			\paragraph {G7:} The application must allow authorities to retrieve and evaluate the available reports.
 				\begin{itemize}
-					\item{[D3]}: The name of the street where a violation occurred is retrieved from the GPS position.
+					\item{[D3]}: The name of the street where a violation occurred can always be retrieved from the GPS position.
 					\item{[D5]}: Reports are evaluated only one time.
 				\end{itemize}
 				\begin{itemize}
@@ -686,7 +686,7 @@ The following are the assumptions made to simplify and clarify some situation th
 				\end{itemize}
 			\paragraph {G8:} The application must be able to identify potentially unsafe areas and suggest possible interventions.
 				\begin{itemize}
-					\item{[D3]}: Every user is provided with a device capable to share the exact GPS position at any moment.
+					\item{[D3]}: The name of the street where a violation occurred can always be retrieved from the GPS position.
 			 		\item{[D4]}: Authorities never make mistakes in evaluating a report.
 					\item{[D5]}: Date, time and street of the violation are automatically inferred by the application.
 			 		\item{[D6]}: The user sends the report staying in the same place of the violation.

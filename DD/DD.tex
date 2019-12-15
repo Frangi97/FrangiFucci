@@ -63,7 +63,7 @@ contents}}
 \posttitle{\end{center}}
 
 % Here we go
-\title{SafeStreets - DD \\ \large version 1.0}
+\title{SafeStreets \\ Design Document \\ \large version 1.1}
 \author{Frangi Alberto, Fucci Tiziano}
 \date{A.Y. 2019/2020}
 \begin{document}
@@ -73,26 +73,31 @@ contents}}
 	\chapter{Introduction}
 		\section{Purpose}
 			The purpose of this document consists of giving more technical details than the RASD concerning the SafeStreets
-			system.\\
+			system.
+
+
 			The RASD completely describes the system in terms of functional and nonfunctional requirements and
 			serves as a contractual basis between the customer and the developer and it must be written in the language of
 			the customer's domain of business/expertise, the DD's purpose instead is to provide a description for how the new
 			system will be constructed, it provides a description of the system architecture, software, hardware, database
-			design, and security.\\
+			design, and security.
+
+
 			In particular this document will explain the following topics:
 			\begin{itemize}
-				\item High level architecture and its components' requirements;
-				\item Run-time behavior;
-				\item Design patterns;
-				\item Additional user interfaces information;
-				\item Implementation, integration and testing plan.
+				\item high level architecture and its components' requirements;
+				\item run-time behavior;
+				\item design patterns;
+				\item additional user interfaces information;
+				\item implementation, integration and testing plan.
 			\end{itemize}
 		\section{Scope}
-			Here a review of which is the scope of the application is made referring to what	has been stated in the RASD
-			document.\\
+			Here a review of which is the scope of the application is made referring to what	has been stated in the RASD.
+
+
 			SafeStreets is an application to be used both from civilians (users) and authorities, in order to help the latter and
 			reduce traffic violations. Registered authorities can automatically receive reports made by users, so the service acts
-			as an intermediary. The next paragraph gives a more formal description of system's architecture.
+			as an intermediary. 
 
 		\section{Definitions, acronyms, abbreviations}
 			\subsection{Definitions}
@@ -148,8 +153,13 @@ contents}}
 		\section{Revision history}
 			\begin{itemize}
 				\item \textbf{Version 1.0}:
+					\\ First release.
+				\item \textbf{Version 1.1}:
 				\begin{itemize}
-					\item First release.
+					\item Improve class diagram;
+					\item correct some typing errors;
+					\item correct some errors in 2.4;
+					\item other minor fixes.
 				\end{itemize}
 			\end {itemize}
 		\section{Reference documents}
@@ -266,35 +276,38 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 \end{itemize}
 
 		\section{Runtime view}
-			In this section will be presented the sequence diagrams of the various functionality, is up to the application
-			controlling and guaranteeing that each user can access only to the right functionality.
+			In this section the sequence diagrams of the various functionality will be presented. It is up to the application to control and guarantee that each user can access only to the right functionality.
 			\subsection{Making report}
 				\begin{figure}[H]
 						\includegraphics[width = 1.5\textwidth, center]{Report}
 						\caption{How the report works}
 						\label{fig: diagrams}
 				\end{figure}
-				This sequence diagrams explain the process through which a user can report a traffic violation.\\
-				Once he has opened the application and logged in/signed up he can chose the ``Report violation" option,
-				when he does that the application send the request to a router that forward the request to the right
-				component (in this case the ``Report Manager").\\
-				Once the report has been received, the Report Manager sends the position ( intended as geographical
+				This sequence diagrams explains the process through which a user can report a traffic violation.
+
+
+				Once he has opened the application and logged in/signed up he can choose the ``Report violation" option,
+				when he does that the application sends the request to a router that forwards it to the right
+				component (in this case the ``Report Manager").
+
+
+				Once the report has been received, the Report Manager sends the position (intended as geographical
 				coordinates) to the Position Manager, who will take care of transforming it into information on the road on
-				which the user is located.\\
-				The user has to fill the form to report the traffic violations with the violation type and a photo of the
-				violation and a photo of the plate, the request cannot be sent until all the form is completed. It is the task of the
+				which the user is located.
+
+
+				The user has to fill the form to report the traffic violations with the violation type and a picture of the
+				violation. The request cannot be sent until all the form is completed. It is up to the
 				application to ensure that the position of the user has been correctly recorded, in case it is not possible to
-				obtain it, it must prevent the sending of the report. \\
-				Once the form has been sent the manager take care of the rest. First thing first the manager has to convert
-				the photo of the plate into a String, so it send the plate's photo to the OCR manager, in this way using some
-				photo manipulation techniques the system is able to obtain a String with the license plate.\\
-				Once obtained that the report manager use a query to look up the database trying to find if there is already a
-				pending (or resolved) report involving that car in that street, in this way a car won't be reported twice for the
-				same
-				violation. If the vehicle has been already reported the application will display a message like ``I'm sorry but
-				this vehicle has been already reported", to notify the user that the request failed.\\
-				If it's not already reported the report is stored into the database, and a notification is sent to the authorities
-				(using the notification manager).
+				obtain it, it must prevent the sending of the report. 
+
+
+				Once the form has been sent, the manager takes care of the rest. First, the manager has to convert
+				the picture of the plate into a string, so it sends the plate's picture to the OCR manager, in this way, using some
+				picture manipulation techniques the system is able to obtain a string with the license plate.
+
+
+				Once obtained that, the report manager uses a query to look up the database trying to find if there is already a	pending (or resolved) report involving that car in that street in the last 24 hours, with the same violation type reported. In this way a car won't be reported twice for the	same violation. If the vehicle has been already reported, the application will display a message like ``This vehicle has been already reported", to notify the user that the request failed, otherwise the report is stored into the database, and a notification is sent to the authorities (using the notification manager).
 			\subsection{Visualize Maps}
 				\begin{figure}[H]
 						\includegraphics[width = \textwidth, center]{Maps}
@@ -303,10 +316,14 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 				\end{figure}
 
 				This sequence diagrams explain the process through which a user can visualize the map to identify which
-				streets have the highest number of violations.\\
+				streets have the highest number of violations.
+
+
 				Once he has opened the application and logged in/signed up he can chose the ``Visualize map" option,
 				when he does that the application send the request to a router that forward the request to the right
-				component (in this case the ``Maps Manager").\\
+				component (in this case the ``Maps Manager").
+
+
 				The manager take care of everything, it obtain the user position in order to load the correct map from google
 				maps, then it contact the db to retrieve information about the streets in that map to apply the correct colors
 				and in the end it sends all to the application.
@@ -316,16 +333,20 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 						\caption{How reports' history works}
 						\label{fig: diagrams}
 				\end{figure}
-				This sequence diagrams explain the process through which a user can visualize the history of his previous
-				reports.\\
-				Once he has opened the application and logged in/signed up he can chose the ``My reports" option,
-				when he does that the application send the request to a router that forward the request to the right
-				component (in this case the ``Chronology Manager").\\
-				The manager simply obtains all the previous reports by querying the db, if there aren't reports the manager
-				will send a message to the app and will be displayed something like ``I am sorry, it seems that you didn't any
-				report up to now".
+				This sequence diagrams explains the process through which a user can visualize the history of his previous reports.
+
+
+				Once he has opened the application and logged in/signed up he can choose the ``My reports" option,
+				when he does that the application sends the request to a router that forwards it to the right
+				component (in this case the ``Chronology Manager").
+
+
+				The manager simply obtains all the previous reports by querying the DB, if there aren't reports the manager
+				sends a message to the app and displays something like ``It seems that you didn't make any report up to now".
 				The user will see date\&time of each report, the status (pending, approved or rejected), the street and the
-				type of violation.\\
+				type of violation.
+
+
 				The plate won't be displayed to protect the privacy of the other citizens.
 			\subsection{Evaluate report}
 				\begin{figure}[H]
@@ -333,38 +354,45 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 						\caption{How reports are evaluated}
 						\label{fig: diagrams}
 				\end{figure}
-				This sequence diagrams explain the process through which an authorities can evaluate pending reports.\\
-				Once he has opened the application and logged in/signed up he can chose the ``Evaluate" option,
-				when he does that the application send the request to a router that forward the request to the right
-				component (in this case the ``Evaluation Manager").\\
-				The manager retrieve from the db all the unsolved reports and send them to the application module, each
-				time that an authority resolve a report the manager update the db and, using the notification manager, send
+				This sequence diagrams explains the process through which an authority can evaluate pending reports.
+
+
+				Once he has opened the application and logged in/signed up he can choose the ``Evaluate" option,
+				when he does that the application sends the request to a router that forwards it to the right
+				component (in this case the ``Evaluation Manager").
+
+
+				The manager retrieves from the DB all the unsolved reports and sends them to the application module, each
+				time that an authority evaluates a report, the manager updates the DB and, using the notification manager, sends
 				a notification to the user who made it to notify him the updated status.
 			\subsection{Asking for recommendation}
 				\begin{figure}[H]
 						\includegraphics[width = \textwidth, center]{recommendation}
-						\caption{How reports are evaluated}
+						\caption{How the recommendation is provided}
 						\label{fig: diagrams}
 				\end{figure}
-				This sequence diagrams explain the process through which an authorities can receive suggestion to improve
-				the safety on the streets.\\
-				Once he has opened the application and logged in/signed up he can chose the ``Recommend" option,
-				when he does that the application send the request to a router that forward the request to the right
-				component (in this case the ``Recommendation Manager").\\
-				To receive recommendation on how to improve the safety on the streets the manager will use a recommender
-				system based on content base approach based on item content matrix. To receive suggestion the manager
-				will consult the recommender system and obtain the best possible solution, then it will be forwarded to the
+				This sequence diagrams explains the process through which an authority can receive suggestions to improve safety on the streets.
+
+
+				Once he has opened the application and logged in/signed up he can choose the ``Recommend" option,
+				when he does that the application sends the request to a router that forwards it to the right
+				component (in this case the ``Recommendation Manager").
+
+
+				To receive recommendations on how to improve the safety on the streets, the manager will use a recommender
+				system based on content base approach, based on item content matrix. To receive suggestions, the manager
+				will consult the recommender system and obtain the best possible solution, which will be forwarded to the
 				application.
 		\section{Component interfaces}
 			\subsection{Overall summary}
-				In this section will be analyzed the interfaces necessary to each function, explaining the purpose of the main
+				In this section the interfaces necessary to each function will be analyzed, explaining the purpose of the main
 				functions.
 			\subsection{Main page}
 				\begin{figure}[H]
 						\includegraphics[width = \textwidth, center]{mainInterface}
 						\label{fig: interfaces}
 				\end{figure}
-				\newpage In the figure above is represented the interface to manage the main page of the application.
+In the figure above, the interface to manage the main page of the application is represented .
 				It is important to underline that it is the task of the application to ensure that each user can access the
 				functions dedicated to him and not to others (for example a citizen can't see the evaluate option).
 				%Is also up
@@ -373,40 +401,40 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 					\begin{itemize}
 						\item \textbf{Router}
 						\begin{itemize}
-							\item \textbf{forwardLogInRequest()} This method obtain the signUp request and
+							\item \textbf{forwardLogInRquest}: this method obtain the signUp request and
 								forward it to the sign up manager, the request is an aggregate of an unique id to
 								identify it, the username and the password.
-							\item \textbf{forwardSignUpRequest} This method obtain the signUp request and forward 
+							\item \textbf{forwardSignUpRequest}: this method obtain the signUp request and forward 
 								it to the sign up manager, the request is an aggregate of an unique id to identify it,
 								the desired username and password.
-							\item \textbf{forwardMakeReportRequest()} This method receive the reportRequest,
+							\item \textbf{forwardMakeReportRequest}: this method receive the reportRequest,
 								then it extracts the data of the reports and forward it to the report manager.
 								(will be explained in detail to follow).  The request consist into an id to identify it,
 								and the complete form of the report.
-							\item \textbf{fowardEvaluateRequest()} This method it receives the EvaulationRequest,
+							\item \textbf{fowardEvaluateRequest}: this method it receives the EvaulationRequest,
 								extracts it and forward it to the ``evaluateManager"
 								(will be explained in detail to follow). The request consists in an unique id to identify
 								it and an authority's id that allows the system to retrieve all the pending reports
 								in the zone under the authority's control.
-							\item \textbf{forwardHistoryrequest()} It will call all the methods of
-								``historyManager" after obtained information about the user who requested it (will
+							\item \textbf{forwardHistoryrequest}: it will call all the methods of
+								``historyManager" after obtaining information about the user who requested it (will
 								be explained in detail to follow).
-							\item \textbf{forwardMapRequest()} It receive the request to visualize the map, then it
+							\item \textbf{forwardMapRequest}: it receive the request to visualize the map, then it
 								extract the data and forward the request to the ``Mao Manager". The request
 								consists in an unique id, and the user position.
-							\item \textbf{forwardRecommendationRequest()} It receive the request to obtain
+							\item \textbf{forwardRecommendationRequest}: it receive the request to obtain
 								suggestion about some street. The request is a series of streets name that will be
 								sent to the manager to obtain the suggestion about them.
 						\end{itemize}
 						\item \textbf{signUpManager}
 						\begin{itemize}
-							\item \textbf{signUp} This method will communicate in a safe way to the DB using an
+							\item \textbf{signUp}: this method will communicate in a safe way to the DB using an
 								asymmetric key, it will memorize into the DB the Username and the hash of the
 								password.
 						\end{itemize}
 						\item \textbf{logInManager}
 						\begin{itemize}
-							\item \textbf{logIn} This method will communicate in a safe way to the DB using
+							\item \textbf{logIn}: this method will communicate in a safe way to the DB using
 								symmetric encryption (established at the begging of the communication using
 								asymmetric encryption), it will obtain the password's hash from the DB and it will
 								confront it to the hash of the one the user inserted.
@@ -421,29 +449,28 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 				\begin{itemize}
 					\item \textbf{reportManager}
 					\begin{itemize}
-						\item \textbf{sendReport} This method take the created reports and save it onto the DB adding
+						\item \textbf{sendReport}: this method take the created reports and save it onto the DB adding
 						the status (pending), and the username who created it.
-						\item \textbf{userPosition} This method contact the position manager to retrieve the user
+						\item \textbf{userPosition}: this method contact the position manager to retrieve the user
 						position and send it to the client to include it in the report.
-						\item \textbf{sendPlateForOCR} This method is called by the client, is used to translate the
+						\item \textbf{sendPlateForOCR}: this method is called by the client, is used to translate the
 						plate's photo into a String to include it into the DB and facilitate further operation of query
-						\item \textbf{updateDb} This is the method that take care of every communication with the DB.
-						\item \textbf{sendNotification} This method is used to notify the authorities of new reports.
+						\item \textbf{updateDB}: this is the method that take care of every communication with the DB.
+						\item \textbf{sendNotification}: this method is used to notify the authorities of new reports.
 					\end{itemize}
 					\item \textbf{ocrManager}
 					\begin{itemize}
-						\item \textbf{translate} This is the method that using OCR techniques obtain the license plate
+						\item \textbf{translate}: this is the method that using OCR techniques obtain the license plate
 						from the photo.
-					\end{itemize}
-					\newpage \item \textbf{notificationManager}
+					\end{itemize} \item \textbf{notificationManager}
 					\begin{itemize}
-						\item \textbf{sendNotification}  This method is up to contact the users required (both citizens
-						and authorities) to notify them new reports (or updated status of previous ones).
+						\item \textbf{sendNotification}: this method contacts the required users (both citizens
+						and authorities) to notify them of new reports (or updated status of previous ones).
 					\end{itemize}
 					\item \textbf{positionManager}
 					\begin{itemize}
-						\item \textbf{userPosition} This method has the task of obtaining information about the position of the
-							user (for example the road on which it is located) from the geographical coordinates
+						\item \textbf{userPosition}: this method has the task of obtaining information about the position of the
+							user (for example the road on which it is located) from the geographical coordinates.
 					\end{itemize}
 				\end{itemize}
 			\subsection{History}
@@ -453,9 +480,9 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 						\label{fig: interfaces}
 				\end{figure}
 				\begin{itemize}
-					\item \textbf{getHistory} This method has to communicate with the application, receiving requests and
+					\item \textbf{getHistory}: this method has to communicate with the application, receiving requests and
 						sending back the data.
-					\item \textbf{retreiveData} This method is specific to contact and query the DB to obtain the history of
+					\item \textbf{retreiveData}: this method is specific to contact and query the DB to obtain the history of
 						user's reports. 
 				\end{itemize}
 			\subsection{Map}
@@ -467,17 +494,17 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 				\begin{itemize}
 						\item \textbf{mapManager}
 						\begin{itemize}
-							\item \textbf{visualizeMap} The method retrieve the data about reports and the streets
+							\item \textbf{visualizeMap}: the method retrieves the data about reports and the streets
 								and then combine it assigning each street the right color. 
-							\item \textbf{obtainMap} Is called by visualizeMap and contact the gpsManager to
+							\item \textbf{obtainMap}: it's called by visualizeMap and contact the gpsManager to
 								retrieve the user position and then google Map to obtain the map around him.
-							\item \textbf{obtainData} Is called by visualizeMap and this method has to contact the DB
+							\item \textbf{obtainData}: it's called by visualizeMap and this method has to contact the DB
 								and it has to obtain the number of reports in each street visualized on the map in
 								order to make able visualizeMap to coloring it correctly.
 						\end{itemize}
 					\item \textbf{Manage Position}
 					\begin{itemize}
-						\item \textbf{userPosition(Position position)} as said above.
+						\item \textbf{userPosition(Position position)}: as said above.
 					\end{itemize}
 				\end{itemize}
 			\subsection{Evaluate}
@@ -489,11 +516,11 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 				\begin{itemize}
 						\item \textbf{evaluateManager}
 						\begin{itemize}
-							\item \textbf{evaluate}: Communicate with the client sending the pending reports and
+							\item \textbf{evaluate}: communicate with the client sending the pending reports and
 								receiving all updated reports.
-							\item \textbf{getReports}: This method is called by evaluate and obtain all pending
+							\item \textbf{getReports}: this method is called by evaluate and obtain all pending
 								reports in the area under the jurisdiction of the authority who made the request.
-							\item \textbf{updateDB}: This method is called by evaluate and updates the DB with the
+							\item \textbf{updateDB}: this method is called by evaluate and updates the DB with the
 								new status of the evaluated reports
 							\item \textbf{sendNotification}: alerts the user which report has been evaluated
 						\end{itemize}
@@ -509,10 +536,10 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 						\label{fig: interfaces}
 				\end{figure}
 				\begin{itemize}
-					\item \textbf{getRecommendation} This method receive the request and, with the matrix already
+					\item \textbf{getRecommendation}: this method receive the request and, with the matrix already
 						compiled it take the 3 most similar recommendation made by the system and forward them to the
 						authority.
-					\item \textbf{computeSimilarityMatrix} This method is used each time some data are added, it compute
+					\item \textbf{computeSimilarityMatrix}: this method is used each time some data are added, it compute
 					the similarity matrix between the most frequent problem (each problem is divided in small aspect and
 					each of them is an attribute) and a ICM where each item is a possible solution (the attributes are some
 					aspect of the problems that each solution can resolve)
@@ -522,7 +549,7 @@ preferred due to some reasons, like the possibility to use foreign keys in the t
 	As in the RASD, the following UML diagram describes the organization of the model.
 
 		\begin{figure}[H]
-				\includegraphics [scale = 0.7, center]{uml}
+				\includegraphics [scale = 0.7, center]{umlfinal}
 				\caption{UML diagram of the model}
 		\end{figure}
 
@@ -544,7 +571,7 @@ some properties of the system, such as performance, scalability, modifiability o
 	\end{itemize}
 	\end{itemize}
 \subsection{Three-tier architecture}
-The user interface (presentation tier), functional process logic (application tier) and data access tiers are developed and maintained as independent modules on separate platforms. Apart from the usual advantages of modular software with well-defined interfaces, the three-tier architecture is intended to allow any of the three tiers to be upgraded or replaced independently in response to changes in requirements or technology. For example, a change of operating system in the presentation tier would only affect the user interface code. The other main benefits of the three-tier architecture have been alreday explained in chapter 2.
+The user interface (presentation tier), functional process logic (application tier) and data access tiers are developed and maintained as independent modules on separate platforms. Apart from the usual advantages of modular software with well-defined interfaces, the three-tier architecture is intended to allow any of the three tiers to be upgraded or replaced independently in response to changes in requirements or technology. For example, a change of operating system in the presentation tier would only affect the user interface code. The other main benefits of the three-tier architecture have been already explained in chapter 2.
 \subsection{Model-view-controller pattern}
 To split the internal representation of information from how it is presented to the user, this pattern divides the application into multiple layers of functionalities: 
 \begin{itemize}
@@ -557,14 +584,17 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 		\section{Other design decisions}
 			\subsection{Client}
 				A thin client is characterized by the fact that it is primarily designed to communicate with a server: its features 
-				are produced by servers. We opted for a thin client to maintain the line of thought underlined till now; this
-				design decision also made easier the usage of a MVC design pattern.\\
-				Indeed, this allows us to have an architecture in which the real business logic is implemented on the server.
+				are produced by servers. This design was chosen to maintain the line of thought underlined till now, and also to make easier the usage of a MVC design pattern.
+
+
+				Indeed, this allows to have an architecture in which the real business logic is implemented on the server.
 				The centralization of data management methods allows to have a completely thin client, because in case the
-				device is off line, the app cannot be used. This choice involves a lighter executive application on the users'
+				device is offline, the app cannot be used. This choice involves a lighter executive application on the users'
 				mobile devices giving them a better experience, furthermore thin clients are strictly dependent on a network 
 				connection, and in our case this is not an issue, since the application was conceived to operate most 
-				of the time online.\\
+				of the time online.
+
+
 			\subsection{DBMS}
 				Relational databases are a good choice when there is the need to deal with several transactions and 
 				when the data are linked by some relationships (users, reports, authorities etc.). Since there is no need for
@@ -671,7 +701,7 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 			
 	\item\textbf{R15}: The system must suggest a possible intervention to the authorities of a municipality, according on the number of each type of violation.
 		\begin{itemize}
-		\item\textbf{RecommendationManager}: Checks every day if the Recommender system has some suggestions.		
+		\item\textbf{RecommendationManager}: Checks every day if the recommender system has some suggestions.		
 		\item\textbf{NotificationManager}: Alerts all the agents assigned to the municipality for which a new intervention is suggested.
 		\end{itemize}
 			
@@ -686,16 +716,16 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 		\section{Implementation and test plan}
 			To facilitate development, the system has been divided into subsystems, each of which corresponds to one of the
 			above mentioned managers. They will be developed individually with a bottom-up approach and the order will be
-			imposed by their importance to the systems (how many sub-systems are depending from it) and for the customers.
-			After the development of each subsystem they will be tested to check the correctness and then will be executed
-			some integration tests. The system will use also some external systems, in particular Google Maps to have maps
+			imposed by their importance to the system (how many sub-systems are depending from it) and for the customers.
+			After the development of each subsystem, they will be tested to check their correctness and then
+			some integration tests  will be executed. The system will use also some external systems, in particular Google Maps to have maps
 			always updated and a DBMS to store all the data.
 			\begin{table}[H]
 				\rowcolors{2}{gray!25}{white}	
 				\centering
 				\begin{tabular}[width = \textwidth, position = center]{|c|c|c|}
 					\hline
-					\thead{Subsystem} & \thead{Importance for\\ customers} & \thead{Importance for\\ development}\\
+					{Subsystem} & {Importance for customers} & {Importance for development}\\
 					\hline
 					\hline
 					Sign-up \& Login manager & Low & High\\
@@ -710,7 +740,7 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 					\hline
 					Suggestion & Medium & Medium\\
 					\hline
-					Notification manager & Low & Low\\
+					Notification Manager & Low & Low\\
 					\hline
 					Position Manager & Low & High\\
 					\hline
@@ -718,47 +748,47 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 				\label{tab: }
 			\end{table}
 			\newpage
-			It is important to stress that the reports and evaluation functionalities has to be developed and tested
-			as a first step because all the others functionalities relies on these two (except the functionalities for the suggestion
-			about improve the security on the streets).
+			It is important to stress that the reports and evaluation functionalities have to be developed and tested
+			as a first step, because all the others functionalities rely on these two (except the functionalities for the suggestion
+			about improving security on the streets).
 			\begin{itemize}
-				\item \textbf{Sign up \& login manager}: even if these two are not a core functionality of the system have a
-					great importance in SafeStreets, because some functionality require to keep trace in a unique way of
-					who did what (for example history or suggestion); so this part have to be prioritized over the others
+				\item \textbf{Sign up \& login manager}: even if these two are not core functionalities of the system, they have a
+					great importance in SafeStreets, because some functionality requires to keep trace in a unique way of
+					who did what (for example history or suggestion); so this part has to be prioritized over the others
 					(except ``Evaluate manager" and ``Report manager"). 
-				\item \textbf{Report manager}: is one of the core functionalities, has to developed with maximum prioritize
-					and tested as soon as possible, probably the more critic aspects are the OCR and the position, in order
+				\item \textbf{Report manager}: one of the core functionalities, it has to developed with maximum priority
+					and tested as soon as possible, probably its more critic aspects are the OCR and the position. In order
 					to be developed it needs a functioning ``Position manager", otherwise it will not be possible to convert
 					the GPS position into a street name to understand where the traffic violation has been committed.
-					Even if the ``Notification manager"  is in theory a sub component of this, its development is not so
+					Even if the ``Notification manager"  is in theory a sub-component of this, its development is not so
 					crucial for the correct functioning of the system, so it can be developed in a second moment.  
-				\item \textbf{Maps manager}:  this component must be developed after the components necessary to
+				\item \textbf{Maps manager}: this component must be developed after the components necessary to
 					ensure the creation and evaluation of reports (``Evaluate manager'' and ``Report manager'). It is not
 					particularly important to choose the development order between the ``Map manager'' and ``History
-					manager', the important thing is that they are properly developed and integrated before developing
-					the other. This allow the use of the ``Visualize map" functionality, and see on the map the streets with
-					more car accidents.
+					manager", the important thing is that they are properly developed and integrated before developing
+					the others. This allow the use of the ``Visualize map" functionality, and seeing on the map the streets with
+					most car accidents.
 				\item \textbf{History manager}:  this component must be developed after the components necessary to
 					ensure the creation and evaluation of reports (``Evaluate manager'' and ``Report manager'). It is not
 					particularly important to choose the development order between the ``Map manager'' and ``History
 					manager', the important thing is that they are properly developed and integrated before developing
-					the other. This functionality allow the user to see the chronology of his reports.
-				\item \textbf{Evaluate manager}: is the second core functionality of the system. This functionality have to be
-					able to correct handle concurrency and various authorities that want to evaluate reports various
-					reports at the same time. After the correct development of both the core functionalities a integration
+					the other. This functionality allows the user to see the chronology of his reports.
+				\item \textbf{Evaluate manager}: it is the second core functionality of the system. This functionality has to be
+					able to correctly handle concurrency and various authorities that want to evaluate reports various
+					reports at the same time. After the correct development of both the core functionalities an integration
 					test is necessary to check the correct functioning of the complete system.  
 				\item \textbf{Suggestion manager}: this is completely uncorrelated with the rest of the system, so it would be
 					better to develop it as last thing, in this way the focus is on the core functionality of the system and
 					the correct integration with the rest of the functionalities.
-				\item \textbf{Position manager}: this component allows you to get the road or location on the map of the
+				\item \textbf{Position manager}: this component allows to get the road or location on the map of the
 					user, it has the maximum priority, indeed it allows the system to understand where the report has been
 					made.
-				\item \textbf{Notification manager}: this component send notification to the users, it can be developed at
-					last, on the top of the complete system because is not a crucial aspect of the core functionalities.
+				\item \textbf{Notification manager}: this component sends notifications to the users, it can be developed at
+					last, on the top of the complete system because it is not a crucial aspect of the core functionalities.
 			\end{itemize}
 		\section{Integration}
-			In the following diagrams we are going to show which components will go through the process of 
-			integration for a further clarification. The arrows start from the component which ‘uses’ the other one.
+		The following diagrams show which components will go through the process of 
+			integration for a further clarification. The arrows starts from the component which ‘uses’ the other one.
 			\subsection{Internal component}
 				All the components are implemented and unit tested. Subsequently some components are 
 				integrated and the integration is tested as well. 
@@ -799,15 +829,15 @@ The main benefits of this pattern are cohesion, low coupling, ease of modificati
 				\hline
 				Chapter 1 & 1 & 0.5\\
 				
-				Chapter 2 & 4.5 & 7\\
+				Chapter 2 & 13.5 & 17\\
 				
-				Chapter 3 & 0.5 & 1.5\\
+				Chapter 3 & 1 & 2\\
 				
 				Chapter 4 & 2 & 4\\
 				
-				Chapter 5 & 5.5 & 1.5\\
+				Chapter 5 & 8 & 1.5\\
 				
-				Total hours: & 13.5 & 14.5\\
+				Total hours: & 25.5 & 25\\
 				\hline
 			\end{tabular}
 			\label{tab: }
